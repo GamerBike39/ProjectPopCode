@@ -14,9 +14,9 @@ body{
     display: flex;
     justify-content: center;
     align-items: center;
-    font-family:"roboto" sans-serif;
+    font-family: 'Poppins', sans-serif;
     font-size: calc(40px + (26 - 14) * ((100vw - 300px) / (1600 - 300)));
-   background: linear-gradient(to right, rgba(0, 0, 0, 0.908), rgba(0, 0, 0, 0.948)), url(bruit.gif);
+   background: linear-gradient(to right, rgba(0, 0, 0, 0.788), rgba(0, 0, 0, 0.788)), url(bruit.gif);
 
     margin: 0;
     padding: 0;
@@ -37,11 +37,10 @@ body{
 color : url(/bruit.gif);
 -webkit-text-stroke: 0vw #383d52;
 width: 100%;
-padding-bottom: 50px;
 text-shadow:
-0 0 10px rgba(255, 242, 0, 0.7),
-0 0 40px rgba(255, 255, 0, 0.7),
-0 0 100px rgba(255, 238, 0, 0.7);
+0 0 10px rgba(245, 74, 208, 0.7),
+0 0 40px rgba(255, 131, 208, 0.7),
+0 0 100px rgba(115, 0, 255, 0.675);
 }
  .chargement::before{
     content: attr(data-text);
@@ -52,7 +51,7 @@ text-shadow:
     height: 100%;
     color: #d7e2ea;
     -webkit-text-stroke: 0vw #d7e2ea;
-    border-right: 2px solid #04356a;
+    /* border-right: 2px solid #fcfeff1f; */
     overflow: hidden;
     animation: remplir 2s ease-in-out alternate infinite;
     text-shadow: none;
@@ -71,7 +70,7 @@ text-shadow:
         width: 60%;
     }
     100%{
-        width: 100%;
+        width: 98%;
     }
  }
 
@@ -98,7 +97,7 @@ font-size: 1vw;
     animation: dot1  .4s alternate 0.4s infinite ease-in-out
 } */
 
-@keyframes dot1 {
+/* @keyframes dot1 {
     from {
         transform: translateY(0%) ;
         box-shadow: none;
@@ -108,7 +107,7 @@ font-size: 1vw;
         transform: translateY(-150%);
 
     }
-}
+} */
 
 
 .tvContainer{
@@ -122,6 +121,12 @@ font-size: 1vw;
 
 #writter{
     color: #d7e2ea;
-    /* font-size: 1.8rem; */
+    transition: all 0.2s ease-in-out;
 }
 
+@media  screen and (max-width : 1400px){
+    #writter{
+        font-size: calc(40px + (26 - 14) * ((100vw - 300px) / (1600 - 300)))!important;
+    }
+}
+    
