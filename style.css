@@ -38,6 +38,10 @@ color : url(/bruit.gif);
 -webkit-text-stroke: 0vw #383d52;
 width: 100%;
 padding-bottom: 50px;
+text-shadow:
+0 0 10px rgba(255, 242, 0, 0.7),
+0 0 40px rgba(255, 255, 0, 0.7),
+0 0 100px rgba(255, 238, 0, 0.7);
 }
  .chargement::before{
     content: attr(data-text);
@@ -48,15 +52,17 @@ padding-bottom: 50px;
     height: 100%;
     color: #d7e2ea;
     -webkit-text-stroke: 0vw #d7e2ea;
-    /* border-right: 2px solid #01fe87; */
+    border-right: 2px solid #04356a;
     overflow: hidden;
     animation: remplir 2s ease-in-out alternate infinite;
+    text-shadow: none;
  }
 
 
  @keyframes remplir{
     0%{
         width: 0%;
+        
     }
     50%{
         width: 80%

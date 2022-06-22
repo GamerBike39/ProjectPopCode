@@ -17,9 +17,8 @@ function delay() {
 }
 delay();
 
-var app = document.getElementById("writter");
-
-var typewriter = new Typewriter(app, {
+let app = document.getElementById("writter");
+let typewriter = new Typewriter(app, {
   loop: true,
 });
 
@@ -28,9 +27,9 @@ typewriter
   .typeString("Une production")
   .pauseFor(500)
   .deleteAll()
-  .typeString("Access Code School")
+  .typeString("Access Code School Lons")
   .pauseFor(1000)
-  .deleteAll()
-  .typeString("Présente")
-  .pauseFor(3000)
+  // .deleteAll()
+  .typeString("<br>&nbsp&nbsp Présente")
+  .pauseFor(5000)
   .start();
