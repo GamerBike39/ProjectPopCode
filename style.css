@@ -15,7 +15,7 @@ body{
     justify-content: center;
     align-items: center;
     font-family:"roboto" sans-serif;
-    font-size: calc(50px + (26 - 14) * ((100vw - 300px) / (1600 - 300)));
+    font-size: calc(40px + (26 - 14) * ((100vw - 300px) / (1600 - 300)));
    background: linear-gradient(to right, rgba(0, 0, 0, 0.908), rgba(0, 0, 0, 0.948)), url(bruit.gif);
 
     margin: 0;
@@ -75,18 +75,18 @@ text-shadow:
     }
  }
 
- .dotContainer{
+ /* .dotContainer{
     display: flex;
     gap: 5px;
     width: 100px;
     font-size: calc(10px + (26 - 14) * ((100vw - 300px) / (1600 - 300)));
 }
  .dotLoader{
-/* font-size: 1vw; */
+font-size: 1vw;
     transition: all 0.5s ease-in-out;
- }
+ } */
 
-.dotContainer div:nth-child(1){
+/* .dotContainer div:nth-child(1){
     animation: dot1 .4s alternate 0.2s infinite ease-in-out
 }
 
@@ -96,7 +96,7 @@ text-shadow:
 
 .dotContainer div:nth-child(3){
     animation: dot1  .4s alternate 0.4s infinite ease-in-out
-}
+} */
 
 @keyframes dot1 {
     from {

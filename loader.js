@@ -29,7 +29,7 @@ typewriter
   .deleteAll()
   .typeString("Access Code School Lons")
   .pauseFor(1000)
-  // .deleteAll()
-  .typeString("<br>&nbsp&nbsp Présente")
+  .deleteAll()
+  .typeString("Présente")
   .pauseFor(5000)
   .start();
