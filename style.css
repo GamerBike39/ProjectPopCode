@@ -1,6 +1,12 @@
+/* ************Classe animation****************** */
+
+
+/* ************************************************/
+
 body{
     margin: 0;
     padding: 0;
+
 }
 
 .containerLoader{
@@ -8,26 +14,30 @@ body{
     display: flex;
     justify-content: center;
     align-items: center;
-    font-family: sans-serif;
-    background-color: rgb(0, 0, 0);
-    /* background-image: url(bruit.gif); */
-    filter: blur(1px);
+    font-family:"roboto" sans-serif;
+    font-size: calc(50px + (26 - 14) * ((100vw - 300px) / (1600 - 300)));
+   background: linear-gradient(to right, rgba(0, 0, 0, 0.908), rgba(0, 0, 0, 0.948)), url(bruit.gif);
+
     margin: 0;
     padding: 0;
+    flex-wrap: wrap;
+    flex-direction: column;
+    filter: blur(1.80px);
 }
 
 
 #chargement{
     display: flex;
     align-items: baseline;
+    height: 15vh;
 }
 
 .chargement{
     position: relative;
-font-size: 5vw;
-color: #000000;
--webkit-text-stroke: 0.3vw #383d52;
+color : url(/bruit.gif);
+-webkit-text-stroke: 0vw #383d52;
 width: 100%;
+padding-bottom: 50px;
 }
  .chargement::before{
     content: attr(data-text);
@@ -40,7 +50,7 @@ width: 100%;
     -webkit-text-stroke: 0vw #d7e2ea;
     /* border-right: 2px solid #01fe87; */
     overflow: hidden;
-    animation: remplir 2s ease-in-out alternate;
+    animation: remplir 2s ease-in-out alternate infinite;
  }
 
 
@@ -59,29 +69,26 @@ width: 100%;
     }
  }
 
- #dotContainer{
+ .dotContainer{
     display: flex;
     gap: 5px;
     width: 100px;
-    /* animation: rotate 2s infinite; */
+    font-size: calc(10px + (26 - 14) * ((100vw - 300px) / (1600 - 300)));
 }
  .dotLoader{
-    width: 25px;
-    height: 25px;
-    background: #d7e2ea;
-    border-radius: 50%;
+/* font-size: 1vw; */
     transition: all 0.5s ease-in-out;
  }
 
-#dotContainer div:nth-child(1){
+.dotContainer div:nth-child(1){
     animation: dot1 .4s alternate 0.2s infinite ease-in-out
 }
 
-#dotContainer div:nth-child(2){
+.dotContainer div:nth-child(2){
     animation: dot1  .4s alternate 0.3s infinite ease-in-out
 }
 
-#dotContainer div:nth-child(3){
+.dotContainer div:nth-child(3){
     animation: dot1  .4s alternate 0.4s infinite ease-in-out
 }
 
@@ -97,21 +104,18 @@ width: 100%;
     }
 }
 
-@keyframes rotate{
-    0%{
-        transform: rotate(0deg);
-    }
-    100%{
-        transform: rotate(360deg);
-    }
-}
 
-.voir{
-    width: 50px;
-    height: 50px;
-    background: #d7e2ea;
+.tvContainer{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 80%;
+    height: 25%;
 }
 
 
-    
+#writter{
+    color: #d7e2ea;
+    /* font-size: 1.8rem; */
+}
 
