@@ -139,7 +139,7 @@ font-size: 1vw;
 }
 
 
-.displayN{
+.displayNone{
     display: none;
 }
 
@@ -185,7 +185,6 @@ font-size: 1vw;
     animation: neon1 .4s alternate 0.2s infinite ease-in-out;
     opacity: 0;
     transition: all 0.3s ease-in-out;
-
   }
     .neonText2 span:nth-child(2){
         animation: neon1 .4s alternate 0.3s infinite ease-in-out;
@@ -246,10 +245,7 @@ scale: 1;
     }
 
     #popSvg{
-        position: absolute;
-        z-index: -1;
         overflow: visible;
-        bottom: 10%;
         transition: all 0.5s ease-in-out;
     }
     #popCorn{
@@ -290,3 +286,6 @@ scale: 1;
     fill: rgba(0, 0, 0, 0.673);
     filter: drop-shadow(0px 0px 10px #d7e2ea);
 }
+
+
+    

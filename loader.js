@@ -4,7 +4,7 @@ let containerLoader = document.querySelector(".containerLoader");
 let popcode = document.querySelectorAll(" .neonText2 span");
 let popcorn = document.querySelectorAll(".pop");
 let chargement = document.querySelector("#chargement");
-let popSvg = document.getElementById("popCorn");
+let popSvg = document.getElementById("popSvg");
 let popopa = document.querySelector(".opacity");
 
 let typewriter = new Typewriter(app, {
@@ -26,8 +26,8 @@ typewriter
 setTimeout(() => {
   app.style.display = "none";
   containerLoader.style.flexDirection = "column-reverse";
-  neonText.classList.remove("displayN");
-  popopa.style.opacity = "1";
+  neonText.classList.remove("displayNone");
+  popSvg.classList.remove("displayNone");
   chargement.style.display = "none";
 }, 5000);
 
