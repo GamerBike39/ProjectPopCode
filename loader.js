@@ -67,10 +67,6 @@ setTimeout(() => {
   }
 }, 6400);
 
-// two variable x and y random numbers
-let x = Math.floor(Math.random() * (100 - 1 + 1)) + 1;
-let y = Math.floor(Math.random() * (100 - 1 + 1)) + 1;
-
 setTimeout(() => {
   {
     for (let i = 0; i < popcorn.length; i++) {
