@@ -34,6 +34,9 @@ setTimeout(() => {
 setTimeout(() => {
   {
     popcode[0].style.opacity = "1";
+    let neonSound = document.querySelector(".neonSound");
+    neonSound.volume = 1;
+    neonSound.play();
   }
 }, 5200);
 setTimeout(() => {
@@ -66,3 +69,5 @@ setTimeout(() => {
     popcode[6].style.opacity = "1";
   }
 }, 6400);
+
+reload.volume = 0.5;
