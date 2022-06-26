@@ -67,12 +67,12 @@ setTimeout(() => {
   }
 }, 6400);
 
-setTimeout(() => {
-  {
-    for (let i = 0; i < popcorn.length; i++) {
-      popcorn[i].style.stroke = "white";
-      popcorn[i].style.strokeWidth = "3px";
-      popcorn[i].style.fill = "#F2DA8D";
-    }
-  }
-}, 500);
+// setTimeout(() => {
+//   {
+//     for (let i = 0; i < popcorn.length; i++) {
+//       popcorn[i].style.stroke = "white";
+//       popcorn[i].style.strokeWidth = "3px";
+//       popcorn[i].style.fill = "#F2DA8D";
+//     }
+//   }
+// }, 500);
