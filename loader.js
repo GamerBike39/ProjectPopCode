@@ -1,7 +1,7 @@
 let app = document.getElementById("writter");
 let neonText = document.querySelector("#titleNeon");
 let containerLoader = document.querySelector(".containerLoader");
-let popcode = document.querySelectorAll(" .neonText2 span");
+let popcode = document.querySelectorAll(" .neonText2 div");
 let popcorn = document.querySelectorAll(".pop");
 let chargement = document.querySelector("#chargement");
 let popSvg = document.getElementById("popSvg");
@@ -14,7 +14,6 @@ let typewriter = new Typewriter(app, {
 });
 
 typewriter
-
   .typeString("Access Code School Lons")
   .pauseFor(200)
   .deleteAll()
@@ -72,9 +71,3 @@ setTimeout(() => {
     popcode[6].style.opacity = "1";
   }
 }, 6600);
-
-// setTimeout(() => {
-//   {
-//     popcorn[0].classList.add("displayNone");
-//   }
-// }, 500);
