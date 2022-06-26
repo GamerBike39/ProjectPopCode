@@ -1,7 +1,7 @@
 let app = document.getElementById("writter");
 let neonText = document.querySelector("#titleNeon");
 let containerLoader = document.querySelector(".containerLoader");
-let popcode = document.querySelectorAll(" .neonText2 span");
+let popcode = document.querySelectorAll(" .neonText2 div");
 let popcorn = document.querySelectorAll(".pop");
 let chargement = document.querySelector("#chargement");
 let popSvg = document.getElementById("popSvg");
@@ -66,13 +66,3 @@ setTimeout(() => {
     popcode[6].style.opacity = "1";
   }
 }, 6400);
-
-// setTimeout(() => {
-//   {
-//     for (let i = 0; i < popcorn.length; i++) {
-//       popcorn[i].style.stroke = "white";
-//       popcorn[i].style.strokeWidth = "3px";
-//       popcorn[i].style.fill = "#F2DA8D";
-//     }
-//   }
-// }, 500);
