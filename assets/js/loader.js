@@ -5,7 +5,7 @@ let popcode = document.querySelectorAll(" .neonText2 div");
 let popcorn = document.querySelectorAll(".pop");
 let chargement = document.querySelector("#chargement");
 let popSvg = document.getElementById("popSvg");
-console.log(popcorn);
+let logo = document.querySelector(".logo");
 
 let typewriter = new Typewriter(app, {
   loop: false,
@@ -69,5 +69,6 @@ setTimeout(() => {
 setTimeout(() => {
   {
     popcode[6].style.opacity = "1";
+    logo.classList.remove("displayNone");
   }
 }, 6600);
