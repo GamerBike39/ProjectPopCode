@@ -160,7 +160,7 @@ span {
     transition: all 0.3s ease-in-out;
 }
 
-/* @keyframes neon1 {
+@keyframes neon1 {
     from {
       text-shadow:
       0 0 6px rgba(202,228,225,0.92),
@@ -179,9 +179,9 @@ span {
       0 0 38px rgba(30,132,242,0.88),
       0 0 60px rgba(30,132,242,1);
     }
-  } */
+  }
 
-  @keyframes neon1 {
+  /* @keyframes neon1 {
     78% {
       color: inherit;
       text-shadow: inherit;
@@ -213,35 +213,8 @@ span {
       color: inherit;
       text-shadow: inherit;
     }
-  }
+  } */
 
-
-/* @keyframes neon1 {
-    from {
-        text-shadow:
-            0 0 4px #fff,
-            0 0 11px #fff,
-            0 0 19px #fff,
-            0 0 40px #bc13fe,
-            0 0 80px #bc13fe,
-            0 0 90px #bc13fe,
-            0 0 0px #bc13fe,
-            0 0 0px #bc13fe;
-
-    }
-
-    to {
-        text-shadow:
-            0 0 2px #fff,
-            0 0 4px #fff,
-            0 0 6px #fff,
-            0 0 10px #bc13fe,
-            0 0 45px #bc13fe,
-            0 0 55px #bc13fe,
-            0 0 0px #bc13fe,
-            0 0 0px #bc13fe;
-    }
-} */
 
 #popSvg {
     overflow: visible;
