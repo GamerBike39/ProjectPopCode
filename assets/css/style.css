@@ -34,7 +34,7 @@ span {
     padding: 0;
     flex-wrap: wrap;
     flex-direction: column;
-    filter: blur(1.5px);
+    filter: blur(0.5px);
 }
 
 
@@ -281,6 +281,10 @@ span {
     stroke: #d7e2ea;
     fill: rgba(0, 0, 0, 0.673);
     filter: drop-shadow(0px 0px 10px #d7e2ea);
+}
+
+.logo{
+    width: 100px;
 }
 
 @media screen and (max-width : 800px) {
