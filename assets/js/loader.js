@@ -14,7 +14,7 @@ let typewriter = new Typewriter(app, {
 });
 
 typewriter
-  .typeString("Access Code School Lons")
+  .typeString("<strong>Access Code School Lons</strong>")
   .pauseFor(200)
   .deleteAll()
   .typeString("Présente")
