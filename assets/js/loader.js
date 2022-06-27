@@ -6,6 +6,7 @@ let popcorn = document.querySelectorAll(".pop");
 let chargement = document.querySelector("#chargement");
 let popSvg = document.getElementById("popSvg");
 let popopa = document.querySelector(".opacity");
+console.log(popcorn);
 
 let typewriter = new Typewriter(app, {
   loop: false,
