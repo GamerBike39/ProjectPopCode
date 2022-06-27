@@ -29,7 +29,7 @@ span {
     align-items: center;
     font-family: 'Poppins', sans-serif;
     font-size: calc(50px + (26 - 14) * ((100vw - 300px) / (1600 - 300)));
-    background: url(/assets/img/fondBrique.png) no-repeat;
+    background: url(../img/fondBrique.png) no-repeat;
     background-size: cover;
     margin: 0;
     padding: 0;
@@ -103,7 +103,7 @@ span {
 
 /* neon */
 .neonText2 {
-    color: rgb(231, 15, 187);
+    color: rgb(254, 148, 233);
     text-shadow: 0 0px 0px, 0 0 2px, 0 0 1em #ca44ff, 0 0 0em #ab44ff, 0 0 0.1em #9e44ff, 0 0px 1px #000;
     transform: translateY(-50%);
     transition: all 0.5s ease-in-out;
@@ -112,7 +112,7 @@ span {
     display: flex;
     align-items: center;
     justify-content: center;
-    font-size: 10rem;
+    font-size: 12rem;
     height: 14vh;
 }
 
@@ -161,14 +161,23 @@ span {
 }
 
 /* @keyframes neon1 {
-    0%,
-    100% {
-      text-shadow: 0 0 1vw #FA1C16, 0 0 3vw #FA1C16, 0 0 10vw #FA1C16, 0 0 10vw #FA1C16, 0 0 .4vw #FED128, .5vw .5vw .1vw #806914;
-      color: #FED128;
+    from {
+      text-shadow:
+      0 0 6px rgba(202,228,225,0.92),
+      0 0 30px rgba(202,228,225,0.34),
+      0 0 12px rgba(30,132,242,0.52),
+      0 0 21px rgba(30,132,242,0.92),
+      0 0 34px rgba(30,132,242,0.78),
+      0 0 54px rgba(30,132,242,0.92);
     }
-    50% {
-      text-shadow: 0 0 .5vw #800E0B, 0 0 1.5vw #800E0B, 0 0 5vw #800E0B, 0 0 5vw #800E0B, 0 0 .2vw #800E0B, .5vw .5vw .1vw #40340A;
-      color: #806914;
+    to {
+      text-shadow:
+      0 0 6px rgba(202,228,225,0.98),
+      0 0 30px rgba(202,228,225,0.42),
+      0 0 12px rgba(30,132,242,0.58),
+      0 0 22px rgba(30,132,242,0.84),
+      0 0 38px rgba(30,132,242,0.88),
+      0 0 60px rgba(30,132,242,1);
     }
   } */
 
