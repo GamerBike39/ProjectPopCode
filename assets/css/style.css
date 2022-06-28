@@ -17,8 +17,9 @@ body {
     margin: 0;
     padding: 0;
     font-family: 'Poppins', sans-serif;
-    background: url(../img/fondBrique.png);
+    background: url(../img/fondBrique.png) no-repeat;
     background-size: cover;
+    position: relative;
 }
 
 .containerLoader {
@@ -60,7 +61,7 @@ body {
     stroke: #f6fbff;
     fill: #f6fbff;
     filter: drop-shadow(5px 5px 10px #f6fbff);
-    animation: neon1 1s ease-in-out 0.5s infinite alternate;
+    animation: neon1 1.5s ease-in-out 0.5s infinite alternate;
 }
 
 .popTrait2,
@@ -68,29 +69,8 @@ body {
     stroke:#FF4949;
     fill: #FF4949;
     filter: drop-shadow(5px 5px 10px #FF4949);
-    animation: neon1 1s ease-in-out 1s infinite alternate;
+    animation: neon1 2.5s ease-in-out 1s infinite alternate;
 }
-
-.containerPop {
-    stroke: #d7e2ea;
-    fill: rgba(0, 0, 0, 0.673);
-    filter: drop-shadow(0px 0px 10px #d7e2ea);
-}
-#ConteneurPop {
-  fill: rgba(0, 0, 0, 0.565);
-}
-
-
-#logoPop{
-    width: 250px;
-    height: 250px;
-  
-}
-.logo{
-    width: 250px;
-    height: 250px;
-}
-
 @keyframes neon1 {
     0%{
         filter: drop-shadow(inherit);
@@ -106,18 +86,37 @@ body {
 
   }
 
+.containerPop {
+    stroke: #d7e2ea;
+    fill: rgba(0, 0, 0, 0.673);
+    filter: drop-shadow(0px 0px 10px #d7e2ea);
+}
+#ConteneurPop {
+  fill: rgba(0, 0, 0, 0.565);
+}
+
+
+#logoPop{
+    width: 250px;
+    height: 250px;
+    cursor: crosshair;
+  
+}
+.logo{
+    width: 250px;
+    height: 250px;
+}
+
+
   /* ********* nav mentions légales, politiques de confidentialités *****************/
   nav{
     position: fixed;
-    display: flex;
-    height: 100vh;
+bottom: 0;
+right: 50px;
   }
 
   nav > ul{
     display: flex;
-    width: 93vw;
-    justify-content: flex-end;
-    margin-top: auto;
     gap: 40px;
     list-style: none;
   }
