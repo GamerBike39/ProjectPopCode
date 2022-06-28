@@ -1,38 +1,36 @@
 /* ************Classe animation****************** */
 .opacity {
-    opacity: 0;
-    transition: all 0.5s ease-in-out;
+    opacity: 1;
 }
 .displayNone {
     display: none;
 }
+.dfjcic{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
 /* ************************************************/
+
 
 body {
     margin: 0;
     padding: 0;
+    font-family: 'Poppins', sans-serif;
+    background: url(../img/fondBrique.png);
+    background-size: cover;
 }
 
 .containerLoader {
     min-height: 100vh;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    font-family: 'Poppins', sans-serif;
-    font-size: calc(50px + (26 - 14) * ((100vw - 300px) / (1600 - 300)));
-    background: url(../img/fondBrique.png) no-repeat;
-    background-size: cover;
     margin: 0;
     padding: 0;
-    flex-wrap: wrap;
     flex-direction: column;
 }
 
-/* neon */
 #popSvg {
     overflow: visible;
     transition: all 0.5s ease-in-out;
-
 }
 
 #popCorn {
@@ -45,8 +43,6 @@ body {
 .pop {
     animation: pop 0.8s linear infinite alternate;
     filter: drop-shadow(0px 0px 10px #d7e2ea);
-
-
 }
 
 @keyframes pop {
@@ -57,27 +53,31 @@ body {
     100% {
         transform: translate(0, -5%)
     }
-
 }
 
 .popTrait1,
 .popTrait3 {
-    stroke: #d7e2ea;
-    fill: #d7e2ea;
-    filter: drop-shadow(0px 0px 10px #d7e2ea);
+    stroke: #f6fbff;
+    fill: #f6fbff;
+    filter: drop-shadow(5px 5px 10px #f6fbff);
+    animation: neon1 1s ease-in-out 0.5s infinite alternate;
 }
 
 .popTrait2,
 .popTrait4 {
     stroke:#FF4949;
     fill: #FF4949;
-    filter: drop-shadow(0px 0px 10px #FF4949);
+    filter: drop-shadow(5px 5px 10px #FF4949);
+    animation: neon1 1s ease-in-out 1s infinite alternate;
 }
 
 .containerPop {
     stroke: #d7e2ea;
     fill: rgba(0, 0, 0, 0.673);
     filter: drop-shadow(0px 0px 10px #d7e2ea);
+}
+#ConteneurPop {
+  fill: rgba(0, 0, 0, 0.565);
 }
 
 
@@ -91,10 +91,54 @@ body {
     height: 250px;
 }
 
-
-
-@media screen and (max-width : 800px) {
-    .neonText2 {
-        font-size: calc(40px + (26 - 14) * ((100vw - 300px) / (1600 - 300))) !important;
+@keyframes neon1 {
+    0%{
+        filter: drop-shadow(inherit);
     }
-}
+    50% {
+     stroke: inherit;
+     fill: inherit;
+     filter: drop-shadow(none);
+    }
+    100% {
+        filter: drop-shadow(inherit);
+    }
+
+  }
+
+  /* ********* nav mentions légales, politiques de confidentialités *****************/
+  nav{
+    position: fixed;
+    display: flex;
+    height: 100vh;
+  }
+
+  nav > ul{
+    display: flex;
+    width: 93vw;
+    justify-content: flex-end;
+    margin-top: auto;
+    gap: 40px;
+    list-style: none;
+  }
+
+  nav > ul > li > a{
+    text-decoration: none;
+    color: #ffff;
+    font-weight: bold;
+    letter-spacing: 2px;
+    border-bottom: 2px solid white;
+    transition: cubic-bezier(0.39, 0.575, 0.565, 1) 0.3s;
+  }
+
+  nav > ul > li > a:hover{
+    border-bottom: 2px solid #930C99;
+    text-shadow:
+    0 0 2px rgba(202,228,225,0.92),
+    0 0 10px rgba(202,228,225,0.34),
+    0 0 4px rgba(30,132,242,0.52),
+    0 0 7px rgba(30,132,242,0.92),
+    0 0 11px rgba(30,132,242,0.78),
+    0 0 16px rgba(30,132,242,0.92);
+  }
+/* ********************************************** */
