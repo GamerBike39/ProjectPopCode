@@ -18,7 +18,7 @@
     <title>PopCode</title>
 </head>
 
-<body>
+<body class="bgAccueil bg">
     <nav>
         <ul>
             <li><a href="#mentionlegales">Mentions légales</a></li>
@@ -27,7 +27,7 @@
     </nav>
 
     <!-- ***************ContainerLoader**************** -->
-    <!-- <div class="containerLoader dfjcic">  
+ <div class="containerLoader dfjcic">
         <div id="logoPop">
             <svg class="logo" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 427 427">
                  <defs>
@@ -709,16 +709,22 @@
             </svg>
             
        </div>   
-    </div> -->
+    </div>
+
+    <!-- **************Gif transi ******************* -->
+<div class="containerTransi displayNone">
+    <img src="assets/img/transition.gif" alt="image animée de transition">
+</div>
+
     <!-- ************* containerAccueil************** -->
-    <div class="containerAccueil flex">
-        <img class="logoAccueil" src="assets/img/Fichier 1.svg" alt="logo PopCode">
+    <div class="containerAccueil displayNone">
+        <img class="logoAccueil" src="assets/img/logo2.min.svg" alt="logo PopCode">
         <div class="contenuAcceuil">
             <!-- <p class="number">30</p> -->
             <span data-vanilla-counter data-start-at="0" 
             data-end-at="30" 
-            data-time="1000" 
-            data-delay="0" 
+            data-time="1500" 
+            data-delay="4100" 
             class="number"></span>
             <span>
                 <p>Références de</p>
@@ -726,9 +732,57 @@
                 <p>à retrouver</p>
             </span>
         </div>
-        <a href="#jeu">Cliquer pour commencer</a>
-
+        <a class="beginGame" href="#">Cliquer pour commencer</a>
     </div>
+
+<!-- ********************containerJeu**************** -->
+<div class="containerJeu displayNone">
+
+    <div class="fondJeu">
+        <img src="assets/img/Jeu.jpg" alt="image du jeu">
+    </div>
+
+    <div class="tableauScore">
+        <p>SCORE</p>
+        <div class="tableauDscore">
+            <div class="score">
+               <div class="trouve flex">
+                   <div>08</div>
+                   <div>/</div>
+                   <div>30</div>
+               </div>
+               <div class="echoue flex">
+                   <div>X</div>
+                   <div>X</div>
+                   <div>X</div>
+               </div>
+        </div>
+        </div>
+    </div>
+
+    <div class="sectionZoom flex">
+        <p>ZOOM</p>
+        <p>+</p>
+        <div class="traitZoom">
+        </div>
+        <p>-</p>
+    </div>
+
+    <div class="langagesFound flex">
+        <img src="assets/img/loupe langage.svg" alt="loupe">
+     <p>LANGAGES TROUVÉS</p>
+    </div>
+
+    <div class="logoJeu">
+        <img src="assets/img/logoJeu.svg" alt="logo PopCode">
+    </div>
+
+</div>
+
+<div class="overlayReponse flex">
+    <p>TAPE UN NOM DE LANGAGE DE PROGRAMMATION</p>
+</div>
+
 
     <script src="https://unpkg.com/vanilla-counter"></script>
     <script src="assets/js/loader.js"></script>
