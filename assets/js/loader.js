@@ -24,8 +24,6 @@ beginGame.addEventListener("click", () => {
   home.classList.remove("flex");
   home.classList.add("displayNone");
   jeu.classList.remove("displayNone");
-  body.classList.remove("bgAccueil");
-  body.classList.add("bgJeu");
 });
 
 // new ResizeObserver((entries) => {

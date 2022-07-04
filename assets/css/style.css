@@ -18,15 +18,9 @@
     background: url(../img/fondBrique.webp) no-repeat;
     background-size: cover;
     background-position: center;
-    min-height: 100vh;
+    height: 100vh;
 }
 
-.bgJeu{
-    background : url(../img/Jeu.jpg) no-repeat;
-    background-size: cover;
-    background-position: center;
-    min-height: 100vh;
-}
 /* ************************************************/
 
 
@@ -261,7 +255,7 @@ right: 50px;
 
 /* *******page Jeu******** */
 .tableauScore p{
-    position: absolute;
+    position: fixed;
     height: 12px;
     left: 34px;
     top: 30px;
@@ -274,7 +268,7 @@ right: 50px;
 }
 
 .tableauDscore{
-    position: absolute;
+    position: fixed;
     top: 20px;
     left: 80px;
 
@@ -295,7 +289,7 @@ right: 50px;
 
 .sectionZoom{
     flex-direction: column;
-    position: absolute;
+    position: fixed;
     bottom: 20px;
     left: 80px;
 }
@@ -323,7 +317,7 @@ right: 50px;
     height: 24px;
     width: 124px;
     color: white;
-    position: absolute;
+    position: fixed;
     bottom: 28px;
     left: 128px;
     align-items: center;
@@ -333,7 +327,7 @@ right: 50px;
 }
 
 .logoJeu{
-    position: absolute;
+    position: fixed;
     top: 80px;
     right: -31px;
     transform: translate(-50%,-50%);
@@ -343,5 +337,36 @@ right: 50px;
     height: 150px;
 }
 
+.fondJeu{
+    position: absolute;
+    margin: 0;
+    padding: 0;
+    background: black;
+}
+
 /********overlay Reponse********/
+
+.overlayReponse{
+    width: 100vw;
+    height: 100vh;
+    background: rgba(0, 0, 0, 0.66);
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    position: relative;
+    z-index: 2;
+    color: white;
+    font-family: 'Gotham Black', sans-serif;
+    font-size : 13px;
+    line-height: 14px;
+    text-align: center;
+    letter-spacing: 5px;
+
+}
+
+.overlayReponse > p:nth-child(1){
+font-size : 5rem;
+letter-spacing: 2%;
+}
+
 
