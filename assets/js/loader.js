@@ -82,6 +82,7 @@ const reponseTextResult = document.querySelector(
 );
 // **** compteur de bonnes réponses et erreurs *******
 const error = document.querySelectorAll(".echoue>div");
+let errorNumber = 0;
 const score = document.querySelector(".trouve div:nth-child(1)");
 let scoreCompteur = 0;
 
@@ -132,6 +133,9 @@ window.addEventListener("keydown", (e) => {
     scoreCompteur++;
     score.textContent = scoreCompteur;
     console.log(arrayReponse);
+    if (scoreCompteur === 27) {
+      reponseTextResult.textContent = "Bravo, vous avez gagné";
+    }
     setTimeout(() => {
       reponseTextResult.textContent = "";
       reponseText.textContent = "";
@@ -141,9 +145,17 @@ window.addEventListener("keydown", (e) => {
   }
   if (e.key === "Enter" && !langMaj.includes(reponseText.textContent)) {
     reponseTextResult.textContent = "mauvaise réponse";
-    for (i = 0; i < error.length; i++) {
-      error[i].style.color = "red";
+    errorNumber++;
+    if (errorNumber === 1) {
+      error[0].style.color = "#0aeff7";
     }
+    if (errorNumber === 2) {
+      error[1].style.color = "#0aeff7";
+    }
+    if (errorNumber === 3) {
+      error[2].style.color = "#0aeff7";
+    }
+    console.log(errorNumber);
     setTimeout(() => {
       reponseTextResult.textContent = "";
       reponseText.textContent = "";
