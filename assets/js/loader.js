@@ -80,7 +80,8 @@ const reponseText = document.querySelector(".overlayReponse p:first-child");
 const reponseTextResult = document.querySelector(
   ".overlayReponse p:nth-child(2)"
 );
-console.log(arrayReponse);
+const error = document.querySelectorAll(".echoue>div");
+console.log(error);
 
 window.addEventListener("keydown", (e) => {
   console.log(e);
@@ -126,6 +127,7 @@ window.addEventListener("keydown", (e) => {
     // console.log(unique);
     reponseTextResult.textContent = "bonne réponse";
     arrayReponse.push(reponseText.textContent);
+    console.log(arrayReponse);
     setTimeout(() => {
       reponseTextResult.textContent = "";
       reponseText.textContent = "";
@@ -135,6 +137,9 @@ window.addEventListener("keydown", (e) => {
   }
   if (e.key === "Enter" && !langMaj.includes(reponseText.textContent)) {
     reponseTextResult.textContent = "mauvaise réponse";
+    for (i = 0; i < error.length; i++) {
+      error[i].style.color += "red";
+    }
     setTimeout(() => {
       reponseTextResult.textContent = "";
       reponseText.textContent = "";
