@@ -381,6 +381,29 @@ z-index: 3;
 font-size : 5rem;
 letter-spacing: 2%;
 }
+.overlayReponse > p:nth-child(2){
+font-size : 6rem;
+letter-spacing: 2%;
+animation: bouge  0.3s ease-in-out infinite alternate;
+}
+
+@keyframes bouge{
+    0%{
+        transform: rotate(0);
+    }
+    25%{
+        transform: rotate(8deg);
+    }
+    50%{
+        transform: rotate(0);
+    }
+    75%{
+        transform: rotate(-8deg);
+    }
+    100%{
+        transform: rotate(0);
+    }
+}
 
 
 

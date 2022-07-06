@@ -80,8 +80,10 @@ const reponseText = document.querySelector(".overlayReponse p:first-child");
 const reponseTextResult = document.querySelector(
   ".overlayReponse p:nth-child(2)"
 );
+// **** compteur de bonnes réponses et erreurs *******
 const error = document.querySelectorAll(".echoue>div");
-console.log(error);
+const score = document.querySelector(".trouve div:nth-child(1)");
+let scoreCompteur = 0;
 
 window.addEventListener("keydown", (e) => {
   console.log(e);
@@ -127,25 +129,27 @@ window.addEventListener("keydown", (e) => {
     // console.log(unique);
     reponseTextResult.textContent = "bonne réponse";
     arrayReponse.push(reponseText.textContent);
+    scoreCompteur++;
+    score.textContent = scoreCompteur;
     console.log(arrayReponse);
     setTimeout(() => {
       reponseTextResult.textContent = "";
       reponseText.textContent = "";
       reponse.classList.remove("flex");
       reponse.classList.add("displayNone");
-    }, 1000);
+    }, 800);
   }
   if (e.key === "Enter" && !langMaj.includes(reponseText.textContent)) {
     reponseTextResult.textContent = "mauvaise réponse";
     for (i = 0; i < error.length; i++) {
-      error[i].style.color += "red";
+      error[i].style.color = "red";
     }
     setTimeout(() => {
       reponseTextResult.textContent = "";
       reponseText.textContent = "";
       reponse.classList.remove("flex");
       reponse.classList.add("displayNone");
-    }, 1000);
+    }, 800);
   }
   if (e.key === "Escape") {
     reponse.classList.remove("flex");
