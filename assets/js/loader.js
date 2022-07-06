@@ -37,6 +37,8 @@ new ResizeObserver((entries) => {
   }
 }).observe(document.body);
 
+// **** section prise de réponse et analyse *******
+
 const lang = [
   "Javascript",
   "Html",
@@ -67,7 +69,6 @@ const lang = [
   "Clojure",
   "WebAssembly",
 ];
-// mettre lang en majuscule
 let langMaj = lang.map((e) => {
   return e.toUpperCase();
 });
@@ -76,11 +77,12 @@ console.log(langMaj);
 const arrayReponse = [];
 const reponse = document.querySelector(".overlayReponse");
 const reponseText = document.querySelector(".overlayReponse p:first-child");
+const reponseTextResult = document.querySelector(
+  ".overlayReponse p:nth-child(2)"
+);
 console.log(arrayReponse);
 
 window.addEventListener("keydown", (e) => {
-  reponse.classList.remove("displayNone");
-  reponse.classList.add("flex");
   console.log(e);
   if (
     e.key === "a" ||
@@ -111,25 +113,34 @@ window.addEventListener("keydown", (e) => {
     e.key === "z" ||
     e.key === "+" ||
     e.key === "-" ||
-    e.key === " " ||
     e.key === "#"
   ) {
+    reponse.classList.remove("displayNone");
+    reponse.classList.add("flex");
     reponseText.textContent += e.key.toUpperCase();
+    console.log(langMaj.includes(reponseText.textContent));
   }
 
-  if (e.key === "Enter") {
+  if (e.key === "Enter" && langMaj.includes(reponseText.textContent)) {
+    // let unique = [...new Set(arrayReponse)];
+    // console.log(unique);
+    reponseTextResult.textContent = "bonne réponse";
     arrayReponse.push(reponseText.textContent);
-    reponseText.textContent = "";
-    console.log(arrayReponse);
-    // arrayReponse.filter((e) => {
-    //   if (e === "JAVASCRIPT") {
-    //     console.log("ok");
-    //   }
-    // });
-    // si la reponse est dans langUP alors ok
-    if (langMaj.includes(forEach.arrayReponse)) {
-      reponseText.textContent = "Bravo ! Vous avez trouvé la bonne réponse";
-    }
+    setTimeout(() => {
+      reponseTextResult.textContent = "";
+      reponseText.textContent = "";
+      reponse.classList.remove("flex");
+      reponse.classList.add("displayNone");
+    }, 1000);
+  }
+  if (e.key === "Enter" && !langMaj.includes(reponseText.textContent)) {
+    reponseTextResult.textContent = "mauvaise réponse";
+    setTimeout(() => {
+      reponseTextResult.textContent = "";
+      reponseText.textContent = "";
+      reponse.classList.remove("flex");
+      reponse.classList.add("displayNone");
+    }, 1000);
   }
   if (e.key === "Escape") {
     reponse.classList.remove("flex");
@@ -140,3 +151,87 @@ window.addEventListener("keydown", (e) => {
     reponseText.textContent = reponseText.textContent.slice(e, -1);
   }
 });
+
+// **** section modale *******
+class Modale {
+  constructor(titre, img, description) {
+    this.titre = titre;
+    this.img = img;
+    this.description = description;
+  }
+}
+
+let Javascript = new Modale(
+  "Javascript",
+  "js.png",
+  "Langue de programmation Javascript"
+);
+let Html = new Modale("Html", "html.jpg", "Langue de programmation Html");
+let Css = new Modale("Css", "css.jpg", "Langue de programmation Css");
+let SQL = new Modale("SQL", "sql.jpg", "Langue de programmation SQL");
+let Python = new Modale(
+  "Python",
+  "python.jpg",
+  "Langue de programmation Python"
+);
+let Java = new Modale("Java", "java.jpg", "Langue de programmation Java");
+let Bash = new Modale("Bash", "bash.jpg", "Langue de programmation Bash");
+let Shell = new Modale("Shell", "shell.jpg", "Langue de programmation Shell");
+let Powershell = new Modale(
+  "Powershell",
+  "powershell.jpg",
+  "Langue de programmation Powershell"
+);
+let CSharp = new Modale("C#", "csharp.jpg", "Langue de programmation C#");
+let PHP = new Modale("PHP", "php.jpg", "Langue de programmation PHP");
+let CPlusPlus = new Modale(
+  "C++",
+  "cplusplus.jpg",
+  "Langue de programmation C++"
+);
+let TypeScript = new Modale(
+  "TypeScript",
+  "typescript.jpg",
+  "Langue de programmation TypeScript"
+);
+let C = new Modale("C", "c.jpg", "Langue de programmation C");
+let Cdiese = new Modale("C#", "csharp.jpg", "Langue de programmation C#");
+let Ruby = new Modale("Ruby", "ruby.jpg", "Langue de programmation Ruby");
+let Go = new Modale("Go", "go.jpg", "Langue de programmation Go");
+let Assembly = new Modale(
+  "Assembly",
+  "assembly.jpg",
+  "Langue de programmation Assembly"
+);
+let Swift = new Modale("Swift", "swift.jpg", "Langue de programmation Swift");
+let Kotlin = new Modale(
+  "Kotlin",
+  "kotlin.jpg",
+  "Langue de programmation Kotlin"
+);
+let R = new Modale("R", "r.jpg", "Langue de programmation R");
+let VBA = new Modale("VBA", "vba.jpg", "Langue de programmation VBA");
+let ObjectiveC = new Modale(
+  "Objective-C",
+  "objectivec.jpg",
+  "Langue de programmation Objective-C"
+);
+let Scala = new Modale("Scala", "scala.jpg", "Langue de programmation Scala");
+let Rust = new Modale("Rust", "rust.jpg", "Langue de programmation Rust");
+let Dart = new Modale("Dart", "dart.jpg", "Langue de programmation Dart");
+let Elixir = new Modale(
+  "Elixir",
+  "elixir.jpg",
+  "Langue de programmation Elixir"
+);
+let Clojure = new Modale(
+  "Clojure",
+  "clojure.jpg",
+  "Langue de programmation Clojure"
+);
+let WebAssembly = new Modale(
+  "WebAssembly",
+  "webassembly.jpg",
+  "Langue de programmation WebAssembly"
+);
+console.log(Html);

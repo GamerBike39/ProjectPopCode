@@ -18,7 +18,6 @@
     background: url(../img/fondBrique.webp) no-repeat;
     background-size: cover;
     background-position: center;
-    height: 100vh;
 }
 
 .responsivePop{
@@ -137,6 +136,7 @@ body {
     position: fixed;
 bottom: 5px;
 right: 50px;
+z-index: 3;
   }
 
   nav > ul{
@@ -351,10 +351,10 @@ right: 50px;
 }
 
 .fondJeu{
-    position: absolute;
     margin: 0;
     padding: 0;
     background: black;
+    position: absolute;
 }
 
 /********overlay Reponse********/
@@ -381,5 +381,7 @@ right: 50px;
 font-size : 5rem;
 letter-spacing: 2%;
 }
+
+
 
 
