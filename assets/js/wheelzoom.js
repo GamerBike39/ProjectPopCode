@@ -6,7 +6,7 @@
 window.wheelzoom = (function () {
   var defaults = {
     zoom: 0.1,
-    maxZoom: 4,
+    maxZoom: 5,
     initialZoom: 1,
     initialX: 0.5,
     initialY: 0.5,
@@ -216,5 +216,4 @@ window.wheelzoom = (function () {
 
 wheelzoom(document.querySelector("img.zoom"));
 
-let toto = document.querySelector(".sectionZoom p:nth-child(2)");
-let img = document.querySelector("img.zoom");
+let toto = document.querySelector(".traitZoom");

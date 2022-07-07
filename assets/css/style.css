@@ -318,6 +318,15 @@ z-index: 3;
     margin: 0;
 }
 
+
+.guideZoom {
+    position: absolute;
+    transform: rotate(90deg) translateY(-50px);
+}
+.guideZoom img{
+    transform: rotate(-90deg);
+}
+
 .traitZoom{
     width: 2px;
     height: 124px;
@@ -355,6 +364,12 @@ z-index: 3;
     padding: 0;
     background: black;
     position: absolute;
+    width: 100vw;
+    height: 100vh;
+}
+.fondJeu > img{
+    width: 100vw;
+    height: 100vh;
 }
 
 /********overlay Reponse********/

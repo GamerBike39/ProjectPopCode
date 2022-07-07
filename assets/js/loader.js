@@ -23,6 +23,7 @@ let beginGame = document.querySelector(".beginGame");
 beginGame.addEventListener("click", () => {
   home.classList.remove("flex");
   home.classList.add("displayNone");
+  body.classList.remove("bgAccueil");
   jeu.classList.remove("displayNone");
 });
 
@@ -126,13 +127,14 @@ window.addEventListener("keydown", (e) => {
   }
 
   if (e.key === "Enter" && langMaj.includes(reponseText.textContent)) {
-    // let unique = [...new Set(arrayReponse)];
-    // console.log(unique);
-    reponseTextResult.textContent = "bonne réponse";
     arrayReponse.push(reponseText.textContent);
+    let unique = [...new Set(arrayReponse)];
+    console.log(unique);
+    reponseTextResult.textContent = "bonne réponse";
     scoreCompteur++;
     score.textContent = scoreCompteur;
     console.log(arrayReponse);
+    console.log(unique === !reponseText.textContent);
     if (scoreCompteur === 27) {
       reponseTextResult.textContent = "Bravo, vous avez gagné";
     }
