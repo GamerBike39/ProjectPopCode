@@ -744,8 +744,8 @@
 <!-- ********************containerJeu**************** -->
 <div class="containerJeu displayNone">
  
-    <div class="fondJeu">
-        <img class="zoom" src="assets/img/Jeu.jpg" alt="image du jeu" width='1920' height='967'>
+    <div class="fondJeu zoom">
+        <img class="chambre" src="assets/img/Jeu.jpg" alt="image du jeu">
     </div>
 
     <div class="tableauScore">
@@ -769,8 +769,12 @@
     <div class="sectionZoom flex">
         <p>ZOOM</p>
         <p>+</p>
-        <div class="traitZoom">
-        </div>
+       <div>
+         <div class="traitZoom">
+         </div>
+         <div class="traitZoomB">
+         </div>
+       </div>
         <p>-</p>
         <div class="guideZoom displayNone">
             <p>Utilise la molette de ta souris pour zoomer</p>
@@ -797,7 +801,9 @@
 
     <script src="https://unpkg.com/vanilla-counter"></script>
     <script src="assets/js/loader.js"></script>
-    <script src="assets/js/wheelzoom.js"></script>
+    <!-- <script src="assets/js/wheelzoom.js"></script> -->
+    <script src="assets/js/zoom-by-ironex.min.js"></script>
+    <script>zoom()</script>
 </body>
 
 </html>

@@ -5,6 +5,8 @@ let transi = document.querySelector(".containerTransi");
 let home = document.querySelector(".containerAccueil");
 let jeu = document.querySelector(".containerJeu");
 let body = document.querySelector(".bg");
+let img = document.querySelector(".chambre");
+let traitZoom = document.querySelector(".traitZoomB");
 
 setTimeout(() => {
   loader.classList.remove("dfjcic");
@@ -25,6 +27,7 @@ beginGame.addEventListener("click", () => {
   home.classList.add("displayNone");
   body.classList.remove("bgAccueil");
   jeu.classList.remove("displayNone");
+  gameEngine();
 });
 
 let responsivePop = document.querySelector(".responsivePop");
@@ -143,7 +146,7 @@ function gameEngine() {
           reponseText.textContent = "";
           reponse.classList.remove("flex");
           reponse.classList.add("displayNone");
-        }, 1000);
+        }, 2500);
       }
       reponseTextResult.textContent = "✌️ bonne réponse ✌️";
       scoreCompteur++;
@@ -156,7 +159,7 @@ function gameEngine() {
         reponseText.textContent = "";
         reponse.classList.remove("flex");
         reponse.classList.add("displayNone");
-      }, 800);
+      }, 2500);
     }
     if (
       e.key === "Enter" &&
@@ -178,7 +181,7 @@ function gameEngine() {
         reponseText.textContent = "";
         reponse.classList.remove("flex");
         reponse.classList.add("displayNone");
-      }, 800);
+      }, 2500);
     }
     if (e.key === "Escape") {
       reponse.classList.remove("flex");
@@ -190,7 +193,8 @@ function gameEngine() {
     }
   });
 }
-gameEngine();
+
+// ***** barre zoom *******************
 
 // **** section modale *******
 class Modale {
@@ -279,3 +283,14 @@ console.log(Html);
 let a = ["a", "b", "c", "d", "e"];
 let b = ["a", "b", "c", "d", "e"];
 let c = ["f", "g", "h", "i", "j"];
+
+console.log(img.dataset.scale);
+
+function remplirZoom() {
+  window.addEventListener("wheel", function (e) {
+    for (i = 0; i < img.dataset.scale; i++) {
+      traitZoom.style.height = `${i}0%`;
+    }
+  });
+}
+remplirZoom();

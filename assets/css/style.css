@@ -317,6 +317,7 @@ z-index: 3;
 .sectionZoom p:nth-child(2),.sectionZoom p:nth-child(4){
     color: #0aeff7;
     margin: 0;
+    transform: translate(-2px);
 }
 
 
@@ -329,10 +330,22 @@ z-index: 3;
 }
 
 .traitZoom{
-    width: 2px;
+    width: 3px;
     height: 124px;
+    background-color: #ffffff;
+    transform: translateX(2px);
+    border-radius: 10%;
+}
+.traitZoomB{
+    border-radius: 10%;
+    width: 3px;
+    height: 2px;
     background-color: #0aeff7;
-    transform: translateX(3px);
+    position: absolute;
+    bottom: 24px;
+    left: 2px;
+    max-height: 124px;
+    transform: translateX(0px);
 }
 
 .langagesFound{
@@ -408,13 +421,13 @@ animation: bouge  0.3s ease-in-out infinite alternate;
         transform: rotate(0);
     }
     25%{
-        transform: rotate(8deg);
+        transform: rotate(3deg);
     }
     50%{
         transform: rotate(0);
     }
     75%{
-        transform: rotate(-8deg);
+        transform: rotate(-3deg);
     }
     100%{
         transform: rotate(0);
