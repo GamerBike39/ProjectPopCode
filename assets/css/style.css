@@ -40,7 +40,8 @@ body {
     margin: 0;
     padding: 0;
     font-family: 'Poppins', sans-serif;
-    position: relative;;
+    position: relative;
+    overflow-y: hidden;
 }
 
 .containerLoader {
@@ -396,7 +397,7 @@ z-index: 3;
 font-size : 5rem;
 letter-spacing: 2%;
 }
-.overlayReponse > p:nth-child(2){
+.overlayReponse > p:nth-child(3){
 font-size : 6rem;
 letter-spacing: 2%;
 animation: bouge  0.3s ease-in-out infinite alternate;

@@ -73,107 +73,124 @@ const lang = [
 let langMaj = lang.map((e) => {
   return e.toUpperCase();
 });
-console.log(langMaj);
 
 const arrayReponse = [];
+const unique = [];
 const reponse = document.querySelector(".overlayReponse");
 const reponseText = document.querySelector(".overlayReponse p:first-child");
 const reponseTextResult = document.querySelector(
-  ".overlayReponse p:nth-child(2)"
+  ".overlayReponse p:nth-child(3)"
 );
+
 // **** compteur de bonnes réponses et erreurs *******
 const error = document.querySelectorAll(".echoue>div");
 let errorNumber = 0;
 const score = document.querySelector(".trouve div:nth-child(1)");
 let scoreCompteur = 0;
 
-window.addEventListener("keydown", (e) => {
-  console.log(e);
-  if (
-    e.key === "a" ||
-    e.key === "b" ||
-    e.key === "c" ||
-    e.key === "d" ||
-    e.key === "e" ||
-    e.key === "f" ||
-    e.key === "g" ||
-    e.key === "h" ||
-    e.key === "i" ||
-    e.key === "j" ||
-    e.key === "k" ||
-    e.key === "l" ||
-    e.key === "m" ||
-    e.key === "n" ||
-    e.key === "o" ||
-    e.key === "p" ||
-    e.key === "q" ||
-    e.key === "r" ||
-    e.key === "s" ||
-    e.key === "t" ||
-    e.key === "u" ||
-    e.key === "v" ||
-    e.key === "w" ||
-    e.key === "x" ||
-    e.key === "y" ||
-    e.key === "z" ||
-    e.key === "+" ||
-    e.key === "-" ||
-    e.key === "#"
-  ) {
-    reponse.classList.remove("displayNone");
-    reponse.classList.add("flex");
-    reponseText.textContent += e.key.toUpperCase();
-    console.log(langMaj.includes(reponseText.textContent));
-  }
-
-  if (e.key === "Enter" && langMaj.includes(reponseText.textContent)) {
-    arrayReponse.push(reponseText.textContent);
-    let unique = [...new Set(arrayReponse)];
-    console.log(unique);
-    reponseTextResult.textContent = "bonne réponse";
-    scoreCompteur++;
-    score.textContent = scoreCompteur;
-    console.log(arrayReponse);
-    console.log(unique === !reponseText.textContent);
-    if (scoreCompteur === 27) {
-      reponseTextResult.textContent = "Bravo, vous avez gagné";
+function gameEngine() {
+  window.addEventListener("keydown", (e) => {
+    if (
+      e.key === "a" ||
+      e.key === "b" ||
+      e.key === "c" ||
+      e.key === "d" ||
+      e.key === "e" ||
+      e.key === "f" ||
+      e.key === "g" ||
+      e.key === "h" ||
+      e.key === "i" ||
+      e.key === "j" ||
+      e.key === "k" ||
+      e.key === "l" ||
+      e.key === "m" ||
+      e.key === "n" ||
+      e.key === "o" ||
+      e.key === "p" ||
+      e.key === "q" ||
+      e.key === "r" ||
+      e.key === "s" ||
+      e.key === "t" ||
+      e.key === "u" ||
+      e.key === "v" ||
+      e.key === "w" ||
+      e.key === "x" ||
+      e.key === "y" ||
+      e.key === "z" ||
+      e.key === "+" ||
+      e.key === "-" ||
+      e.key === "#"
+    ) {
+      reponse.classList.remove("displayNone");
+      reponse.classList.add("flex");
+      reponseText.textContent += e.key.toUpperCase();
     }
-    setTimeout(() => {
-      reponseTextResult.textContent = "";
-      reponseText.textContent = "";
+    if (e.key === "Enter" && langMaj.includes(reponseText.textContent)) {
+      arrayReponse.push(reponseText.textContent);
+      let unique = [...new Set(arrayReponse)];
+      console.log(unique);
+      console.log("reponse text : ", reponseText.textContent);
+      if (unique.length !== arrayReponse.length) {
+        arrayReponse.push(reponseText.textContent);
+        arrayReponse.pop();
+        errorNumber--;
+        scoreCompteur--;
+        console.log("arrayReponse : ", arrayReponse);
+        console.log(arrayReponse.pop());
+        reponseText.textContent = "Vous avez déjà tapé cette lettre";
+        setTimeout(() => {
+          reponseTextResult.textContent = "";
+          reponseText.textContent = "";
+          reponse.classList.remove("flex");
+          reponse.classList.add("displayNone");
+        }, 1000);
+      }
+      reponseTextResult.textContent = "✌️ bonne réponse ✌️";
+      scoreCompteur++;
+      score.textContent = scoreCompteur;
+      if (scoreCompteur === 27) {
+        reponseTextResult.textContent = "Bravo, vous avez gagné";
+      }
+      setTimeout(() => {
+        reponseTextResult.textContent = "";
+        reponseText.textContent = "";
+        reponse.classList.remove("flex");
+        reponse.classList.add("displayNone");
+      }, 800);
+    }
+    if (
+      e.key === "Enter" &&
+      !langMaj.includes(reponseText.textContent) === true
+    ) {
+      reponseTextResult.textContent = "mauvaise réponse";
+      errorNumber++;
+      if (errorNumber === 1) {
+        error[0].style.color = "#0aeff7";
+      }
+      if (errorNumber === 2) {
+        error[1].style.color = "#0aeff7";
+      }
+      if (errorNumber === 3) {
+        error[2].style.color = "#0aeff7";
+      }
+      setTimeout(() => {
+        reponseTextResult.textContent = "";
+        reponseText.textContent = "";
+        reponse.classList.remove("flex");
+        reponse.classList.add("displayNone");
+      }, 800);
+    }
+    if (e.key === "Escape") {
       reponse.classList.remove("flex");
       reponse.classList.add("displayNone");
-    }, 800);
-  }
-  if (e.key === "Enter" && !langMaj.includes(reponseText.textContent)) {
-    reponseTextResult.textContent = "mauvaise réponse";
-    errorNumber++;
-    if (errorNumber === 1) {
-      error[0].style.color = "#0aeff7";
-    }
-    if (errorNumber === 2) {
-      error[1].style.color = "#0aeff7";
-    }
-    if (errorNumber === 3) {
-      error[2].style.color = "#0aeff7";
-    }
-    console.log(errorNumber);
-    setTimeout(() => {
-      reponseTextResult.textContent = "";
       reponseText.textContent = "";
-      reponse.classList.remove("flex");
-      reponse.classList.add("displayNone");
-    }, 800);
-  }
-  if (e.key === "Escape") {
-    reponse.classList.remove("flex");
-    reponse.classList.add("displayNone");
-    reponseText.textContent = "";
-  }
-  if (e.key === "Backspace") {
-    reponseText.textContent = reponseText.textContent.slice(e, -1);
-  }
-});
+    }
+    if (e.key === "Backspace") {
+      reponseText.textContent = reponseText.textContent.slice(e, -1);
+    }
+  });
+}
+gameEngine();
 
 // **** section modale *******
 class Modale {
@@ -258,3 +275,7 @@ let WebAssembly = new Modale(
   "Langue de programmation WebAssembly"
 );
 console.log(Html);
+
+let a = ["a", "b", "c", "d", "e"];
+let b = ["a", "b", "c", "d", "e"];
+let c = ["f", "g", "h", "i", "j"];
