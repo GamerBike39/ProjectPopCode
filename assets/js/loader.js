@@ -131,8 +131,8 @@ function gameEngine() {
     if (e.key === "Enter" && langMaj.includes(reponseText.textContent)) {
       arrayReponse.push(reponseText.textContent);
       let unique = [...new Set(arrayReponse)];
-      console.log(unique);
-      console.log("reponse text : ", reponseText.textContent);
+      // console.log(unique);
+      // console.log("reponse text : ", reponseText.textContent);
       if (unique.length !== arrayReponse.length) {
         arrayReponse.push(reponseText.textContent);
         arrayReponse.pop();
@@ -146,7 +146,7 @@ function gameEngine() {
           reponseText.textContent = "";
           reponse.classList.remove("flex");
           reponse.classList.add("displayNone");
-        }, 2500);
+        }, 2000);
       }
       reponseTextResult.textContent = "✌️ bonne réponse ✌️";
       scoreCompteur++;
@@ -159,7 +159,7 @@ function gameEngine() {
         reponseText.textContent = "";
         reponse.classList.remove("flex");
         reponse.classList.add("displayNone");
-      }, 2500);
+      }, 2000);
     }
     if (
       e.key === "Enter" &&
@@ -181,7 +181,11 @@ function gameEngine() {
         reponseText.textContent = "";
         reponse.classList.remove("flex");
         reponse.classList.add("displayNone");
-      }, 2500);
+      }, 2000);
+    }
+    if (reponseText.textContent === "") {
+      console.log("Vous n'avez rien tapé");
+      scoreCompteur--;
     }
     if (e.key === "Escape") {
       reponse.classList.remove("flex");
@@ -195,6 +199,14 @@ function gameEngine() {
 }
 
 // ***** barre zoom *******************
+function remplirZoom() {
+  window.addEventListener("wheel", function (e) {
+    for (i = 0; i < img.dataset.scale; i++) {
+      traitZoom.style.height = `${i}0%`;
+    }
+  });
+}
+remplirZoom();
 
 // **** section modale *******
 class Modale {
@@ -285,12 +297,3 @@ let b = ["a", "b", "c", "d", "e"];
 let c = ["f", "g", "h", "i", "j"];
 
 console.log(img.dataset.scale);
-
-function remplirZoom() {
-  window.addEventListener("wheel", function (e) {
-    for (i = 0; i < img.dataset.scale; i++) {
-      traitZoom.style.height = `${i}0%`;
-    }
-  });
-}
-remplirZoom();
