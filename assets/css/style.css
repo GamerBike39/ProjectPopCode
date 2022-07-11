@@ -43,7 +43,7 @@ body {
     padding: 0;
     font-family: 'Poppins', sans-serif;
     position: relative;
-    overflow: hidden;
+    /* overflow: hidden; */
 }
 
 .containerLoader {
@@ -387,6 +387,7 @@ z-index: 3;
     position: absolute;
     width: 100vw;
     height: 100vh;
+    overflow: hidden;
 }
 .fondJeu > img{
     width: 100vw;

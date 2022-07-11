@@ -78,12 +78,13 @@ let langMaj = lang.map((e) => {
 });
 
 const arrayReponse = [];
-const unique = [];
 const reponse = document.querySelector(".overlayReponse");
 const reponseText = document.querySelector(".overlayReponse p:first-child");
 const reponseTextResult = document.querySelector(
   ".overlayReponse p:nth-child(3)"
 );
+const dejaTrouveBtn = document.querySelector(".langagesFound p");
+const dejaTrouveDiv = document.querySelector(".overlayReponseTrouvee");
 
 // **** compteur de bonnes réponses et erreurs *******
 const error = document.querySelectorAll(".echoue>div");
@@ -131,16 +132,21 @@ function gameEngine() {
     if (e.key === "Enter" && langMaj.includes(reponseText.textContent)) {
       arrayReponse.push(reponseText.textContent);
       let unique = [...new Set(arrayReponse)];
-      // console.log(unique);
-      // console.log("reponse text : ", reponseText.textContent);
-      if (unique.length !== arrayReponse.length) {
+      console.log(unique);
+      dejaTrouveDiv.innerHTML = unique.join("<br>");
+      console.log("reponse text : ", reponseText.textContent);
+      if (
+        unique.length !== arrayReponse.length &&
+        langMaj.includes(reponseText.textContent)
+      ) {
         arrayReponse.push(reponseText.textContent);
         arrayReponse.pop();
         errorNumber--;
         scoreCompteur--;
         console.log("arrayReponse : ", arrayReponse);
         console.log(arrayReponse.pop());
-        reponseText.textContent = "Vous avez déjà tapé cette lettre";
+        reponseText.textContent = "Vous avez déjà trouvé ce langage";
+        reponseTextResult.textContent = "";
         setTimeout(() => {
           reponseTextResult.textContent = "";
           reponseText.textContent = "";
@@ -160,6 +166,17 @@ function gameEngine() {
         reponse.classList.remove("flex");
         reponse.classList.add("displayNone");
       }, 2000);
+    }
+    if (e.key === "Enter" && reponseText.textContent === "") {
+      console.log("Vous n'avez rien tapé");
+      errorNumber--;
+      e.preventDefault();
+      setTimeout(() => {
+        reponseTextResult.textContent = "";
+        reponseText.textContent = "";
+        reponse.classList.remove("flex");
+        reponse.classList.add("displayNone");
+      }, 100);
     }
     if (
       e.key === "Enter" &&
@@ -182,10 +199,6 @@ function gameEngine() {
         reponse.classList.remove("flex");
         reponse.classList.add("displayNone");
       }, 2000);
-    }
-    if (reponseText.textContent === "") {
-      console.log("Vous n'avez rien tapé");
-      scoreCompteur--;
     }
     if (e.key === "Escape") {
       reponse.classList.remove("flex");
