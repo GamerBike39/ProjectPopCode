@@ -221,6 +221,12 @@ function remplirZoom() {
 }
 remplirZoom();
 
+// ****** modale déja trouvée *******
+dejaTrouveBtn.addEventListener("click", () => {
+  dejaTrouveDiv.classList.toggle("displayNone");
+  dejaTrouveDiv.classList.toggle("flex");
+});
+
 // **** section modale *******
 class Modale {
   constructor(titre, img, description) {

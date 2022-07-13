@@ -413,6 +413,23 @@ z-index: 3;
     letter-spacing: 5px;
 
 }
+.overlayReponseTrouvee{
+    width: 100vw;
+    height: 100vh;
+    background: rgba(0, 0, 0, 0.66);
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    position: fixed;
+    z-index: 2;
+    color: white;
+    font-family: 'Gotham Black', sans-serif;
+    font-size : 13px;
+    line-height: 14px;
+    text-align: center;
+    letter-spacing: 5px;
+
+}
 
 .overlayReponse > p:nth-child(1){
 font-size : 5rem;
