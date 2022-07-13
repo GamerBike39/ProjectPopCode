@@ -91,6 +91,18 @@ const error = document.querySelectorAll(".echoue>div");
 let errorNumber = 0;
 const score = document.querySelector(".trouve div:nth-child(1)");
 let scoreCompteur = 0;
+function reponseNone() {
+  reponse.classList.add("displayNone");
+  reponse.classList.remove("flex");
+}
+function reponseShow() {
+  reponse.classList.remove("displayNone");
+  reponse.classList.add("flex");
+}
+function reponseDelete() {
+  reponseTextResult.textContent = "";
+  reponseText.textContent = "";
+}
 
 function gameEngine() {
   window.addEventListener("keydown", (e) => {
@@ -125,34 +137,28 @@ function gameEngine() {
       e.key === "-" ||
       e.key === "#"
     ) {
-      reponse.classList.remove("displayNone");
-      reponse.classList.add("flex");
+      reponseShow();
       reponseText.textContent += e.key.toUpperCase();
     }
     if (e.key === "Enter" && langMaj.includes(reponseText.textContent)) {
       arrayReponse.push(reponseText.textContent);
       let unique = [...new Set(arrayReponse)];
-      console.log(unique);
       dejaTrouveDiv.innerHTML = unique.join("<br>");
-      console.log("reponse text : ", reponseText.textContent);
       if (
         unique.length !== arrayReponse.length &&
         langMaj.includes(reponseText.textContent)
       ) {
         arrayReponse.push(reponseText.textContent);
         arrayReponse.pop();
-        errorNumber--;
-        scoreCompteur--;
-        console.log("arrayReponse : ", arrayReponse);
-        console.log(arrayReponse.pop());
+        arrayReponse.pop();
+        // console.log(arrayReponse.pop());
         reponseText.textContent = "Vous avez déjà trouvé ce langage";
         reponseTextResult.textContent = "";
         setTimeout(() => {
-          reponseTextResult.textContent = "";
-          reponseText.textContent = "";
-          reponse.classList.remove("flex");
-          reponse.classList.add("displayNone");
-        }, 2000);
+          reponseDelete();
+          reponseNone();
+        }, 1500);
+        return;
       }
       reponseTextResult.textContent = "✌️ bonne réponse ✌️";
       scoreCompteur++;
@@ -161,22 +167,15 @@ function gameEngine() {
         reponseTextResult.textContent = "Bravo, vous avez gagné";
       }
       setTimeout(() => {
-        reponseTextResult.textContent = "";
-        reponseText.textContent = "";
-        reponse.classList.remove("flex");
-        reponse.classList.add("displayNone");
-      }, 2000);
+        reponseDelete();
+        reponseNone();
+      }, 1500);
     }
     if (e.key === "Enter" && reponseText.textContent === "") {
-      console.log("Vous n'avez rien tapé");
-      errorNumber--;
       e.preventDefault();
-      setTimeout(() => {
-        reponseTextResult.textContent = "";
-        reponseText.textContent = "";
-        reponse.classList.remove("flex");
-        reponse.classList.add("displayNone");
-      }, 100);
+      reponseDelete();
+      reponseNone();
+      return;
     }
     if (
       e.key === "Enter" &&
@@ -194,16 +193,13 @@ function gameEngine() {
         error[2].style.color = "#0aeff7";
       }
       setTimeout(() => {
-        reponseTextResult.textContent = "";
-        reponseText.textContent = "";
-        reponse.classList.remove("flex");
-        reponse.classList.add("displayNone");
+        reponseDelete();
+        reponseNone();
       }, 2000);
     }
     if (e.key === "Escape") {
-      reponse.classList.remove("flex");
-      reponse.classList.add("displayNone");
-      reponseText.textContent = "";
+      reponseNone();
+      reponseDelete();
     }
     if (e.key === "Backspace") {
       reponseText.textContent = reponseText.textContent.slice(e, -1);
@@ -239,7 +235,15 @@ class Modale {
 let Javascript = new Modale(
   "Javascript",
   "js.png",
-  "Langue de programmation Javascript"
+  `JavaScript est un langage de programmation de scripts principalement employé dans les pages web interactives et à ce titre est une partie essentielle des applications web. Avec les langages HTML et CSS, JavaScript est au cœur des langages utilisés par les développeurs web. Une grande majorité des sites web l'utilisent, et la majorité des navigateurs web disposent d'un moteur JavaScript pour l'interpréter.
+
+ JavaScript est aussi employé pour les serveurs Web avec l'utilisation (par exemple) de Node.js ou de Deno
+ 
+ JavaScript a été créé en 1995 par Brendan Eich et intégré au navigateur web Netscape Navigator 2.0. L'implémentation concurrente de JavaScript par Microsoft dans Internet Explorer jusqu'à sa version 9 se nommait JScript, tandis que celle d'Adobe Systems se nommait ActionScript. JavaScript a été standardisé sous le nom d'ECMAScript en juin 1997 par Ecma International dans le standard ECMA-262. La version en vigueur de ce standard depuis juin 2022 est la 13e édition.
+ 
+ C'est un langage orienté objet à prototype : les bases du langage et ses principales interfaces sont fournies par des objets. Cependant, à la différence d'un langage orienté objets, les objets de base ne sont pas des instances de classes. En outre, les fonctions sont des objets de première classe. Le langage supporte le paradigme objet, impératif et fonctionnel.
+ 
+ JavaScript est le langage possédant le plus large écosystème grâce à son gestionnaire de dépendances npm, avec environ 500 000 paquets en août 2017. `
 );
 let Html = new Modale("Html", "html.jpg", "Langue de programmation Html");
 let Css = new Modale("Css", "css.jpg", "Langue de programmation Css");
@@ -309,10 +313,64 @@ let WebAssembly = new Modale(
   "webassembly.jpg",
   "Langue de programmation WebAssembly"
 );
-console.log(Html);
+console.log(Javascript);
 
-let a = ["a", "b", "c", "d", "e"];
-let b = ["a", "b", "c", "d", "e"];
-let c = ["f", "g", "h", "i", "j"];
+// const langu =
+//   '{"Languages":[' +
+//   '{"name":"Javascript","img":"js.png","description":"Langue de programmation Javascript"},' +
+//   '{"title":"HTML","desc":"Bernard","picture":"https://picsum.photos/200" },' +
+//   '{"title":"CSS","desc":"Natan","picture":"https://picsum.photos/200" },' +
+//   '{"title":"SQL","desc":"Jorge","picture":"https://picsum.photos/200" },' +
+//   '{"title":"Python","desc":"Leo","picture":"https://picsum.photos/200" },' +
+//   '{"title":"Java","desc":"Pauline","picture":"https://picsum.photos/200" },' +
+//   '{"title":"Bash","desc":"Hamza","picture":"https://picsum.photos/200" },' +
+//   '{"title":"Powershell","desc":"Julien","picture":"https://picsum.photos/200" },' +
+//   '{"title":"C#","desc":"Karolos","picture":"https://picsum.photos/200" },' +
+//   '{"title":"PHP","desc":"Antoine","picture":"https://picsum.photos/200" },' +
+//   '{"title":"C++","desc":"Vola","picture":"https://picsum.photos/200" },' +
+//   '{"title":"TypeScript","desc":"Vola","picture":"https://picsum.photos/200" },' +
+//   '{"title":"C","desc":"Vola","picture":"https://picsum.photos/200" },' +
+//   '{"title":"Ruby","desc":"Vola","picture":"https://picsum.photos/200" },' +
+//   '{"title":"Go","desc":"Vola","picture":"https://picsum.photos/200" },' +
+//   '{"title":"Assembly","desc":"Vola","picture":"https://picsum.photos/200" },' +
+//   '{"title":"Swift","desc":"Vola","picture":"https://picsum.photos/200" },' +
+//   '{"title":"Kotlin","desc":"Vola","picture":"https://picsum.photos/200" },' +
+//   '{"title":"R","desc":"Vola","picture":"https://picsum.photos/200" },' +
+//   '{"title":"VBA","desc":"Vola","picture":"https://picsum.photos/200" },' +
+//   '{"title":"Objective-C","desc":"Vola","picture":"https://picsum.photos/200" },' +
+//   '{"title":"Scala","desc":"Vola","picture":"https://picsum.photos/200" },' +
+//   '{"title":"Rust","desc":"Vola","picture":"https://picsum.photos/200" },' +
+//   '{"title":"Dart","desc":"Vola","picture":"https://picsum.photos/200" },' +
+//   '{"title":"Elixir","desc":"Vola","picture":"https://picsum.photos/200" },' +
+//   '{"title":"Clojure","desc":"Vola","picture":"https://picsum.photos/200" },' +
+//   '{"title":"WebAssembly","desc":"Chris","picture":"https://picsum.photos/200" }]}';
 
-console.log(img.dataset.scale);
+const table = [
+  Html,
+  Css,
+  SQL,
+  Javascript,
+  Python,
+  Bash,
+  Powershell,
+  CSharp,
+  PHP,
+  CPlusPlus,
+  TypeScript,
+  C,
+  Cdiese,
+  Ruby,
+  Go,
+  Assembly,
+  Swift,
+  Kotlin,
+  R,
+  VBA,
+  ObjectiveC,
+  Scala,
+  Rust,
+  Dart,
+  Elixir,
+  Clojure,
+  WebAssembly,
+];

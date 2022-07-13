@@ -346,13 +346,14 @@ z-index: 3;
 .traitZoomB{
     border-radius: 10%;
     width: 3px;
-    height: 2px;
+    height: 2%;
     background-color: #0aeff7;
     position: absolute;
     bottom: 24px;
     left: 2px;
     max-height: 124px;
     transform: translateX(0px);
+    transition: height 0.2s ease-in-out;
 }
 
 .langagesFound{
