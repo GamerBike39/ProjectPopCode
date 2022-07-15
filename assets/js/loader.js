@@ -374,3 +374,5 @@ const table = [
   Clojure,
   WebAssembly,
 ];
+
+console.log(table);
