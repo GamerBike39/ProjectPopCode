@@ -460,6 +460,14 @@ animation: bouge  0.3s ease-in-out infinite alternate;
     }
 }
 
+.overlayDesc{
+    position: absolute;
+    background: #0c0b0ba6;
+    height: 100vh;
+    flex-direction: column;
+    width: 100%;
+}
+
 
 
 
