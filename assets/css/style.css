@@ -368,6 +368,7 @@ z-index: 3;
     justify-content: space-around;
     font-family: 'Gotham Black', sans-serif;
     font-size: 8px;
+    cursor: pointer;
 }
 
 .logoJeu{
@@ -424,12 +425,48 @@ z-index: 3;
     position: fixed;
     z-index: 2;
     color: white;
-    font-family: 'Gotham Black', sans-serif;
+    font-family: 'Gotham Medium', sans-serif;
     font-size : 13px;
     line-height: 14px;
     text-align: center;
     letter-spacing: 5px;
+}
+.overlayReponseTrouvee > div:nth-child(1) {
+    width: 15%;
+   }
+.overlayReponseTrouvee > div:nth-child(1) > img:nth-child(1) {
+    display: block;
+    margin-left: auto;
+   }
+   
 
+   
+
+.clignement{
+    position: relative;
+}
+
+.clignement::before{
+    content: "";
+    position: absolute;
+    animation: cligne  alternate infinite 0.6s ease-in-out;
+    height: 71px;
+    border: 1px solid #f8eaea;
+    border-radius: 10%;
+    right: -12px;
+    top: -26px;
+}
+@keyframes cligne {
+    0% {
+        opacity: 1;
+    }
+    50% {
+        opacity: 0;
+    }
+    100% {
+        opacity: 0;
+    }
+    
 }
 
 .overlayReponse > p:nth-child(1){
@@ -439,34 +476,45 @@ letter-spacing: 2%;
 .overlayReponse > p:nth-child(3){
 font-size : 6rem;
 letter-spacing: 2%;
-animation: bouge  0.3s ease-in-out infinite alternate;
+animation: bouge  1.2s ease-in-out ;
 }
-
-@keyframes bouge{
-    0%{
-        transform: rotate(0);
-    }
-    25%{
-        transform: rotate(3deg);
-    }
-    50%{
-        transform: rotate(0);
-    }
-    75%{
-        transform: rotate(-3deg);
-    }
-    100%{
-        transform: rotate(0);
-    }
-}
+@keyframes bouge {
+  0%{-webkit-transform:translate3d(-100%,0,0);transform:translate3d(-100%,0,0);visibility:visible}to{-webkit-transform:translateZ(0);transform:translateZ(0)}}@keyframes slideInLeft{0%{-webkit-transform:translate3d(-100%,0,0);transform:translate3d(-100%,0,0);visibility:visible}to{-webkit-transform:translateZ(0);transform:translateZ(0)}}.animate__slideInLeft{-webkit-animation-name:slideInLeft;animation-name:slideInLeft}
+    
 
 .overlayDesc{
     position: absolute;
     background: #0c0b0ba6;
     height: 100vh;
-    flex-direction: column;
     width: 100%;
+    align-items: center;
+    justify-content: center;
+    gap: 6vw;
+    color: white;
+    font-family: 'Gotham-medium', sans-serif;
 }
+.overlayDesc > div:nth-child(2) {
+    width: 25%;
+    }
+
+.overlayDesc > div:nth-child(2) > a:nth-child(4) {
+        text-decoration: none;
+        color: white;
+        border-bottom: 1px solid white;
+       }
+.overlayDesc > div:nth-child(1) > img:nth-child(1) {
+        width: 20vw;
+       }
+      
+.closeModale{
+        margin-left: auto;
+       display: block;
+        cursor: pointer;
+       }
+       
+       
+       
+       
 
 
 

@@ -52,7 +52,6 @@ const lang = [
   "Python",
   "Java",
   "Bash",
-  "Shell",
   "Powershell",
   "C#",
   "PHP",
@@ -79,13 +78,22 @@ let langMaj = lang.map((e) => {
 });
 
 const arrayReponse = [];
+
 const reponse = document.querySelector(".overlayReponse");
 const reponseText = document.querySelector(".overlayReponse p:first-child");
 const reponseTextResult = document.querySelector(
   ".overlayReponse p:nth-child(3)"
 );
-const dejaTrouveBtn = document.querySelector(".langagesFound p");
+const dejaTrouveBtn = document.querySelector(".langagesFound");
 const dejaTrouveDiv = document.querySelector(".overlayReponseTrouvee");
+
+function closeTrouve() {
+  document.querySelector(".closeTrouve").addEventListener("click", () => {
+    dejaTrouveDiv.classList.add("displayNone");
+    dejaTrouveDiv.classList.remove("flex");
+  });
+}
+closeTrouve();
 
 // **** compteur de bonnes réponses et erreurs *******
 const error = document.querySelectorAll(".echoue>div");
@@ -106,6 +114,11 @@ function reponseShow() {
 function reponseDelete() {
   reponseTextResult.textContent = "";
   reponseText.textContent = "";
+}
+
+function overlayDescNone() {
+  overlayDesc.classList.add("displayNone");
+  overlayDesc.classList.remove("flex");
 }
 
 function gameEngine() {
@@ -139,15 +152,20 @@ function gameEngine() {
       e.key === "z" ||
       e.key === "+" ||
       e.key === "-" ||
-      e.key === "#"
+      e.key === "#" ||
+      e.key === " "
     ) {
       reponseShow();
       reponseText.textContent += e.key.toUpperCase();
+      overlayDescNone();
     }
     if (e.key === "Enter" && langMaj.includes(reponseText.textContent)) {
       arrayReponse.push(reponseText.textContent);
       let unique = [...new Set(arrayReponse)];
-      dejaTrouveDiv.innerHTML = unique.join("<br>");
+      dejaTrouveDiv.innerHTML = `<div><img class="closeTrouve" src="assets/img/closeCircle.svg"><div> <h4>Déja trouvés</h4> <p>${unique.join(
+        "<br>"
+      )}</p> </div></div>`;
+      closeTrouve();
       if (
         unique.length !== arrayReponse.length &&
         langMaj.includes(reponseText.textContent)
@@ -168,6 +186,8 @@ function gameEngine() {
       score.textContent = scoreCompteur;
       if (scoreCompteur === 27) {
         reponseTextResult.textContent = "Bravo, vous avez gagné";
+        scoreCompteur = 0;
+        errorNumber = 0;
       }
       setTimeout(() => {
         fetch("./assets/json/liste.json")
@@ -175,8 +195,15 @@ function gameEngine() {
           .then((data) => {
             for (i = 0; i < data.length; i++) {
               if (data[i].language === reponseText.innerHTML.toLowerCase()) {
-                overlayDesc.innerHTML = `<h1>${data[i].language}</h1>  <img src=${data[i].img} alt="logo">
-      <p>${data[i].desc}</p> <a target="_blank" href='${data[i].url}'>wiki</a>`;
+                overlayDesc.innerHTML = ` <div><img src=${data[i].img} alt="logo"></div>
+              <div><div><img class="closeModale" src="assets/img/closeCircle.svg"></div> <h1>${data[i].language}</h1> <p>${data[i].desc}</p> <a target="_blank" href='${data[i].url}'>wikipedia</a></div>`;
+                overlayDesc.classList.remove("displayNone");
+                overlayDesc.classList.add("flex");
+                document
+                  .querySelector(".closeModale")
+                  .addEventListener("click", () => {
+                    overlayDescNone();
+                  });
               }
             }
             reponseDelete();
@@ -188,6 +215,7 @@ function gameEngine() {
       e.preventDefault();
       reponseDelete();
       reponseNone();
+      overlayDescNone();
       return;
     }
     if (
@@ -204,6 +232,7 @@ function gameEngine() {
       }
       if (errorNumber === 3) {
         error[2].style.color = "#0aeff7";
+        reponseTextResult.textContent = "Vous avez perdu";
       }
       setTimeout(() => {
         reponseDelete();
@@ -213,6 +242,7 @@ function gameEngine() {
     if (e.key === "Escape") {
       reponseNone();
       reponseDelete();
+      overlayDescNone();
     }
     if (e.key === "Backspace") {
       reponseText.textContent = reponseText.textContent.slice(e, -1);
