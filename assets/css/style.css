@@ -172,6 +172,8 @@ z-index: 3;
 .containerTransi{
     height: 100vh;
     width: 100vw;
+    transform: scale(1.02);
+    overflow: hidden;
 }
 .containerTransi > img{
     height:99vh;
@@ -368,6 +370,7 @@ z-index: 3;
     font-family: 'Gotham Black', sans-serif;
     font-size: 8px;
     cursor: pointer;
+    z-index: 3;
 }
 
 .logoJeu{
@@ -375,6 +378,7 @@ z-index: 3;
     top: 80px;
     right: -31px;
     transform: translate(-50%,-50%);
+    z-index: 5;
 }
 .logoJeu > img{
     width: 150px;
@@ -431,7 +435,7 @@ z-index: 3;
     letter-spacing: 5px;
 }
 .overlayReponseTrouvee > div:nth-child(1) {
-    width: 15%;
+    width: 20%;
    }
 .overlayReponseTrouvee > div:nth-child(1) > img:nth-child(1) {
     display: block;

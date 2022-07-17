@@ -87,10 +87,14 @@ const reponseTextResult = document.querySelector(
 const dejaTrouveBtn = document.querySelector(".langagesFound");
 const dejaTrouveDiv = document.querySelector(".overlayReponseTrouvee");
 
+function dejaTrouveClose() {
+  dejaTrouveDiv.classList.add("displayNone");
+  dejaTrouveDiv.classList.remove("flex");
+}
+
 function closeTrouve() {
   document.querySelector(".closeTrouve").addEventListener("click", () => {
-    dejaTrouveDiv.classList.add("displayNone");
-    dejaTrouveDiv.classList.remove("flex");
+    dejaTrouveClose();
   });
 }
 closeTrouve();
@@ -157,6 +161,7 @@ function gameEngine() {
     ) {
       reponseShow();
       reponseText.textContent += e.key.toUpperCase();
+      dejaTrouveClose();
       overlayDescNone();
     }
     if (e.key === "Enter" && langMaj.includes(reponseText.textContent)) {
@@ -181,13 +186,14 @@ function gameEngine() {
         }, 1500);
         return;
       }
-      reponseTextResult.textContent = "✌️ bonne réponse ✌️";
+      reponseTextResult.textContent = "bonne réponse";
       scoreCompteur++;
       score.textContent = scoreCompteur;
       if (scoreCompteur === 27) {
         reponseTextResult.textContent = "Bravo, vous avez gagné";
         scoreCompteur = 0;
         errorNumber = 0;
+        localStorage.clear("scoreCompteur", scoreCompteur);
       }
       setTimeout(() => {
         fetch("./assets/json/liste.json")
@@ -211,7 +217,12 @@ function gameEngine() {
           });
       }, 1500);
     }
-    if (e.key === "Enter" && reponseText.textContent === "") {
+    if (
+      (e.key === "Enter" && reponseText.textContent === "") ||
+      reponseTextResult.textContent === "Vous avez déjà trouvé ce langage" ||
+      reponseTextResult.textContent === "mauvaise réponse" ||
+      reponseTextResult.textContent === "Vous avez perdu"
+    ) {
       e.preventDefault();
       reponseDelete();
       reponseNone();
@@ -233,6 +244,7 @@ function gameEngine() {
       if (errorNumber === 3) {
         error[2].style.color = "#0aeff7";
         reponseTextResult.textContent = "Vous avez perdu";
+        localStorage.clear();
       }
       setTimeout(() => {
         reponseDelete();
@@ -247,7 +259,14 @@ function gameEngine() {
     if (e.key === "Backspace") {
       reponseText.textContent = reponseText.textContent.slice(e, -1);
     }
+    saveScore();
   });
+}
+
+function saveScore() {
+  localStorage.setItem("scoreCompteur", scoreCompteur);
+  localStorage.setItem("errorNumber", errorNumber);
+  localStorage.setItem("arrayReponse", arrayReponse);
 }
 
 // ***** barre zoom *******************
@@ -264,4 +283,37 @@ remplirZoom();
 dejaTrouveBtn.addEventListener("click", () => {
   dejaTrouveDiv.classList.toggle("displayNone");
   dejaTrouveDiv.classList.toggle("flex");
+});
+dejaTrouveDiv.addEventListener("click", () => {
+  dejaTrouveDiv.classList.add("displayNone");
+  dejaTrouveDiv.classList.remove("flex");
+});
+
+// fermeture modalDescription
+overlayDesc.addEventListener("click", () => {
+  overlayDescNone();
+});
+
+// reset avec les données stockés dans saveScore
+function continuer() {
+  scoreCompteur = localStorage.getItem(scoreCompteur);
+  errorNumber = localStorage.getItem(errorNumber);
+  // arrayReponse = localStorage.getItem(arrayReponse);
+  score.textContent = localStorage.getItem("scoreCompteur", scoreCompteur);
+  if (errorNumber === 1) {
+    error[0].style.color = "#0aeff7";
+  }
+  if (errorNumber === 2) {
+    error[1].style.color = "#0aeff7";
+  }
+}
+
+const continueBtn = document.querySelector(".continueBtn");
+continueBtn.addEventListener("click", () => {
+  home.classList.remove("flex");
+  home.classList.add("displayNone");
+  body.classList.remove("bgAccueil");
+  jeu.classList.remove("displayNone");
+  continuer();
+  gameEngine();
 });

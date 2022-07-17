@@ -104,13 +104,13 @@
   {
     "language": "kotlin",
     "desc": "Kotlin est un langage de programmation orienté objet et fonctionnel, avec un typage statique qui permet de compiler pour la machine virtuelle Java, JavaScript, et vers plusieurs plateformes en natif (grâce à LLVM). Son développement provient principalement d'une équipe de programmeurs chez JetBrains basée à Saint-Pétersbourg en Russie (son nom vient de l'île de Kotline, près de St. Pétersbourg).\n\n    Google annonce pendant la conférence Google I/O 2017 que Kotlin devient le second langage de programmation officiellement pris en charge par Android3 après Java. Le 8 mai 2019, toujours lors de la conférence Google I/O, Kotlin devient officiellement le langage de programmation voulu et recommandé par le géant américain Google pour le développement des applications Android4.\n    \n    Pivotal Software annonce le 4 janvier 2017 le support officiel de Kotlin sur la cinquième version du Framework Spring5.",
-    "img": "https://upload.wikimedia.org/wikipedia/commons/1/11/Kotlin_logo_2021.svg",
+    "img": "https://upload.wikimedia.org/wikipedia/commons/0/06/Kotlin_Icon.svg",
     "url": "https://fr.wikipedia.org/wiki/Kotlin_(langage)"
   },
   {
     "language": "r",
     "desc": "R est un langage de programmation et un logiciel libre destiné aux statistiques et à la science des données soutenu par la R Foundation for Statistical Computing. Il fait partie de la liste des paquets GNU3 et est écrit en C, Fortran et R.\n\n    GNU R est un logiciel libre distribué selon les termes de la licence GNU GPL. Le site officiel fournit des binaires pour Linux, Windows et macOS, et des portages existent pour d'autres systèmes d'exploitation.\n    \n    Le langage R est largement utilisé par les statisticiens, les data miners, data scientists pour le développement de logiciels statistiques et l'analyse des données.\n    \n    En janvier 2022, R est classé 12e dans l'index TIOBE qui mesure la popularité des langages de programmation4.",
-    "img": "https://upload.wikimedia.org/wikipedia/commons/1/1b/R_logo.svg",
+    "img": "https://www.vectorlogo.zone/logos/r-project/r-project-official.svg",
     "url": "https://fr.wikipedia.org/wiki/R_(langage)"
   },
   {
