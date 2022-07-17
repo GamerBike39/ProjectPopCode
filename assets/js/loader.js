@@ -163,6 +163,7 @@ function gameEngine() {
       reponseText.textContent += e.key.toUpperCase();
       dejaTrouveClose();
       overlayDescNone();
+      overlayDesc.innerHTML = "";
     }
     if (e.key === "Enter" && langMaj.includes(reponseText.textContent)) {
       arrayReponse.push(reponseText.textContent);
@@ -201,7 +202,7 @@ function gameEngine() {
           .then((data) => {
             for (i = 0; i < data.length; i++) {
               if (data[i].language === reponseText.innerHTML.toLowerCase()) {
-                overlayDesc.innerHTML = ` <div><img src=${data[i].img} alt="logo"></div>
+                overlayDesc.innerHTML += ` <div><img src=${data[i].img} alt="logo"></div>
               <div><div><img class="closeModale" src="assets/img/closeCircle.svg"></div> <h1>${data[i].language}</h1> <p>${data[i].desc}</p> <a target="_blank" href='${data[i].url}'>wikipedia</a></div>`;
                 overlayDesc.classList.remove("displayNone");
                 overlayDesc.classList.add("flex");
