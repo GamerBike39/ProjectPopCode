@@ -26,7 +26,7 @@ setTimeout(() => {
   home.classList.add("flex");
 }, 3800);
 
-let beginGame = document.querySelector(".beginGame");
+const beginGame = document.querySelector(".beginGame");
 beginGame.addEventListener("click", () => {
   home.classList.remove("flex");
   home.classList.add("displayNone");
@@ -35,9 +35,10 @@ beginGame.addEventListener("click", () => {
   gameEngine();
 });
 
-let responsivePop = document.querySelector(".responsivePop");
+const responsivePop = document.querySelector(".responsivePop");
 new ResizeObserver((entries) => {
   if (entries[0].contentRect.width <= 900) {
+    console.log("entries[0]");
     responsivePop.classList.remove("displayNone");
     responsivePop.classList.add("flex");
   } else {
@@ -77,7 +78,7 @@ const lang = [
   "Clojure",
   "WebAssembly",
 ];
-let langMaj = lang.map((e) => {
+const langMaj = lang.map((e) => {
   return e.toUpperCase();
 });
 
@@ -169,7 +170,6 @@ function gameEngine() {
       reponseText.textContent += e.key.toUpperCase();
       dejaTrouveClose();
       overlayDescNone();
-      // overlayDesc.innerHTML = "";
     }
     if (e.key === "Enter" && langMaj.includes(reponseText.textContent)) {
       arrayReponse.push(reponseText.textContent);
@@ -180,7 +180,8 @@ function gameEngine() {
       closeTrouve();
       if (
         unique.length !== arrayReponse.length &&
-        langMaj.includes(reponseText.textContent)
+        langMaj.includes(reponseText.textContent) &&
+        dejaTrouveDiv.innerHTML.includes(reponseText.textContent)
       ) {
         arrayReponse.push(reponseText.textContent);
         arrayReponse.pop();
@@ -200,7 +201,7 @@ function gameEngine() {
         reponseTextResult.textContent = "Bravo, vous avez gagné";
         scoreCompteur = 0;
         errorNumber = 0;
-        localStorage.clear("scoreCompteur", scoreCompteur);
+        localStorage.clear();
       }
       setTimeout(() => {
         fetch("./assets/json/liste.json")
@@ -272,7 +273,6 @@ function gameEngine() {
       reponseText.textContent = reponseText.textContent.slice(e, -1);
     }
     saveScore();
-    return;
   });
 }
 
@@ -307,29 +307,33 @@ dejaTrouveDiv.addEventListener("click", () => {
 //   overlayDescNone();
 // });
 
-// reset avec les données stockés dans saveScore
+// continuer avec les données stockés dans saveScore
 function continuer() {
-  scoreCompteur = localStorage.getItem(scoreCompteur);
-  errorNumber = localStorage.getItem(errorNumber);
-  // arrayReponse = localStorage.getItem(arrayReponse);
+  scoreCompteur = localStorage.getItem("scoreCompteur");
+  errorNumber = localStorage.getItem("errorNumber");
+  arrayReponse.push(localStorage.getItem("arrayReponse"));
+  dejaTrouveDiv.textContent = localStorage.getItem("arrayReponse");
+  // if (localStorage.getItem("arrayReponse") !== null) {
+  //   unique.push(localStorage.getItem("arrayReponse"));
+  // }
   score.textContent = localStorage.getItem("scoreCompteur", scoreCompteur);
-  if (errorNumber === 1) {
+  if (localStorage.getItem("errorNumber") === "1") {
     error[0].style.color = "#0aeff7";
   }
-  if (errorNumber === 2) {
+  if (localStorage.getItem("errorNumber") === "2") {
     error[1].style.color = "#0aeff7";
   }
 }
 
-const continueBtn = document.querySelector(".continueBtn");
-continueBtn.addEventListener("click", () => {
-  home.classList.remove("flex");
-  home.classList.add("displayNone");
-  body.classList.remove("bgAccueil");
-  jeu.classList.remove("displayNone");
-  continuer();
-  gameEngine();
-});
+// const continueBtn = document.querySelector(".continueBtn");
+// continueBtn.addEventListener("click", () => {
+//   home.classList.remove("flex");
+//   home.classList.add("displayNone");
+//   body.classList.remove("bgAccueil");
+//   jeu.classList.remove("displayNone");
+//   continuer();
+//   gameEngine();
+// });
 
 function closeTimer() {
   if (btnCheck.childNodes[1].checked === true) {

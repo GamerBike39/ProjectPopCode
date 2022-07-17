@@ -42,7 +42,7 @@ body {
     margin: 0;
     padding: 0;
     font-family: 'Poppins', sans-serif;
-    position: relative;
+    /* position: relative; */
     /* overflow: hidden; */
 }
 
@@ -172,25 +172,24 @@ z-index: 3;
 .containerTransi{
     height: 100vh;
     width: 100vw;
-    transform: scale(1.02);
     overflow: hidden;
 }
 .containerTransi > img{
-    height:99vh;
+    height:100vh;
     width: 100vw;
+    overflow: hidden;
 }
 
 
 /* ******************Page d'accueil*************** */
 .containerAccueil{
     flex-direction: column;
-    height: 100vh;
+    min-height: 100vh;
     font-family: 'Gotham Black', sans-serif;
     align-items: center;
 }
 .logoAccueil{
-    width: 588px;
-    height: 447px;
+    height: 48.63982589771491vh;
 }
 
 .contenuAcceuil{
@@ -205,7 +204,7 @@ z-index: 3;
     font-weight: 500;
     font-size: 13px;
     letter-spacing: 5px;
-    line-height: 14px;
+    padding-bottom: 50px;
     margin-top: 50px;
     animation: neon 1.5s ease-in-out 0.5s infinite alternate;
 }
@@ -307,8 +306,8 @@ z-index: 3;
 .sectionZoom{
     flex-direction: column;
     position: fixed;
-    bottom: 20px;
-    left: 80px;
+    bottom: 15px;
+    left: 56px;
 }
 
 .sectionZoom p:nth-child(1){
