@@ -1,13 +1,17 @@
 VanillaCounter();
 
-let loader = document.querySelector(".containerLoader");
-let transi = document.querySelector(".containerTransi");
-let home = document.querySelector(".containerAccueil");
-let jeu = document.querySelector(".containerJeu");
-let body = document.querySelector(".bg");
-let img = document.querySelector(".chambre");
-let traitZoom = document.querySelector(".traitZoomB");
-let overlayDesc = document.querySelector(".overlayDesc");
+const loader = document.querySelector(".containerLoader");
+const transi = document.querySelector(".containerTransi");
+const home = document.querySelector(".containerAccueil");
+const jeu = document.querySelector(".containerJeu");
+const body = document.querySelector(".bg");
+const img = document.querySelector(".chambre");
+const traitZoom = document.querySelector(".traitZoomB");
+const overlayDesc = document.querySelector(".overlayDesc");
+const overlayDescContainer = document.querySelector(".overlayDescContainer");
+const btnCheck = document.querySelector(
+  ".overlayDescContainer > div:nth-child(1)"
+);
 
 setTimeout(() => {
   loader.classList.remove("dfjcic");
@@ -123,6 +127,8 @@ function reponseDelete() {
 function overlayDescNone() {
   overlayDesc.classList.add("displayNone");
   overlayDesc.classList.remove("flex");
+  overlayDescContainer.classList.add("displayNone");
+  overlayDescContainer.classList.remove("flex");
 }
 
 function gameEngine() {
@@ -163,7 +169,7 @@ function gameEngine() {
       reponseText.textContent += e.key.toUpperCase();
       dejaTrouveClose();
       overlayDescNone();
-      overlayDesc.innerHTML = "";
+      // overlayDesc.innerHTML = "";
     }
     if (e.key === "Enter" && langMaj.includes(reponseText.textContent)) {
       arrayReponse.push(reponseText.textContent);
@@ -202,10 +208,13 @@ function gameEngine() {
           .then((data) => {
             for (i = 0; i < data.length; i++) {
               if (data[i].language === reponseText.innerHTML.toLowerCase()) {
-                overlayDesc.innerHTML += ` <div><img src=${data[i].img} alt="logo"></div>
+                overlayDesc.innerHTML = ` <div><img src=${data[i].img} alt="logo"></div>
               <div><div><img class="closeModale" src="assets/img/closeCircle.svg"></div> <h1>${data[i].language}</h1> <p>${data[i].desc}</p> <a target="_blank" href='${data[i].url}'>wikipedia</a></div>`;
+                overlayDescContainer.classList.remove("displayNone");
+                overlayDescContainer.classList.add("flex");
                 overlayDesc.classList.remove("displayNone");
                 overlayDesc.classList.add("flex");
+                closeTimer();
                 document
                   .querySelector(".closeModale")
                   .addEventListener("click", () => {
@@ -291,9 +300,9 @@ dejaTrouveDiv.addEventListener("click", () => {
 });
 
 // fermeture modalDescription
-overlayDesc.addEventListener("click", () => {
-  overlayDescNone();
-});
+// overlayDesc.addEventListener("click", () => {
+//   overlayDescNone();
+// });
 
 // reset avec les données stockés dans saveScore
 function continuer() {
@@ -318,3 +327,11 @@ continueBtn.addEventListener("click", () => {
   continuer();
   gameEngine();
 });
+
+function closeTimer() {
+  if (btnCheck.childNodes[1].checked === true) {
+    setTimeout(() => {
+      overlayDescNone();
+    }, 2000);
+  }
+}

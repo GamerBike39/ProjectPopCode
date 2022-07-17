@@ -442,10 +442,8 @@ z-index: 3;
     margin-left: auto;
     cursor: pointer;
    }
-   
 
-   
-
+  
 .clignement{
     position: relative;
 }
@@ -485,7 +483,10 @@ animation: bouge  1.2s ease-in-out ;
 @keyframes bouge {
   0%{-webkit-transform:translate3d(-100%,0,0);transform:translate3d(-100%,0,0);visibility:visible}to{-webkit-transform:translateZ(0);transform:translateZ(0)}}@keyframes slideInLeft{0%{-webkit-transform:translate3d(-100%,0,0);transform:translate3d(-100%,0,0);visibility:visible}to{-webkit-transform:translateZ(0);transform:translateZ(0)}}.animate__slideInLeft{-webkit-animation-name:slideInLeft;animation-name:slideInLeft}
     
-
+.overlayDescContainer {
+    height: 100vh;
+   }
+   
 .overlayDesc{
     position: absolute;
     background: #0c0b0ba6;
@@ -508,6 +509,14 @@ animation: bouge  1.2s ease-in-out ;
        }
 .overlayDesc > div:nth-child(1) > img:nth-child(1) {
         width: 20vw;
+       }
+
+.overlayDescContainer > div:nth-child(1) {
+        position: absolute;
+        bottom: 10%;
+        right: 14%;
+        z-index: 2;
+        color: white;
        }
       
 .closeModale{
