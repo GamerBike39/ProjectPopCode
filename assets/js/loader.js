@@ -190,7 +190,7 @@ function gameEngine() {
         setTimeout(() => {
           reponseDelete();
           reponseNone();
-        }, 1500);
+        }, 1000);
         return;
       }
       reponseTextResult.textContent = "bonne réponse";
@@ -226,10 +226,11 @@ function gameEngine() {
             reponseNone();
           });
       }, 1500);
+      return;
     }
     if (
       (e.key === "Enter" && reponseText.textContent === "") ||
-      reponseTextResult.textContent === "Vous avez déjà trouvé ce langage" ||
+      reponseText.textContent === "Vous avez déjà trouvé ce langage" ||
       reponseTextResult.textContent === "mauvaise réponse" ||
       reponseTextResult.textContent === "Vous avez perdu"
     ) {
@@ -260,6 +261,7 @@ function gameEngine() {
         reponseDelete();
         reponseNone();
       }, 2000);
+      return;
     }
     if (e.key === "Escape") {
       reponseNone();
@@ -270,6 +272,7 @@ function gameEngine() {
       reponseText.textContent = reponseText.textContent.slice(e, -1);
     }
     saveScore();
+    return;
   });
 }
 
@@ -335,3 +338,7 @@ function closeTimer() {
     }, 2000);
   }
 }
+
+btnCheck.addEventListener("click", () => {
+  overlayDescNone();
+});

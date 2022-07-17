@@ -231,7 +231,7 @@ z-index: 3;
     margin :0;
     font-weight: 500;
     letter-spacing: -11px;
-    animation: neonN 0.8s ease-in-out 2.5s;
+    animation: neonN 0.8s ease-in-out 2.2s;
 }
 
 @keyframes neonN {
