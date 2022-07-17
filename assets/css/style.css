@@ -185,7 +185,6 @@ z-index: 3;
     height: 100vh;
     font-family: 'Gotham Black', sans-serif;
     align-items: center;
-    margin-top: 25px;
 }
 .logoAccueil{
     width: 588px;
@@ -437,6 +436,7 @@ z-index: 3;
 .overlayReponseTrouvee > div:nth-child(1) > img:nth-child(1) {
     display: block;
     margin-left: auto;
+    cursor: pointer;
    }
    
 
