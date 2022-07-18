@@ -245,6 +245,7 @@ function gameEngine() {
                   .addEventListener("click", () => {
                     overlayDescNone();
                   });
+                break;
               }
             }
             reponseDelete();
