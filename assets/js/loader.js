@@ -106,6 +106,7 @@ const reponseTextResult = document.querySelector(
   ".overlayReponse p:nth-child(3)"
 );
 const dejaTrouveBtn = document.querySelector(".langagesFound");
+const dejaTrouveP = document.querySelector(".overlayReponseTrouvee > span");
 const dejaTrouveDiv = document.querySelector(".overlayReponseTrouvee");
 
 function dejaTrouveClose() {
@@ -191,16 +192,19 @@ function gameEngine() {
     if (e.key === "Enter" && langMaj.includes(reponseText.textContent)) {
       arrayReponse.push(reponseText.textContent);
       let unique = [...new Set(arrayReponse)];
-
-      dejaTrouveDiv.innerHTML = `<div><img class="closeTrouve" src="assets/img/closeCircle.svg"><div> <h4>Déja trouvés</h4> <p class="lFound">${unique.join(
-        `<p class="lFound">`
-      )}</p> </div></div>`;
-
+      dejaTrouveP.innerHTML = `<p>${unique.join(`<p>`)}</p>`;
+      // for (i = 0; i < unique.length; i++) {
+      //   const p = document.createElement("p");
+      //   p.textContent = unique[i];
+      //   dejaTrouveDiv.appendChild(p);
+      //   break;
+      // }
       closeTrouve();
+
       if (
         unique.length !== arrayReponse.length &&
         langMaj.includes(reponseText.textContent) &&
-        dejaTrouveDiv.innerHTML.includes(reponseText.textContent)
+        dejaTrouveP.innerHTML.includes(reponseText.textContent)
       ) {
         arrayReponse.push(reponseText.textContent);
         arrayReponse.pop();
@@ -292,6 +296,7 @@ function gameEngine() {
       reponseText.textContent = reponseText.textContent.slice(e, -1);
     }
     saveScore();
+    descTrouve();
   });
 }
 
@@ -316,10 +321,10 @@ dejaTrouveBtn.addEventListener("click", () => {
   dejaTrouveDiv.classList.toggle("displayNone");
   dejaTrouveDiv.classList.toggle("flex");
 });
-dejaTrouveDiv.addEventListener("click", () => {
-  dejaTrouveDiv.classList.add("displayNone");
-  dejaTrouveDiv.classList.remove("flex");
-});
+// dejaTrouveDiv.addEventListener("click", () => {
+//   dejaTrouveDiv.classList.add("displayNone");
+//   dejaTrouveDiv.classList.remove("flex");
+// });
 
 // fermeture modalDescription
 // overlayDesc.addEventListener("click", () => {
@@ -366,9 +371,38 @@ btnCheck.addEventListener("click", () => {
   overlayDescNone();
 });
 
-const dejaTrouveLanguage = document.querySelectorAll(
-  ".overlayReponseTrouvee > p"
-);
+// addEventListener on each dejaTrouveP.childNodes[i].textContent to add it to the array
+function descTrouve() {
+  for (let i = 0; i < dejaTrouveP.childNodes.length; i++) {
+    dejaTrouveP.childNodes[i].addEventListener("click", () => {
+      console.log("ok");
+      console.log(dejaTrouveP.childNodes[i].textContent);
+      fetch("./assets/json/liste.json")
+        .then((response) => response.json())
+        .then((data) => {
+          for (let z = 0; z < data.length; z++) {
+            if (
+              data[z].language ===
+              dejaTrouveP.childNodes[i].textContent.toLowerCase()
+            ) {
+              overlayDesc.innerHTML = ` <div><img src=${data[z].img} alt="logo"></div>
+          <div><div><img class="closeModale" src="assets/img/closeCircle.svg"></div> <h1>${data[z].language}</h1> <p>${data[z].desc}</p> <a target="_blank" href='${data[z].url}'>wikipedia</a></div>`;
+              overlayDescContainer.classList.remove("displayNone");
+              overlayDescContainer.classList.add("flex");
+              overlayDesc.classList.remove("displayNone");
+              overlayDesc.classList.add("flex");
+              closeTimer();
+              document
+                .querySelector(".closeModale")
+                .addEventListener("click", () => {
+                  overlayDescNone();
+                });
+            }
+          }
+        });
+    });
+  }
+}
 
 // ouverture modal dans langages trouvées
 // function ouvertureModale() {
