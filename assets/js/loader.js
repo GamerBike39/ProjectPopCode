@@ -149,6 +149,11 @@ function overlayDescNone() {
   overlayDescContainer.classList.remove("flex");
 }
 
+if (reponseTextResult.textContent === "Vous avez perdu") {
+  window.removeEventListener("keydown", gameEngine);
+  localStorage.clear();
+}
+
 function gameEngine() {
   window.addEventListener("keydown", (e) => {
     if (
@@ -187,19 +192,12 @@ function gameEngine() {
       reponseText.textContent += e.key.toUpperCase();
       dejaTrouveClose();
       overlayDescNone();
-
       errorPrevent();
     }
     if (e.key === "Enter" && langMaj.includes(reponseText.textContent)) {
       arrayReponse.push(reponseText.textContent);
       let unique = [...new Set(arrayReponse)];
       dejaTrouveP.innerHTML = `<p>${unique.join(`<p>`)}</p>`;
-      // for (i = 0; i < unique.length; i++) {
-      //   const p = document.createElement("p");
-      //   p.textContent = unique[i];
-      //   dejaTrouveDiv.appendChild(p);
-      //   break;
-      // }
       closeTrouve();
 
       if (
@@ -299,7 +297,6 @@ function gameEngine() {
       reponseText.textContent = reponseText.textContent.slice(e, -1);
     }
     saveScore();
-    // descTrouve();
   });
 }
 
@@ -398,3 +395,10 @@ function descTrouve() {
     });
   }
 }
+
+// if (errorNumber === 3) {
+//   error[2].style.color = "#0aeff7";
+//   reponseTextResult.textContent = "Vous avez perdu";
+//   window.removeEventListener("keydown", gameEngine);
+//   localStorage.clear();
+// }
