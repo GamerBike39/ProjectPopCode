@@ -187,6 +187,7 @@ function gameEngine() {
       reponseText.textContent += e.key.toUpperCase();
       dejaTrouveClose();
       overlayDescNone();
+
       errorPrevent();
     }
     if (e.key === "Enter" && langMaj.includes(reponseText.textContent)) {
@@ -371,7 +372,8 @@ btnCheck.addEventListener("click", () => {
   overlayDescNone();
 });
 
-// addEventListener on each dejaTrouveP.childNodes[i].textContent to add it to the array
+const dejaTrouveDesc = document.querySelector(".overlayReponseTrouvee > desc");
+//  dejaTrouveP.childNodes[i].textContent
 function descTrouve() {
   for (let i = 0; i < dejaTrouveP.childNodes.length; i++) {
     dejaTrouveP.childNodes[i].addEventListener("click", () => {
@@ -385,44 +387,11 @@ function descTrouve() {
               data[z].language ===
               dejaTrouveP.childNodes[i].textContent.toLowerCase()
             ) {
-              overlayDesc.innerHTML = ` <div><img src=${data[z].img} alt="logo"></div>
+              dejaTrouveDesc.innerHTML = ` <div><img src=${data[z].img} alt="logo"></div>
           <div><div><img class="closeModale" src="assets/img/closeCircle.svg"></div> <h1>${data[z].language}</h1> <p>${data[z].desc}</p> <a target="_blank" href='${data[z].url}'>wikipedia</a></div>`;
-              overlayDescContainer.classList.remove("displayNone");
-              overlayDescContainer.classList.add("flex");
-              overlayDesc.classList.remove("displayNone");
-              overlayDesc.classList.add("flex");
-              closeTimer();
-              document
-                .querySelector(".closeModale")
-                .addEventListener("click", () => {
-                  overlayDescNone();
-                });
             }
           }
         });
     });
   }
 }
-
-// ouverture modal dans langages trouvées
-// function ouvertureModale() {
-//   fetch("./assets/json/liste.json")
-//     .then((reponse) => reponse.json()) // on récupère les données
-//     .then((data) => {
-//       for (i = 0; i < data.length; i++) {
-//         if (data[i].language === reponseText.innerHTML.toLowerCase()) {
-//           overlayDesc.innerHTML = ` <div><img src=${data[i].img} alt="logo"></div>
-//       <div><div><img class="closeModale" src="assets/img/closeCircle.svg"></div> <h1>${data[i].language}</h1> <p>${data[i].desc}</p> <a target="_blank" href='${data[i].url}'>wikipedia</a></div>`;
-//           overlayDescContainer.classList.remove("displayNone");
-//           overlayDescContainer.classList.add("flex");
-//           overlayDesc.classList.remove("displayNone");
-//           overlayDesc.classList.add("flex");
-//           document
-//             .querySelector(".closeModale")
-//             .addEventListener("click", () => {
-//               overlayDescNone();
-//             });
-//         }
-//       }
-//     });
-// }
