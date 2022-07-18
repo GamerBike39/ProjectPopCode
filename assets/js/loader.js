@@ -286,6 +286,7 @@ function gameEngine() {
       setTimeout(() => {
         reponseDelete();
         reponseNone();
+        overlayDescNone();
       }, 2000);
       return;
     }
@@ -298,7 +299,7 @@ function gameEngine() {
       reponseText.textContent = reponseText.textContent.slice(e, -1);
     }
     saveScore();
-    descTrouve();
+    // descTrouve();
   });
 }
 
@@ -322,6 +323,7 @@ remplirZoom();
 dejaTrouveBtn.addEventListener("click", () => {
   dejaTrouveDiv.classList.toggle("displayNone");
   dejaTrouveDiv.classList.toggle("flex");
+  descTrouve();
 });
 // dejaTrouveDiv.addEventListener("click", () => {
 //   dejaTrouveDiv.classList.add("displayNone");
@@ -389,7 +391,7 @@ function descTrouve() {
               dejaTrouveP.childNodes[i].textContent.toLowerCase()
             ) {
               dejaTrouveDesc.innerHTML = ` <div><img src=${data[z].img} alt="logo"></div>
-          <div><div><img class="closeModale" src="assets/img/closeCircle.svg"></div> <h1>${data[z].language}</h1> <p>${data[z].desc}</p> <a target="_blank" href='${data[z].url}'>wikipedia</a></div>`;
+          <div><h1>${data[z].language}</h1> <p>${data[z].desc}</p> <a target="_blank" href='${data[z].url}'>wikipedia</a></div>`;
             }
           }
         });
