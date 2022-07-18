@@ -82,6 +82,22 @@ const langMaj = lang.map((e) => {
   return e.toUpperCase();
 });
 
+function errorPrevent() {
+  if (reponseText.textContent === "JS") {
+    reponseText.textContent = "JAVASCRIPT";
+    console.log("ok");
+  }
+  if (reponseText.textContent === "VISUAL BASIC") {
+    reponseText.textContent = "VBA";
+  }
+  if (reponseText.textContent === "OBJ-C") {
+    reponseText.textContent = "OBJECTIVE-C";
+  }
+  if (reponseText.textContent === "TS") {
+    reponseText.textContent = "TYPESCRIPT";
+  }
+}
+
 const arrayReponse = [];
 
 const reponse = document.querySelector(".overlayReponse");
@@ -170,13 +186,16 @@ function gameEngine() {
       reponseText.textContent += e.key.toUpperCase();
       dejaTrouveClose();
       overlayDescNone();
+      errorPrevent();
     }
     if (e.key === "Enter" && langMaj.includes(reponseText.textContent)) {
       arrayReponse.push(reponseText.textContent);
       let unique = [...new Set(arrayReponse)];
-      dejaTrouveDiv.innerHTML = `<div><img class="closeTrouve" src="assets/img/closeCircle.svg"><div> <h4>Déja trouvés</h4> <p>${unique.join(
-        "<br>"
+
+      dejaTrouveDiv.innerHTML = `<div><img class="closeTrouve" src="assets/img/closeCircle.svg"><div> <h4>Déja trouvés</h4> <p class="lFound">${unique.join(
+        `<p class="lFound">`
       )}</p> </div></div>`;
+
       closeTrouve();
       if (
         unique.length !== arrayReponse.length &&
@@ -346,3 +365,30 @@ function closeTimer() {
 btnCheck.addEventListener("click", () => {
   overlayDescNone();
 });
+
+const dejaTrouveLanguage = document.querySelectorAll(
+  ".overlayReponseTrouvee > p"
+);
+
+// ouverture modal dans langages trouvées
+// function ouvertureModale() {
+//   fetch("./assets/json/liste.json")
+//     .then((reponse) => reponse.json()) // on récupère les données
+//     .then((data) => {
+//       for (i = 0; i < data.length; i++) {
+//         if (data[i].language === reponseText.innerHTML.toLowerCase()) {
+//           overlayDesc.innerHTML = ` <div><img src=${data[i].img} alt="logo"></div>
+//       <div><div><img class="closeModale" src="assets/img/closeCircle.svg"></div> <h1>${data[i].language}</h1> <p>${data[i].desc}</p> <a target="_blank" href='${data[i].url}'>wikipedia</a></div>`;
+//           overlayDescContainer.classList.remove("displayNone");
+//           overlayDescContainer.classList.add("flex");
+//           overlayDesc.classList.remove("displayNone");
+//           overlayDesc.classList.add("flex");
+//           document
+//             .querySelector(".closeModale")
+//             .addEventListener("click", () => {
+//               overlayDescNone();
+//             });
+//         }
+//       }
+//     });
+// }
