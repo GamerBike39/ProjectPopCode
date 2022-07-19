@@ -106,7 +106,9 @@ const reponseTextResult = document.querySelector(
   ".overlayReponse p:nth-child(3)"
 );
 const dejaTrouveBtn = document.querySelector(".langagesFound");
-const dejaTrouveP = document.querySelector(".overlayReponseTrouvee > span");
+const dejaTrouveP = document.querySelector(
+  ".overlayReponseTrouvee > div > span"
+);
 const dejaTrouveDiv = document.querySelector(".overlayReponseTrouvee");
 
 function dejaTrouveClose() {
@@ -230,9 +232,9 @@ function gameEngine() {
           .then((reponse) => reponse.json())
           .then((data) => {
             for (i = 0; i < data.length; i++) {
-              if (data[i].language === reponseText.innerHTML.toLowerCase()) {
-                overlayDesc.innerHTML = ` <div><img src=${data[i].img} alt="logo"></div>
-              <div><div><img class="closeModale" src="assets/img/closeCircle.svg"></div> <h1>${data[i].language}</h1> <p>${data[i].desc}</p> <a target="_blank" href='${data[i].url}'>wikipedia</a></div>`;
+              if (data[i].language === reponseText.textContent.toLowerCase()) {
+                overlayDesc.innerHTML = ` <div><h1>${data[i].language}</h1><img src=${data[i].img} alt="logo"></div>
+              <div><div><img class="closeModale" src="assets/img/closeBtn.svg"></div> <p>${data[i].desc}</p><a target="_blank" href='${data[i].url}'>wikipedia</a></div>`;
                 overlayDescContainer.classList.remove("displayNone");
                 overlayDescContainer.classList.add("flex");
                 overlayDesc.classList.remove("displayNone");
@@ -320,6 +322,7 @@ remplirZoom();
 dejaTrouveBtn.addEventListener("click", () => {
   dejaTrouveDiv.classList.toggle("displayNone");
   dejaTrouveDiv.classList.toggle("flex");
+  dejaTrouveDesc.innerHTML = "";
   descTrouve();
 });
 // dejaTrouveDiv.addEventListener("click", () => {
@@ -361,16 +364,15 @@ function continuer() {
 // });
 
 function closeTimer() {
-  if (btnCheck.childNodes[1].checked === true) {
-    setTimeout(() => {
-      overlayDescNone();
-    }, 2000);
+  if (btnCheck.childNodes[3].checked === true) {
+    overlayDescNone();
   }
 }
+closeTimer();
 
-btnCheck.addEventListener("click", () => {
-  overlayDescNone();
-});
+// btnCheck.addEventListener("click", () => {
+//   overlayDescNone();
+// });
 
 const dejaTrouveDesc = document.querySelector(".overlayReponseTrouvee > desc");
 //  dejaTrouveP.childNodes[i].textContent
