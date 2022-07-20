@@ -338,6 +338,7 @@ function remplirZoom() {
   img.addEventListener("wheel", function (e) {
     for (i = 0; i < img.dataset.scale; i++) {
       traitZoom.style.height = `${i}0%`;
+      e.preventDefault();
     }
   });
 }
