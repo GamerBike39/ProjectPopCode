@@ -770,3 +770,8 @@ nav>ul>a>li:hover, .langagesFound:hover {
     height: 50px;
     opacity: .5;
   }
+
+  /* animation p deja trouve */
+  .overMouse{
+    color: red;
+  }
