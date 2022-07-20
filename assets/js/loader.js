@@ -322,7 +322,6 @@ function gameEngine() {
     if (overlayGameOver.classList.contains("dfjcic") === true) {
       reponseDelete();
       reponseNone();
-      console.log("ok");
     }
     e.stopPropagation();
   });
@@ -404,7 +403,7 @@ const dejaTrouveDesc = document.querySelector(".overlayReponseTrouvee > desc");
 //  dejaTrouveP.childNodes[i].textContent
 function descTrouve() {
   for (let i = 0; i < dejaTrouveP.childNodes.length; i++) {
-    dejaTrouveP.childNodes[i].addEventListener("click", () => {
+    dejaTrouveP.childNodes[i].addEventListener("mouseover", () => {
       console.log("ok");
       console.log(dejaTrouveP.childNodes[i].textContent);
       fetch("./assets/json/liste.json")

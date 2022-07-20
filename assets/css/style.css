@@ -497,8 +497,20 @@ nav>ul>a>li:hover, .langagesFound:hover {
 .overlayReponseTrouvee>div>span>p {
     border-left: 2px solid white;
     border-right: 2px solid white;
+    animation: neon 1s ease-in-out infinite;
 }
 
+.overlayReponseTrouvee > div:nth-child(1) > h4:nth-child(2) {
+    position: absolute;
+    top: 60px;
+   }
+   .overlayReponseTrouvee > div:nth-child(1) > span:nth-child(3) {
+    position: absolute;
+    width: 156px;
+    top: 89px;
+    left: 19px;
+   }
+      
 
 .clignement {
     position: relative;
@@ -606,19 +618,22 @@ nav>ul>a>li:hover, .langagesFound:hover {
 .overlayDescContainer>div:nth-child(1) {
     position: absolute;
     bottom: 10%;
-    right: 31%;
+    right: 594px;
     z-index: 2;
     color: white;
     font-size: 8px;
 }
 
-.closeModale {
+/* .closeModale {
     margin-left: auto;
     display: block;
     cursor: pointer;
-}
+    position: absolute;
+    top: 199px;
+    right: 421px;
+} */
 
-.closeTrouve{
+.closeTrouve, .closeModale{
     position: absolute;
     top: 4vw;
     right: 20vw;
