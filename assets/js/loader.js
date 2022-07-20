@@ -235,7 +235,7 @@ function gameEngine() {
         setTimeout(() => {
           reponseDelete();
           reponseNone();
-        }, 800);
+        }, 600);
         return;
       }
       reponseTextResult.textContent = "bonne réponse";
@@ -271,7 +271,7 @@ function gameEngine() {
             reponseDelete();
             reponseNone();
           });
-      }, 800);
+      }, 600);
       return;
     }
     if (
@@ -303,7 +303,7 @@ function gameEngine() {
         reponseTextResult.textContent = "Vous avez perdu";
         overlayGameOver.classList.remove("displayNone");
         overlayGameOver.classList.add("dfjcic");
-        overlayGameOver.childNodes[5].innerHTML = `vous avez trouvé ${scoreCompteur} langages sur 27`;
+        overlayGameOver.childNodes[5].innerHTML = `vous avez trouvé <strong>${scoreCompteur}</strong> langages sur 27`;
         localStorage.clear();
         scoreCompteur = 0;
         errorNumber = errorNumber - 3;
@@ -316,7 +316,7 @@ function gameEngine() {
         reponseDelete();
         reponseNone();
         overlayDescNone();
-      }, 800);
+      }, 600);
       return;
     }
     if (e.key === "Escape") {

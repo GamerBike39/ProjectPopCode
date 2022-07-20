@@ -163,6 +163,7 @@ nav>ul>li {
     letter-spacing: 2px;
     border-bottom: 2px solid white;
     transition: cubic-bezier(0.39, 0.575, 0.565, 1) 0.3s;
+    cursor: pointer;
 }
 
 nav>ul>li:hover, .langagesFound:hover {
@@ -536,39 +537,20 @@ nav>ul>li:hover, .langagesFound:hover {
 .overlayReponse>p:nth-child(3) {
     font-size: 6rem;
     letter-spacing: 2%;
-    animation: bouge 1.2s ease-in-out;
+    animation: bouge 0.6s ease-in-out;
 }
 
 @keyframes bouge {
     0% {
-        -webkit-transform: translate3d(-100%, 0, 0);
-        transform: translate3d(-100%, 0, 0);
-        visibility: visible
+        transform: scale(0.6);
+    
     }
 
     to {
-        -webkit-transform: translateZ(0);
-        transform: translateZ(0)
+        transform: scale(1)
     }
 }
 
-@keyframes slideInLeft {
-    0% {
-        -webkit-transform: translate3d(-100%, 0, 0);
-        transform: translate3d(-100%, 0, 0);
-        visibility: visible
-    }
-
-    to {
-        -webkit-transform: translateZ(0);
-        transform: translateZ(0)
-    }
-}
-
-.animate__slideInLeft {
-    -webkit-animation-name: slideInLeft;
-    animation-name: slideInLeft
-}
 
 .overlayDescContainer {
     height: 100vh;
