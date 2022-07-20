@@ -12,6 +12,11 @@ const overlayDescContainer = document.querySelector(".overlayDescContainer");
 const btnCheck = document.querySelector(
   ".overlayDescContainer > div:nth-child(1)"
 );
+const overlayGameOver = document.querySelector(".overlayGameOver");
+const overlayGameOverP = document.querySelector(
+  ".overlayGameOver > p:nth-child(2)"
+);
+const btnReset = document.querySelector(".reset");
 
 setTimeout(() => {
   loader.classList.remove("dfjcic");
@@ -33,6 +38,21 @@ beginGame.addEventListener("click", () => {
   body.classList.remove("bgAccueil");
   jeu.classList.remove("displayNone");
   gameEngine();
+});
+btnReset.addEventListener("click", () => {
+  localStorage.clear();
+  score.textContent = "0";
+  scoreCompteur = 0;
+  error[0].style.color = "#7a7878";
+  error[1].style.color = "#7a7878";
+  error[2].style.color = "#7a7878";
+  errorNumber = 0;
+  arrayReponse.length = 0;
+  dejaTrouveP.innerHTML = "";
+  jeu.classList.remove("displayNone");
+  overlayGameOver.classList.add("displayNone");
+  overlayGameOver.classList.remove("dfjcic");
+  console.log("ok");
 });
 
 const responsivePop = document.querySelector(".responsivePop");
@@ -281,7 +301,14 @@ function gameEngine() {
       if (errorNumber === 3) {
         error[2].style.color = "#0aeff7";
         reponseTextResult.textContent = "Vous avez perdu";
+        overlayGameOver.classList.remove("displayNone");
+        overlayGameOver.classList.add("dfjcic");
+        overlayGameOverP.innerHTML = `vous avez trouvé ${scoreCompteur} langages sur 27`;
         localStorage.clear();
+        scoreCompteur = 0;
+        errorNumber = errorNumber - 3;
+        jeu.classList.add("displayNone");
+        return;
       }
       setTimeout(() => {
         reponseDelete();

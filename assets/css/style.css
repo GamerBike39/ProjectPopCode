@@ -132,8 +132,6 @@ body {
 #logoPop {
     width: 250px;
     height: 250px;
-    cursor: crosshair;
-
 }
 
 .logo {
@@ -637,5 +635,17 @@ nav>ul>li>a:hover, .langagesFound:hover {
     position: absolute;
     top: 4vw;
     right: 20vw;
+}
+
+/* ecran game over */
+.overlayGameOver {
+    min-height: 100vh;
+    flex-direction: column;
+    color: white;
+    background: url('../img/fondBrique.webp') no-repeat center center fixed;
+}
+.overlayGameOver> img{
+    height: 50vh;
+    transform: translateY(-25%);
 }
 
