@@ -425,9 +425,18 @@ function descTrouve() {
   }
 }
 
-// if (errorNumber === 3) {
-//   error[2].style.color = "#0aeff7";
-//   reponseTextResult.textContent = "Vous avez perdu";
-//   window.removeEventListener("keydown", gameEngine);
-//   localStorage.clear();
-// }
+// mention legales
+const mentionLegales = document.querySelector(".overlayMentionLegales");
+const btnMentionLegales = document.querySelector(".btnMentionLegales");
+btnMentionLegales.addEventListener("click", () => {
+  mentionLegales.classList.toggle("displayNone");
+  fetch("./assets/json/liste.json")
+    .then((response) => response.json())
+    .then((data) => {
+      for (let z = 0; z < data.length; z++) {
+        if (data[z].title === btnMentionLegales.textContent) {
+          mentionLegales.innerHTML = `<p>${data[z].title}</p> ${data[z].content}`;
+        }
+      }
+    });
+});

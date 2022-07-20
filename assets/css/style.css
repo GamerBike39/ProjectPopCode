@@ -156,7 +156,7 @@ nav>ul {
     list-style: none;
 }
 
-nav>ul>li>a {
+nav>ul>li {
     text-decoration: none;
     color: #ffff;
     font-weight: bold;
@@ -165,7 +165,7 @@ nav>ul>li>a {
     transition: cubic-bezier(0.39, 0.575, 0.565, 1) 0.3s;
 }
 
-nav>ul>li>a:hover, .langagesFound:hover {
+nav>ul>li:hover, .langagesFound:hover {
     text-shadow:
         0 0 2px rgba(202, 228, 225, 0.92),
         0 0 10px rgba(202, 228, 225, 0.34),
@@ -649,3 +649,33 @@ nav>ul>li>a:hover, .langagesFound:hover {
     transform: translateY(-25%);
 }
 
+/* mentions légales */
+.overlayMentionLegales {
+    background: #140202ed;
+    color: white;
+    width: 40%;
+    top: 50%;
+    position: absolute;
+    overflow: auto;
+    height: 96vh;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    padding: 0 25px;
+    font-family: 'Gotham Medium', sans-serif;
+   }
+
+   .overlayMentionLegales > p:nth-child(1) {
+    font-size: 4rem;
+    text-align: center;
+    margin-top: 20px;
+    margin-bottom: 20px;
+   }
+
+   strong{
+    color : #0aeff7
+   }
+   .overlayMentionLegales > p:nth-child(3) > a {
+    color: #FFAAFF;
+    text-decoration: none;
+   }
+   
