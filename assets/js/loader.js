@@ -13,9 +13,6 @@ const btnCheck = document.querySelector(
   ".overlayDescContainer > div:nth-child(1)"
 );
 const overlayGameOver = document.querySelector(".overlayGameOver");
-// const overlayGameOverP = document.querySelector(
-//   ".overlayGameOver > p:nth-child(5)"
-// );
 const btnReset = document.querySelector(".reset");
 
 setTimeout(() => {
@@ -39,6 +36,7 @@ beginGame.addEventListener("click", () => {
   jeu.classList.remove("displayNone");
   gameEngine();
 });
+
 btnReset.addEventListener("click", () => {
   localStorage.clear();
   score.textContent = "0";
@@ -52,7 +50,6 @@ btnReset.addEventListener("click", () => {
   jeu.classList.remove("displayNone");
   overlayGameOver.classList.add("displayNone");
   overlayGameOver.classList.remove("dfjcic");
-  console.log("ok");
 });
 
 const responsivePop = document.querySelector(".responsivePop");
@@ -171,13 +168,8 @@ function overlayDescNone() {
   overlayDescContainer.classList.remove("flex");
 }
 
-if (reponseTextResult.textContent === "Vous avez perdu") {
-  window.removeEventListener("keydown", gameEngine);
-  localStorage.clear();
-}
-
 function gameEngine() {
-  window.addEventListener("keydown", (e) => {
+  document.querySelector("body").addEventListener("keydown", (e) => {
     if (
       e.key === "a" ||
       e.key === "b" ||
@@ -310,7 +302,6 @@ function gameEngine() {
         reponseDelete();
         reponseNone();
         jeu.classList.add("displayNone");
-        return;
       }
       setTimeout(() => {
         reponseDelete();
@@ -328,6 +319,12 @@ function gameEngine() {
       reponseText.textContent = reponseText.textContent.slice(e, -1);
     }
     saveScore();
+    if (overlayGameOver.classList.contains("dfjcic") === true) {
+      reponseDelete();
+      reponseNone();
+      console.log("ok");
+    }
+    e.stopPropagation();
   });
 }
 
