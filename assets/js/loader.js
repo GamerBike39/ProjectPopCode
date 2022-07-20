@@ -303,7 +303,7 @@ function gameEngine() {
         reponseTextResult.textContent = "Vous avez perdu";
         overlayGameOver.classList.remove("displayNone");
         overlayGameOver.classList.add("dfjcic");
-        overlayGameOver.childNodes[5].innerHTML = `vous avez trouvé <strong>${scoreCompteur}</strong> langages sur 27`;
+        overlayGameOver.childNodes[5].innerHTML = `<p class="plusgros">Vous avez trouvé <strong>${scoreCompteur}</strong> langages sur 27</p>`;
         localStorage.clear();
         scoreCompteur = 0;
         errorNumber = errorNumber - 3;
