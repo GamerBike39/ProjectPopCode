@@ -167,15 +167,14 @@ nav>ul>li>a {
     transition: cubic-bezier(0.39, 0.575, 0.565, 1) 0.3s;
 }
 
-nav>ul>li>a:hover {
-    border-bottom: 2px solid #930C99;
+nav>ul>li>a:hover, .langagesFound:hover {
     text-shadow:
         0 0 2px rgba(202, 228, 225, 0.92),
         0 0 10px rgba(202, 228, 225, 0.34),
         0 0 4px rgba(30, 132, 242, 0.52),
-        0 0 7px rgba(30, 132, 242, 0.92),
-        0 0 11px rgba(30, 132, 242, 0.78),
-        0 0 16px rgba(30, 132, 242, 0.92);
+        0 0 7px rgba(250, 152, 255, 0.78),
+        0 0 11px rgba(250, 152, 255, 0.78),
+        0 0 16px rgba(234, 143, 255, 0.92);
 }
 
 /* ********************************************** */
@@ -224,11 +223,11 @@ nav>ul>li>a:hover {
 
 .containerAccueil>a:hover {
     text-shadow:
-        0 0 2px rgba(202, 228, 225, 0.92),
-        0 0 10px rgba(228, 202, 223, 0.34),
-        0 0 4px rgba(242, 30, 228, 0.52),
+        0 0 2px rgba(234, 142, 255, 0.92),
+        0 0 10px rgb(244, 113, 217),
+        0 0 4px rgba(240, 81, 230, 0.987),
         0 0 7px rgba(242, 30, 214, 0.92),
-        0 0 11px rgba(242, 30, 224, 0.78),
+        0 0 11px rgba(242, 30, 224, 0.871),
         0 0 16px rgba(242, 30, 231, 0.92);
 }
 
@@ -378,14 +377,15 @@ nav>ul>li>a:hover {
 .langagesFound {
     border: 2px solid white;
     height: 24px;
-    width: 124px;
+    width: 8%;
     color: white;
     position: fixed;
     bottom: 28px;
     left: 128px;
     align-items: center;
     justify-content: space-around;
-    font-family: 'Gotham Black', sans-serif;
+    font-family: 'Gotham medium', sans-serif;
+    letter-spacing: 2px;
     font-size: 8px;
     cursor: pointer;
     z-index: 3;
@@ -457,9 +457,10 @@ nav>ul>li>a:hover {
 }
 
 .overlayReponseTrouvee>div:nth-child(1) {
-    width: 5%;
+    width: 9%;
     margin-left: 50px;
     margin-right: auto;
+    letter-spacing: 2px;
 }
 
 .overlayReponseTrouvee>div:nth-child(1)>img:nth-child(1) {
@@ -484,6 +485,7 @@ nav>ul>li>a:hover {
     width: 40%;
     letter-spacing: normal;
     text-align: left;
+    font-family: "Gotham Black", sans-serif;
 }
 
 
@@ -585,10 +587,10 @@ nav>ul>li>a:hover {
     width: 38%;
 }
 
-.overlayDesc>div:nth-child(2)>a:nth-child(4) {
+.overlayDesc>div:nth-child(2)>a:nth-child(11) {
     text-decoration: none;
-    color: white;
-    border-bottom: 1px solid white;
+    color: #FFAAFF;
+    border-bottom: 1px solid #FFAAFF;
 }
 
 .overlayDesc>div:nth-child(1)>img:nth-child(2) {
@@ -636,3 +638,4 @@ nav>ul>li>a:hover {
     top: 4vw;
     right: 20vw;
 }
+
