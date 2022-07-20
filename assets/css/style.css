@@ -460,6 +460,10 @@ nav>ul>li:hover, .langagesFound:hover {
     margin-right: auto;
     letter-spacing: 2px;
 }
+.overlayReponseTrouvee > div:nth-child(1) > span:nth-child(3) > p{
+    cursor: pointer;
+   }
+   
 
 .overlayReponseTrouvee>div:nth-child(1)>img:nth-child(1) {
     display: block;
@@ -631,10 +635,18 @@ nav>ul>li:hover, .langagesFound:hover {
     cursor: pointer;
 }
 
-.closeTrouve {
+.closeTrouve{
     position: absolute;
     top: 4vw;
     right: 20vw;
+    cursor: pointer;
+}
+.closeM{
+    position: absolute;
+    top: 0;
+    right: 0;
+    cursor: pointer;
+    padding: 24px;
 }
 
 /* ecran game over */
@@ -644,10 +656,54 @@ nav>ul>li:hover, .langagesFound:hover {
     color: white;
     background: url('../img/fondBrique.webp') no-repeat center center fixed;
 }
-.overlayGameOver> img{
+/* .overlayGameOver> img{
     height: 50vh;
     transform: translateY(-25%);
-}
+} */
+:root {
+    --animation: glitch;
+    --speed: 2s;
+    --easing: linear;
+  }
+  @import url("https://fonts.googleapis.com/css?family=Press+Start+2P");
+  
+  .gameover {
+    font-family: "Press Start 2P", Arial, sans-serif;
+    text-transform: uppercase;
+    text-align: center;
+    color: #FFAAFF;
+    text-shadow: 0px 2px #255fcc;
+    animation: var(--animation) var(--speed) infinite var(--easing);
+  }
+  
+  h6 { font-size: 3em }
+  
+  @keyframes glitch {
+    0%, 12%, 15%, 52%, 55%, 82%, 85%, 100% { opacity: 1; transform: scaleX(1) scaleY(1) }  
+    13% { opacity: .8; transform: scaleY(2); color: #0ff }
+    53% { opacity: .8; transform: scaleX(.7);  color: #f0f }
+    83% { opacity: .8; transform: rotate(-10deg); color: #ff0 }
+  }
+  
+  @keyframes hue {  
+    13% { color: #0ff }
+    53% { color: #f0f }
+    83% { color: #ff0 }
+  }
+  
+  @keyframes shrink {  
+     0% { transform: scaleY(1) }
+    50% { transform: scaleY(.5) }
+   100% { transform: scaleY(1) }
+  }
+  
+  @keyframes fade {  
+     0% { opacity: 1 }
+    50% { opacity: 0 }
+   100% { opacity: 1 }
+  }
+
+
 
 /* mentions légales */
 .overlayMentionLegales {
@@ -664,18 +720,26 @@ nav>ul>li:hover, .langagesFound:hover {
     font-family: 'Gotham Medium', sans-serif;
    }
 
-   .overlayMentionLegales > p:nth-child(1) {
+   .overlayMentionLegales > div:nth-child(2) > p:nth-child(1) {
     font-size: 4rem;
     text-align: center;
     margin-top: 20px;
     margin-bottom: 20px;
    }
+   
 
    strong{
     color : #0aeff7
    }
-   .overlayMentionLegales > p:nth-child(3) > a {
+   .overlayMentionLegales > p:nth-child(4) > a {
     color: #FFAAFF;
     text-decoration: none;
    }
    
+   .reset{
+    color: #FFAAFF;
+    cursor: pointer;
+    font-size: 3rem;
+  }
+   
+

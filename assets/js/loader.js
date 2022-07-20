@@ -13,9 +13,9 @@ const btnCheck = document.querySelector(
   ".overlayDescContainer > div:nth-child(1)"
 );
 const overlayGameOver = document.querySelector(".overlayGameOver");
-const overlayGameOverP = document.querySelector(
-  ".overlayGameOver > p:nth-child(2)"
-);
+// const overlayGameOverP = document.querySelector(
+//   ".overlayGameOver > p:nth-child(5)"
+// );
 const btnReset = document.querySelector(".reset");
 
 setTimeout(() => {
@@ -235,7 +235,7 @@ function gameEngine() {
         setTimeout(() => {
           reponseDelete();
           reponseNone();
-        }, 1000);
+        }, 800);
         return;
       }
       reponseTextResult.textContent = "bonne réponse";
@@ -271,7 +271,7 @@ function gameEngine() {
             reponseDelete();
             reponseNone();
           });
-      }, 1500);
+      }, 800);
       return;
     }
     if (
@@ -303,10 +303,12 @@ function gameEngine() {
         reponseTextResult.textContent = "Vous avez perdu";
         overlayGameOver.classList.remove("displayNone");
         overlayGameOver.classList.add("dfjcic");
-        overlayGameOverP.innerHTML = `vous avez trouvé ${scoreCompteur} langages sur 27`;
+        overlayGameOver.childNodes[5].innerHTML = `vous avez trouvé ${scoreCompteur} langages sur 27`;
         localStorage.clear();
         scoreCompteur = 0;
         errorNumber = errorNumber - 3;
+        reponseDelete();
+        reponseNone();
         jeu.classList.add("displayNone");
         return;
       }
@@ -314,7 +316,7 @@ function gameEngine() {
         reponseDelete();
         reponseNone();
         overlayDescNone();
-      }, 2000);
+      }, 800);
       return;
     }
     if (e.key === "Escape") {
@@ -363,22 +365,22 @@ dejaTrouveBtn.addEventListener("click", () => {
 // });
 
 // continuer avec les données stockés dans saveScore
-function continuer() {
-  scoreCompteur = localStorage.getItem("scoreCompteur");
-  errorNumber = localStorage.getItem("errorNumber");
-  arrayReponse.push(localStorage.getItem("arrayReponse"));
-  dejaTrouveDiv.textContent = localStorage.getItem("arrayReponse");
-  // if (localStorage.getItem("arrayReponse") !== null) {
-  //   unique.push(localStorage.getItem("arrayReponse"));
-  // }
-  score.textContent = localStorage.getItem("scoreCompteur", scoreCompteur);
-  if (localStorage.getItem("errorNumber") === "1") {
-    error[0].style.color = "#0aeff7";
-  }
-  if (localStorage.getItem("errorNumber") === "2") {
-    error[1].style.color = "#0aeff7";
-  }
-}
+// function continuer() {
+//   scoreCompteur = localStorage.getItem("scoreCompteur");
+//   errorNumber = localStorage.getItem("errorNumber");
+//   arrayReponse.push(localStorage.getItem("arrayReponse"));
+//   dejaTrouveDiv.textContent = localStorage.getItem("arrayReponse");
+//   // if (localStorage.getItem("arrayReponse") !== null) {
+//   //   unique.push(localStorage.getItem("arrayReponse"));
+//   // }
+//   score.textContent = localStorage.getItem("scoreCompteur", scoreCompteur);
+//   if (localStorage.getItem("errorNumber") === "1") {
+//     error[0].style.color = "#0aeff7";
+//   }
+//   if (localStorage.getItem("errorNumber") === "2") {
+//     error[1].style.color = "#0aeff7";
+//   }
+// }
 
 // const continueBtn = document.querySelector(".continueBtn");
 // continueBtn.addEventListener("click", () => {
@@ -435,8 +437,14 @@ btnMentionLegales.addEventListener("click", () => {
     .then((data) => {
       for (let z = 0; z < data.length; z++) {
         if (data[z].title === btnMentionLegales.textContent) {
-          mentionLegales.innerHTML = `<p>${data[z].title}</p> ${data[z].content}`;
+          mentionLegales.childNodes[3].innerHTML = `<p>${data[z].title}</p> ${data[z].content}`;
         }
       }
     });
+});
+
+const closeM = document.querySelector(".closeM");
+closeM.addEventListener("click", () => {
+  console.log("ok");
+  mentionLegales.classList.toggle("displayNone");
 });
