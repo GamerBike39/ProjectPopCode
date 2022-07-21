@@ -315,7 +315,7 @@ function gameEngine() {
                 overlayDescContainer.classList.add("flex");
                 overlayDesc.classList.remove("displayNone");
                 overlayDesc.classList.add("flex");
-                dejaTrouveP.innerHTML += `<p class="dfjcic" style="gap: 12px; paddingLeft: 10px">${data[i].language}<img style="width: 35%; padding-right: 10px;" src=${data[i].img} alt="logo"></p>`;
+                dejaTrouveP.innerHTML += `<p class="dfjcic" style="gap: 12px; padding-left: 10px">${data[i].language}<img style="width: 35%; padding-right: 10px;" src=${data[i].img} alt="logo"></p>`;
                 dejaTrouveDesc.innerHTML = ` <div><img src=${data[i].img} alt="logo"></div>
                 <div><h1>${data[i].language}</h1> <p>${data[i].desc}</p> <a target="_blank" href='${data[i].url}' style="color: #FFAAFF;">wikipedia</a></div>`;
                 closeTimer();
