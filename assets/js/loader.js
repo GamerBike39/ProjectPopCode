@@ -14,6 +14,7 @@ const btnCheck = document.querySelector(
 );
 const overlayGameOver = document.querySelector(".overlayGameOver");
 const btnReset = document.querySelector(".reset");
+const gameWin = document.querySelector(".gameWin");
 
 setTimeout(() => {
   loader.classList.remove("dfjcic");
@@ -233,10 +234,14 @@ function gameEngine() {
       reponseTextResult.textContent = "bonne réponse";
       scoreCompteur++;
       score.textContent = scoreCompteur;
-      if (scoreCompteur === 27) {
-        reponseTextResult.textContent = "Bravo, vous avez gagné";
+      if (scoreCompteur === 2) {
+        jeu.classList.add("displayNone");
         scoreCompteur = 0;
         errorNumber = 0;
+        reponseDelete();
+        reponseNone();
+        gameWin.classList.remove("displayNone");
+        gameWin.classList.add("dfjcic");
         localStorage.clear();
       }
       setTimeout(() => {
@@ -447,19 +452,19 @@ closeM.addEventListener("click", () => {
 });
 
 // curseur custom
-var cursor = document.querySelector(".cursor");
-var cursorinner = document.querySelector(".cursor2");
-var a = document.querySelectorAll("a");
+let cursor = document.querySelector(".cursor");
+let cursorinner = document.querySelector(".cursor2");
+let a = document.querySelectorAll("a");
 
 document.addEventListener("mousemove", function (e) {
-  var x = e.clientX;
-  var y = e.clientY;
+  let x = e.clientX;
+  let y = e.clientY;
   cursor.style.transform = `translate3d(calc(${e.clientX}px - 50%), calc(${e.clientY}px - 50%), 0)`;
 });
 
 document.addEventListener("mousemove", function (e) {
-  var x = e.clientX;
-  var y = e.clientY;
+  let x = e.clientX;
+  let y = e.clientY;
   cursorinner.style.left = x + "px";
   cursorinner.style.top = y + "px";
 });

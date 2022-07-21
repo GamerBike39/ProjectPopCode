@@ -649,16 +649,13 @@ nav>ul>a>li:hover, .langagesFound:hover {
 }
 
 /* ecran game over */
-.overlayGameOver {
+.overlayGameOver, .gameWin {
     min-height: 100vh;
     flex-direction: column;
     color: white;
     background: url('../img/fondBrique.webp') no-repeat center center fixed;
 }
-/* .overlayGameOver> img{
-    height: 50vh;
-    transform: translateY(-25%);
-} */
+
 :root {
     --animation: glitch;
     --speed: 2s;
@@ -788,5 +785,5 @@ nav>ul>a>li:hover, .langagesFound:hover {
 
   /* animation p deja trouve */
   .overMouse{
-    color: red;
+    color: rgb(247, 56, 190);
   }
