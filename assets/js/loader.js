@@ -234,7 +234,7 @@ function gameEngine() {
       reponseTextResult.textContent = "bonne réponse";
       scoreCompteur++;
       score.textContent = scoreCompteur;
-      if (scoreCompteur === 2) {
+      if (scoreCompteur === 27) {
         jeu.classList.add("displayNone");
         scoreCompteur = 0;
         errorNumber = 0;
