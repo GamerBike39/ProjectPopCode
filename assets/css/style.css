@@ -48,6 +48,7 @@ body {
     padding: 0;
     font-family: 'Poppins', sans-serif;
     cursor: none;
+    background: url(../img/fondBrique.webp) no-repeat;
     /* position: relative; */
     /* overflow: hidden; */
 }
@@ -323,6 +324,7 @@ nav>ul>a>li:hover, .langagesFound:hover {
     position: fixed;
     bottom: 15px;
     left: 56px;
+    animation: blurEffect 2.5s ease-in-out;
 }
 
 .sectionZoom p:nth-child(1) {
@@ -420,6 +422,22 @@ nav>ul>a>li:hover, .langagesFound:hover {
     height: 100vh;
 }
 
+.containerJeu{
+    animation: blurEffect 1.3s ease-in-out;
+}
+@keyframes blurEffect {
+    0% {
+        /* transform: scaleY(0); */
+        filter: blur(10px);
+    }
+    100% {
+        /* transform: scaleY(1); */
+        filter: blur(0px);
+    }
+}
+    
+
+
 /********overlay Reponse********/
 
 .overlayReponse {
@@ -437,6 +455,7 @@ nav>ul>a>li:hover, .langagesFound:hover {
     line-height: 14px;
     text-align: center;
     letter-spacing: 5px;
+    animation: blurEffect 0.3s ease-in-out;
 
 }
 
@@ -455,6 +474,7 @@ nav>ul>a>li:hover, .langagesFound:hover {
     line-height: 14px;
     text-align: center;
     letter-spacing: 5px;
+    animation: blurEffect 0.2s ease-in-out;
 }
 
 .overlayReponseTrouvee>div:nth-child(1) {
@@ -487,10 +507,16 @@ nav>ul>a>li:hover, .langagesFound:hover {
 }
 
 .overlayReponseTrouvee>desc:nth-child(2)>div:nth-child(2) {
-    width: 40%;
+    width: 24%;
     letter-spacing: normal;
     text-align: left;
     font-family: "Gotham Black", sans-serif;
+    font-size: 1.1rem;
+    max-height: 50vh;
+    line-height: normal;
+    font-family: "poppins", sans-serif;
+    overflow: auto;
+    padding-right: 20px;
 }
 
 
@@ -498,18 +524,23 @@ nav>ul>a>li:hover, .langagesFound:hover {
 .overlayReponseTrouvee>div>span>p {
     border-left: 2px solid white;
     border-right: 2px solid white;
-    animation: neon 1s ease-in-out infinite;
+}
+.overlayReponseTrouvee>div>span>p:hover {
+    animation: neonN 1s ease-in-out infinite;
 }
 
 .overlayReponseTrouvee > div:nth-child(1) > h4:nth-child(2) {
     position: absolute;
-    top: 60px;
+    top: 33px;
+    left: 93px;
+    font-size: 2rem;
    }
    .overlayReponseTrouvee > div:nth-child(1) > span:nth-child(3) {
     position: absolute;
-    width: 156px;
+    width: 186px;
     top: 89px;
-    left: 19px;
+    left: 108px;
+    font-size: 18px;
    }
       
 
@@ -578,11 +609,20 @@ nav>ul>a>li:hover, .langagesFound:hover {
     align-items: center;
     gap: 2vw;
     color: white;
-    font-family: 'Gotham Black', sans-serif;
+    font-family: 'poppins', sans-serif;
+    animation: blurEffect 0.2s ease-in-out;
 }
+.overlayDesc > div:nth-child(2) > a:nth-child(3) {
+    color: #FFAAFF;
+    text-decoration: none;
+   }
+   
 
 .overlayDesc>div:nth-child(2) {
-    width: 38%;
+    width: 34%;
+    height: 30vh;
+    line-height: 21px;
+    overflow: auto;
 }
 
 .overlayDesc>div:nth-child(2)>a:nth-child(11) {
@@ -720,6 +760,7 @@ nav>ul>a>li:hover, .langagesFound:hover {
     transform: translate(-50%, -50%);
     padding: 0 25px;
     font-family: 'Gotham Medium', sans-serif;
+    animation: blurEffect 0.2s ease-in-out;
    }
 
    .overlayMentionLegales > div:nth-child(2) > p:nth-child(1) {

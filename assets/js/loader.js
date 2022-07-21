@@ -15,6 +15,7 @@ const btnCheck = document.querySelector(
 const overlayGameOver = document.querySelector(".overlayGameOver");
 const btnReset = document.querySelector(".reset");
 const gameWin = document.querySelector(".gameWin");
+const sectionZoom = document.querySelector(".sectionZoom");
 
 setTimeout(() => {
   loader.classList.remove("dfjcic");
@@ -35,6 +36,8 @@ beginGame.addEventListener("click", () => {
   home.classList.add("displayNone");
   body.classList.remove("bgAccueil");
   jeu.classList.remove("displayNone");
+  sectionZoom.classList.remove("displayNone");
+  sectionZoom.classList.add("flex");
   gameEngine();
 });
 
@@ -251,7 +254,7 @@ function gameEngine() {
             for (i = 0; i < data.length; i++) {
               if (data[i].language === reponseText.textContent.toLowerCase()) {
                 overlayDesc.innerHTML = ` <div><h1>${data[i].language}</h1><img src=${data[i].img} alt="logo"></div>
-              <div><div><img class="closeModale" src="assets/img/closeBtn.svg"></div> <p>${data[i].desc}</p><a target="_blank" href='${data[i].url}'>wikipedia</a></div>`;
+              <div><div><img class="closeModale" src="assets/img/closeBtn.svg"></div> <p>${data[i].desc}</p><a target="_blank" href='${data[i].url}' style="color: #FFAAFF;">wikipedia</a></div>`;
                 overlayDescContainer.classList.remove("displayNone");
                 overlayDescContainer.classList.add("flex");
                 overlayDesc.classList.remove("displayNone");
@@ -336,6 +339,7 @@ function saveScore() {
   localStorage.setItem("scoreCompteur", scoreCompteur);
   localStorage.setItem("errorNumber", errorNumber);
   localStorage.setItem("arrayReponse", arrayReponse);
+  localStorage.setItem("dejaTrouveP", dejaTrouveP.innerHTML);
 }
 
 // ***** barre zoom *******************
@@ -367,32 +371,29 @@ dejaTrouveBtn.addEventListener("click", () => {
 // });
 
 // continuer avec les données stockés dans saveScore
-// function continuer() {
-//   scoreCompteur = localStorage.getItem("scoreCompteur");
-//   errorNumber = localStorage.getItem("errorNumber");
-//   arrayReponse.push(localStorage.getItem("arrayReponse"));
-//   dejaTrouveDiv.textContent = localStorage.getItem("arrayReponse");
-//   // if (localStorage.getItem("arrayReponse") !== null) {
-//   //   unique.push(localStorage.getItem("arrayReponse"));
-//   // }
-//   score.textContent = localStorage.getItem("scoreCompteur", scoreCompteur);
-//   if (localStorage.getItem("errorNumber") === "1") {
-//     error[0].style.color = "#0aeff7";
-//   }
-//   if (localStorage.getItem("errorNumber") === "2") {
-//     error[1].style.color = "#0aeff7";
-//   }
-// }
+function continuer() {
+  scoreCompteur = localStorage.getItem("scoreCompteur");
+  errorNumber = localStorage.getItem("errorNumber");
+  arrayReponse.push(localStorage.getItem("arrayReponse"));
+  dejaTrouveP.innerHTML = localStorage.getItem("dejaTrouveP");
+  score.textContent = localStorage.getItem("scoreCompteur", scoreCompteur);
+  if (localStorage.getItem("errorNumber") === "1") {
+    error[0].style.color = "#0aeff7";
+  }
+  if (localStorage.getItem("errorNumber") === "2") {
+    error[1].style.color = "#0aeff7";
+  }
+}
 
-// const continueBtn = document.querySelector(".continueBtn");
-// continueBtn.addEventListener("click", () => {
-//   home.classList.remove("flex");
-//   home.classList.add("displayNone");
-//   body.classList.remove("bgAccueil");
-//   jeu.classList.remove("displayNone");
-//   continuer();
-//   gameEngine();
-// });
+const continueBtn = document.querySelector(".continueBtn");
+continueBtn.addEventListener("click", () => {
+  home.classList.remove("flex");
+  home.classList.add("displayNone");
+  body.classList.remove("bgAccueil");
+  jeu.classList.remove("displayNone");
+  continuer();
+  gameEngine();
+});
 
 function closeTimer() {
   if (btnCheck.childNodes[3].checked === true) {
@@ -421,8 +422,14 @@ function descTrouve() {
               dejaTrouveP.childNodes[i].textContent.toLowerCase()
             ) {
               dejaTrouveDesc.innerHTML = ` <div><img src=${data[z].img} alt="logo"></div>
-          <div><h1>${data[z].language}</h1> <p>${data[z].desc}</p> <a target="_blank" href='${data[z].url}'>wikipedia</a></div>`;
+          <div><h1>${data[z].language}</h1> <p>${data[z].desc}</p> <a target="_blank" href='${data[z].url}' style="color: #FFAAFF;">wikipedia</a></div>`;
             }
+            dejaTrouveP.childNodes[i].addEventListener("mouseover", () => {
+              cursor.classList.add("hover");
+            });
+            dejaTrouveP.childNodes[i].addEventListener("mouseleave", () => {
+              cursor.classList.remove("hover");
+            });
           }
         });
     });
@@ -440,6 +447,9 @@ btnMentionLegales.addEventListener("click", () => {
       for (let z = 0; z < data.length; z++) {
         if (data[z].title === btnMentionLegales.textContent) {
           mentionLegales.childNodes[3].innerHTML = `<p>${data[z].title}</p> ${data[z].content}`;
+          document.addEventListener("click", () => {
+            mentionLegales.classList.add("displayNone");
+          });
         }
       }
     });
@@ -455,6 +465,7 @@ closeM.addEventListener("click", () => {
 let cursor = document.querySelector(".cursor");
 let cursorinner = document.querySelector(".cursor2");
 let a = document.querySelectorAll("a");
+let p = document.querySelectorAll("p");
 
 document.addEventListener("mousemove", function (e) {
   let x = e.clientX;
@@ -487,3 +498,54 @@ a.forEach((item) => {
     cursor.classList.remove("hover");
   });
 });
+p.forEach((item) => {
+  item.addEventListener("mouseover", () => {
+    cursor.classList.add("hover");
+  });
+  item.addEventListener("mouseleave", () => {
+    cursor.classList.remove("hover");
+  });
+});
+
+// counter
+function VanillaCounter() {
+  let elements = document.querySelectorAll("[data-vanilla-counter]");
+  elements.forEach((i) => {
+    let data = {
+      startAt: parseInt(i.getAttribute("data-start-at")),
+      endAt: parseInt(i.getAttribute("data-end-at")),
+      delay: parseInt(i.getAttribute("data-delay")) || 0,
+      format: "{}",
+      time: parseInt(i.getAttribute("data-time")) || 1000,
+    };
+    if (i.getAttribute("data-format")) {
+      data.format = i.getAttribute("data-format");
+    } else if (i.innerHTML != "") {
+      data.format = i.innerHTML;
+    }
+    console.log(data.format);
+    if (data.startAt == null) {
+      throw new Error("data-start-at attribute is required");
+    }
+    if (data.endAt == null) {
+      throw new Error("data-end-at attribute is required");
+    }
+    var counter = data.startAt;
+    i.innerHTML = data.format.replace("{}", counter);
+    var intervalTime = Math.ceil(data.time / (data.endAt - data.startAt));
+    setTimeout(() => {
+      var interval = setInterval(intervalHandler, intervalTime);
+      function intervalHandler() {
+        counter +=
+          ((data.endAt - data.startAt) / Math.abs(data.endAt - data.startAt)) *
+          1;
+        i.innerHTML = data.format.replace("{}", counter);
+        if (counter == data.endAt) {
+          clearInterval(interval);
+        }
+      }
+    }, data.delay);
+  });
+}
+
+window.VanillaCounter = VanillaCounter;
