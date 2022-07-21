@@ -156,8 +156,7 @@ const langMaj = lang.map((e) => {
 
 function errorPrevent() {
   if (reponseText.textContent === "JS") {
-    // reponseText.textContent = "JAVASCRIPT";
-    arrayReponse.push(reponseText.textContent === "JAVASCRIPT");
+    reponseText.textContent = "JAVASCRIPT";
     console.log("ok");
   }
   if (reponseText.textContent === "VISUAL BASIC") {
@@ -207,7 +206,9 @@ const error = document.querySelectorAll(".echoue>div");
 let errorNumber = 0;
 const score = document.querySelector(".trouve div:nth-child(1)");
 let scoreCompteur = 0;
+// *********************************************************
 
+//************************ */ close overlay *******************
 function reponseNone() {
   reponse.classList.add("displayNone");
   reponse.classList.remove("flex");
@@ -229,7 +230,9 @@ function overlayDescNone() {
   overlayDescContainer.classList.add("displayNone");
   overlayDescContainer.classList.remove("flex");
 }
+// *************************************************************
 
+// *********************** event listerner KeyDown GameEngine ***********************
 function gameEngine() {
   document.querySelector("body").addEventListener("keydown", (e) => {
     if (
