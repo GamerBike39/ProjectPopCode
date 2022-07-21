@@ -218,8 +218,8 @@ nav>ul>a>li:hover, .langagesFound:hover {
     font-weight: 500;
     font-size: 13px;
     letter-spacing: 5px;
-    padding-bottom: 50px;
-    margin-top: 50px;
+    padding-bottom: 20px;
+    margin-top: 20px;
     animation: neon 1.5s ease-in-out 0.5s infinite alternate;
 }
 
@@ -538,9 +538,12 @@ nav>ul>a>li:hover, .langagesFound:hover {
    .overlayReponseTrouvee > div:nth-child(1) > span:nth-child(3) {
     position: absolute;
     width: 186px;
-    top: 89px;
+    top: 123px;
     left: 108px;
     font-size: 18px;
+    padding-right: 50px;
+    height: 74vh;
+    overflow: auto;
    }
       
 
@@ -620,9 +623,10 @@ nav>ul>a>li:hover, .langagesFound:hover {
 
 .overlayDesc>div:nth-child(2) {
     width: 34%;
-    height: 30vh;
+    height: 47vh;
     line-height: 21px;
     overflow: auto;
+    padding-right: 20px;
 }
 
 .overlayDesc>div:nth-child(2)>a:nth-child(11) {
@@ -828,3 +832,4 @@ nav>ul>a>li:hover, .langagesFound:hover {
   .overMouse{
     color: rgb(247, 56, 190);
   }
+

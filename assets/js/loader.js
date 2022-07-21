@@ -1,5 +1,4 @@
 VanillaCounter();
-
 const loader = document.querySelector(".containerLoader");
 const transi = document.querySelector(".containerTransi");
 const home = document.querySelector(".containerAccueil");
@@ -17,6 +16,54 @@ const btnReset = document.querySelector(".reset");
 const gameWin = document.querySelector(".gameWin");
 const sectionZoom = document.querySelector(".sectionZoom");
 
+// ************************Curseur custom************************
+let cursor = document.querySelector(".cursor");
+let cursorinner = document.querySelector(".cursor2");
+let a = document.querySelectorAll("a");
+let p = document.querySelectorAll("p");
+
+document.addEventListener("mousemove", function (e) {
+  let x = e.clientX;
+  let y = e.clientY;
+  cursor.style.transform = `translate3d(calc(${e.clientX}px - 50%), calc(${e.clientY}px - 50%), 0)`;
+});
+
+document.addEventListener("mousemove", function (e) {
+  let x = e.clientX;
+  let y = e.clientY;
+  cursorinner.style.left = x + "px";
+  cursorinner.style.top = y + "px";
+});
+
+document.addEventListener("mousedown", function () {
+  cursor.classList.add("click");
+  cursorinner.classList.add("cursorinnerhover");
+});
+
+document.addEventListener("mouseup", function () {
+  cursor.classList.remove("click");
+  cursorinner.classList.remove("cursorinnerhover");
+});
+
+a.forEach((item) => {
+  item.addEventListener("mouseover", () => {
+    cursor.classList.add("hover");
+  });
+  item.addEventListener("mouseleave", () => {
+    cursor.classList.remove("hover");
+  });
+});
+p.forEach((item) => {
+  item.addEventListener("mouseover", () => {
+    cursor.classList.add("hover");
+  });
+  item.addEventListener("mouseleave", () => {
+    cursor.classList.remove("hover");
+  });
+});
+// ************************************************************
+
+// **********************Loader********************
 setTimeout(() => {
   loader.classList.remove("dfjcic");
   loader.classList.add("displayNone");
@@ -29,7 +76,9 @@ setTimeout(() => {
   home.classList.remove("displayNone");
   home.classList.add("flex");
 }, 3800);
+// ************************************************************
 
+// ********************btn start game********************
 const beginGame = document.querySelector(".beginGame");
 beginGame.addEventListener("click", () => {
   home.classList.remove("flex");
@@ -41,21 +90,22 @@ beginGame.addEventListener("click", () => {
   gameEngine();
 });
 
-btnReset.addEventListener("click", () => {
-  localStorage.clear();
-  score.textContent = "0";
-  scoreCompteur = 0;
-  error[0].style.color = "#7a7878";
-  error[1].style.color = "#7a7878";
-  error[2].style.color = "#7a7878";
-  errorNumber = 0;
-  arrayReponse.length = 0;
-  dejaTrouveP.innerHTML = "";
-  jeu.classList.remove("displayNone");
-  overlayGameOver.classList.add("displayNone");
-  overlayGameOver.classList.remove("dfjcic");
-});
+// btnReset.addEventListener("click", () => {
+//   localStorage.clear();
+//   score.textContent = "0";
+//   scoreCompteur = 0;
+//   error[0].style.color = "#7a7878";
+//   error[1].style.color = "#7a7878";
+//   error[2].style.color = "#7a7878";
+//   errorNumber = 0;
+//   arrayReponse.length = 0;
+//   dejaTrouveP.innerHTML = "";
+//   jeu.classList.remove("displayNone");
+//   overlayGameOver.classList.add("displayNone");
+//   overlayGameOver.classList.remove("dfjcic");
+// });
 
+// ********************* Responsive *****************************
 const responsivePop = document.querySelector(".responsivePop");
 new ResizeObserver((entries) => {
   if (entries[0].contentRect.width <= 900) {
@@ -67,8 +117,9 @@ new ResizeObserver((entries) => {
     responsivePop.classList.add("displayNone");
   }
 }).observe(document.body);
+// ***************************************************************
 
-// **** section prise de réponse et analyse *******
+// **** section prise de réponse et analyse du jeu *******
 
 const lang = [
   "Javascript",
@@ -105,17 +156,24 @@ const langMaj = lang.map((e) => {
 
 function errorPrevent() {
   if (reponseText.textContent === "JS") {
-    reponseText.textContent = "JAVASCRIPT";
+    // reponseText.textContent = "JAVASCRIPT";
+    arrayReponse.push(reponseText.textContent === "JAVASCRIPT");
     console.log("ok");
   }
   if (reponseText.textContent === "VISUAL BASIC") {
     reponseText.textContent = "VBA";
   }
-  if (reponseText.textContent === "OBJ-C") {
+  if (
+    reponseText.textContent === "OBJ-C" ||
+    reponseText.textContent === "OBJECTIVEC"
+  ) {
     reponseText.textContent = "OBJECTIVE-C";
   }
   if (reponseText.textContent === "TS") {
     reponseText.textContent = "TYPESCRIPT";
+  }
+  if (reponseText.textContent === "WBA") {
+    reponseText.textContent = "WEBASSEMBLY";
   }
 }
 
@@ -215,9 +273,7 @@ function gameEngine() {
     if (e.key === "Enter" && langMaj.includes(reponseText.textContent)) {
       arrayReponse.push(reponseText.textContent);
       let unique = [...new Set(arrayReponse)];
-      dejaTrouveP.innerHTML = `<p>${unique.join(`<p>`)}</p>`;
       closeTrouve();
-
       if (
         unique.length !== arrayReponse.length &&
         langMaj.includes(reponseText.textContent) &&
@@ -259,6 +315,9 @@ function gameEngine() {
                 overlayDescContainer.classList.add("flex");
                 overlayDesc.classList.remove("displayNone");
                 overlayDesc.classList.add("flex");
+                dejaTrouveP.innerHTML += `<p class="dfjcic" style="gap: 12px; paddingLeft: 10px">${data[i].language}<img style="width: 35%; padding-right: 10px;" src=${data[i].img} alt="logo"></p>`;
+                dejaTrouveDesc.innerHTML = ` <div><img src=${data[i].img} alt="logo"></div>
+                <div><h1>${data[i].language}</h1> <p>${data[i].desc}</p> <a target="_blank" href='${data[i].url}' style="color: #FFAAFF;">wikipedia</a></div>`;
                 closeTimer();
                 document
                   .querySelector(".closeModale")
@@ -322,9 +381,11 @@ function gameEngine() {
       reponseNone();
       reponseDelete();
       overlayDescNone();
+      dejaTrouveDiv.classList.add("displayNone");
+      dejaTrouveDiv.classList.remove("flex");
     }
     if (e.key === "Backspace") {
-      reponseText.textContent = reponseText.textContent.slice(e, -1);
+      reponseText.textContent = reponseText.textContent.slice(0, -1);
     }
     saveScore();
     if (overlayGameOver.classList.contains("dfjcic") === true) {
@@ -357,42 +418,9 @@ remplirZoom();
 dejaTrouveBtn.addEventListener("click", () => {
   dejaTrouveDiv.classList.toggle("displayNone");
   dejaTrouveDiv.classList.toggle("flex");
-  dejaTrouveDesc.innerHTML = "";
+  closeTrouve();
   descTrouve();
-});
-// dejaTrouveDiv.addEventListener("click", () => {
-//   dejaTrouveDiv.classList.add("displayNone");
-//   dejaTrouveDiv.classList.remove("flex");
-// });
-
-// fermeture modalDescription
-// overlayDesc.addEventListener("click", () => {
-//   overlayDescNone();
-// });
-
-// continuer avec les données stockés dans saveScore
-function continuer() {
-  scoreCompteur = localStorage.getItem("scoreCompteur");
-  errorNumber = localStorage.getItem("errorNumber");
-  arrayReponse.push(localStorage.getItem("arrayReponse"));
-  dejaTrouveP.innerHTML = localStorage.getItem("dejaTrouveP");
-  score.textContent = localStorage.getItem("scoreCompteur", scoreCompteur);
-  if (localStorage.getItem("errorNumber") === "1") {
-    error[0].style.color = "#0aeff7";
-  }
-  if (localStorage.getItem("errorNumber") === "2") {
-    error[1].style.color = "#0aeff7";
-  }
-}
-
-const continueBtn = document.querySelector(".continueBtn");
-continueBtn.addEventListener("click", () => {
-  home.classList.remove("flex");
-  home.classList.add("displayNone");
-  body.classList.remove("bgAccueil");
-  jeu.classList.remove("displayNone");
-  continuer();
-  gameEngine();
+  overlayDescNone();
 });
 
 function closeTimer() {
@@ -408,7 +436,7 @@ closeTimer();
 
 const dejaTrouveDesc = document.querySelector(".overlayReponseTrouvee > desc");
 //  dejaTrouveP.childNodes[i].textContent
-function descTrouve() {
+async function descTrouve() {
   for (let i = 0; i < dejaTrouveP.childNodes.length; i++) {
     dejaTrouveP.childNodes[i].addEventListener("mouseover", () => {
       console.log("ok");
@@ -422,7 +450,7 @@ function descTrouve() {
               dejaTrouveP.childNodes[i].textContent.toLowerCase()
             ) {
               dejaTrouveDesc.innerHTML = ` <div><img src=${data[z].img} alt="logo"></div>
-          <div><h1>${data[z].language}</h1> <p>${data[z].desc}</p> <a target="_blank" href='${data[z].url}' style="color: #FFAAFF;">wikipedia</a></div>`;
+              <div><h1>${data[z].language}</h1> <p>${data[z].desc}</p> <a target="_blank" href='${data[z].url}' style="color: #FFAAFF;">wikipedia</a></div>`;
             }
             dejaTrouveP.childNodes[i].addEventListener("mouseover", () => {
               cursor.classList.add("hover");
@@ -447,9 +475,6 @@ btnMentionLegales.addEventListener("click", () => {
       for (let z = 0; z < data.length; z++) {
         if (data[z].title === btnMentionLegales.textContent) {
           mentionLegales.childNodes[3].innerHTML = `<p>${data[z].title}</p> ${data[z].content}`;
-          document.addEventListener("click", () => {
-            mentionLegales.classList.add("displayNone");
-          });
         }
       }
     });
@@ -460,53 +485,7 @@ closeM.addEventListener("click", () => {
   console.log("ok");
   mentionLegales.classList.toggle("displayNone");
 });
-
-// curseur custom
-let cursor = document.querySelector(".cursor");
-let cursorinner = document.querySelector(".cursor2");
-let a = document.querySelectorAll("a");
-let p = document.querySelectorAll("p");
-
-document.addEventListener("mousemove", function (e) {
-  let x = e.clientX;
-  let y = e.clientY;
-  cursor.style.transform = `translate3d(calc(${e.clientX}px - 50%), calc(${e.clientY}px - 50%), 0)`;
-});
-
-document.addEventListener("mousemove", function (e) {
-  let x = e.clientX;
-  let y = e.clientY;
-  cursorinner.style.left = x + "px";
-  cursorinner.style.top = y + "px";
-});
-
-document.addEventListener("mousedown", function () {
-  cursor.classList.add("click");
-  cursorinner.classList.add("cursorinnerhover");
-});
-
-document.addEventListener("mouseup", function () {
-  cursor.classList.remove("click");
-  cursorinner.classList.remove("cursorinnerhover");
-});
-
-a.forEach((item) => {
-  item.addEventListener("mouseover", () => {
-    cursor.classList.add("hover");
-  });
-  item.addEventListener("mouseleave", () => {
-    cursor.classList.remove("hover");
-  });
-});
-p.forEach((item) => {
-  item.addEventListener("mouseover", () => {
-    cursor.classList.add("hover");
-  });
-  item.addEventListener("mouseleave", () => {
-    cursor.classList.remove("hover");
-  });
-});
-
+// ************************************************************
 // counter
 function VanillaCounter() {
   let elements = document.querySelectorAll("[data-vanilla-counter]");
@@ -549,3 +528,43 @@ function VanillaCounter() {
 }
 
 window.VanillaCounter = VanillaCounter;
+
+// sauvegarde
+// continuer avec les données stockés dans saveScore
+// function continuer() {
+//   scoreCompteur = localStorage.getItem("scoreCompteur");
+//   errorNumber = localStorage.getItem("errorNumber");
+//   arrayReponse.push(localStorage.getItem("arrayReponse"));
+//   dejaTrouveP.in = localStorage.getItem("dejaTrouveP");
+//   score.textContent = localStorage.getItem("scoreCompteur", scoreCompteur);
+//   if (localStorage.getItem("errorNumber") === "1") {
+//     error[0].style.color = "#0aeff7";
+//   }
+//   if (localStorage.getItem("errorNumber") === "2") {
+//     error[1].style.color = "#0aeff7";
+//   }
+// }
+
+// const continueBtn = document.querySelector(".continueBtn");
+// if (localStorage.getItem("errorNumber") === null) {
+//   continueBtn.style.display = "none";
+// } else {
+//   continueBtn.style.display = "block";
+// }
+
+// continueBtn.addEventListener("click", () => {
+//   home.classList.remove("flex");
+//   home.classList.add("displayNone");
+//   body.classList.remove("bgAccueil");
+//   jeu.classList.remove("displayNone");
+//   sectionZoom.classList.remove("displayNone");
+//   sectionZoom.classList.add("flex");
+//   continuer();
+//   gameEngine();
+// });
+
+// bouton save exits
+// const saveExit = document.querySelector(".saveExit");
+// saveExit.addEventListener("click", () => {
+//   window.close();
+// });
