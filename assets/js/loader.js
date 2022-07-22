@@ -166,7 +166,8 @@ function errorPrevent() {
   }
   if (
     reponseText.textContent === "OBJ-C" ||
-    reponseText.textContent === "OBJECTIVEC"
+    reponseText.textContent === "OBJECTIVEC" ||
+    reponseText.textContent === "OBJECTIVE C"
   ) {
     reponseText.textContent = "OBJECTIVE-C";
   }
