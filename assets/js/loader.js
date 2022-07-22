@@ -25,7 +25,9 @@ let p = document.querySelectorAll("p");
 document.addEventListener("mousemove", function (e) {
   let x = e.clientX;
   let y = e.clientY;
-  cursor.style.transform = `translate3d(calc(${e.clientX}px - 50%), calc(${e.clientY}px - 50%), 0)`;
+  cursor.style.transform = `translate3d(calc(${e.clientX}px - 50%), calc(${
+    e.clientY
+  }px - 50%), 0) rotate(${x + y}deg)`;
 });
 
 document.addEventListener("mousemove", function (e) {
