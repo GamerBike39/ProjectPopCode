@@ -512,7 +512,7 @@ nav>ul>a>li:hover, .langagesFound:hover {
     text-align: left;
     font-family: "Gotham Black", sans-serif;
     font-size: 1.1rem;
-    max-height: 50vh;
+    max-height: 54vh;
     line-height: normal;
     font-family: "poppins", sans-serif;
     overflow: auto;
@@ -794,7 +794,7 @@ nav>ul>a>li:hover, .langagesFound:hover {
     width: 50px;
     height: 50px;
     border-radius: 100%;
-    border: 1px solid rgb(255, 255, 255);
+    border: 1px dashed rgb(255, 255, 255);
     transition: all 200ms ease-out;
     position: fixed;
     pointer-events: none;
