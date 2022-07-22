@@ -1,4 +1,5 @@
 VanillaCounter();
+
 const loader = document.querySelector(".containerLoader");
 const transi = document.querySelector(".containerTransi");
 const home = document.querySelector(".containerAccueil");
@@ -114,6 +115,8 @@ new ResizeObserver((entries) => {
     console.log("entries[0]");
     responsivePop.classList.remove("displayNone");
     responsivePop.classList.add("flex");
+    home.classList.add("displayNone");
+    home.classList.remove("flex");
   } else {
     responsivePop.classList.remove("flex");
     responsivePop.classList.add("displayNone");
