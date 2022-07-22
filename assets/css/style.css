@@ -535,7 +535,7 @@ nav>ul>a>li:hover, .langagesFound:hover {
    }
    .overlayReponseTrouvee > div:nth-child(1) > span:nth-child(3) {
     position: absolute;
-    width: 186px;
+    width: 225px;
     top: 123px;
     left: 108px;
     font-size: 18px;
