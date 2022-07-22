@@ -62,7 +62,6 @@ p.forEach((item) => {
   });
 });
 // ************************************************************
-
 // **********************Loader********************
 setTimeout(() => {
   loader.classList.remove("dfjcic");
@@ -104,6 +103,7 @@ beginGame.addEventListener("click", () => {
 //   overlayGameOver.classList.add("displayNone");
 //   overlayGameOver.classList.remove("dfjcic");
 // });
+// ***************************************
 
 // ********************* Responsive *****************************
 const responsivePop = document.querySelector(".responsivePop");
@@ -119,7 +119,7 @@ new ResizeObserver((entries) => {
 }).observe(document.body);
 // ***************************************************************
 
-// **** section prise de réponse et analyse du jeu *******
+// **** réponse et analyse du jeu *******
 
 const lang = [
   "Javascript",
@@ -230,6 +230,12 @@ function overlayDescNone() {
   overlayDescContainer.classList.add("displayNone");
   overlayDescContainer.classList.remove("flex");
 }
+function closeTimer() {
+  if (btnCheck.childNodes[3].checked === true) {
+    overlayDescNone();
+  }
+}
+closeTimer();
 // *************************************************************
 
 // *********************** event listerner KeyDown GameEngine ***********************
@@ -299,7 +305,6 @@ function gameEngine() {
       overlayDescNone();
       errorPrevent();
     }
-
     if (e.key === " " && reponseText.textContent.length <= 1) {
       reponseText.textContent = "";
     }
@@ -447,7 +452,7 @@ function remplirZoom() {
 }
 remplirZoom();
 
-// ****** modale déja trouvée *******
+// ****** modale déja trouvée  et timer desc *******
 dejaTrouveBtn.addEventListener("click", () => {
   dejaTrouveDiv.classList.toggle("displayNone");
   dejaTrouveDiv.classList.toggle("flex");
@@ -455,17 +460,6 @@ dejaTrouveBtn.addEventListener("click", () => {
   descTrouve();
   overlayDescNone();
 });
-
-function closeTimer() {
-  if (btnCheck.childNodes[3].checked === true) {
-    overlayDescNone();
-  }
-}
-closeTimer();
-
-// btnCheck.addEventListener("click", () => {
-//   overlayDescNone();
-// });
 
 const dejaTrouveDesc = document.querySelector(".overlayReponseTrouvee > desc");
 //  dejaTrouveP.childNodes[i].textContent
@@ -559,7 +553,6 @@ function VanillaCounter() {
     }, data.delay);
   });
 }
-
 window.VanillaCounter = VanillaCounter;
 
 // sauvegarde
