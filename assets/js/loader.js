@@ -159,28 +159,28 @@ const langMaj = lang.map((e) => {
   return e.toUpperCase();
 });
 
-// function errorPrevent() {
-//   if (reponseText.textContent === "JS") {
-//     reponseText.textContent = "JAVASCRIPT";
-//     console.log("ok");
-//   }
-//   if (reponseText.textContent === "VISUAL BASIC") {
-//     reponseText.textContent = "VBA";
-//   }
-//   if (
-//     reponseText.textContent === "OBJ-C" ||
-//     reponseText.textContent === "OBJECTIVEC" ||
-//     reponseText.textContent === "OBJECTIVE C"
-//   ) {
-//     reponseText.textContent = "OBJECTIVE-C";
-//   }
-//   if (reponseText.textContent === "TS") {
-//     reponseText.textContent = "TYPESCRIPT";
-//   }
-//   if (reponseText.textContent === "WBA") {
-//     reponseText.textContent = "WEBASSEMBLY";
-//   }
-// }
+function errorPrevent() {
+  if (reponseText.textContent === "JS") {
+    reponseText.textContent = "JAVASCRIPT";
+    console.log("ok");
+  }
+  if (reponseText.textContent === "VISUAL BASIC") {
+    reponseText.textContent = "VBA";
+  }
+  if (
+    reponseText.textContent === "OBJ-C" ||
+    reponseText.textContent === "OBJECTIVEC" ||
+    reponseText.textContent === "OBJECTIVE C"
+  ) {
+    reponseText.textContent = "OBJECTIVE-C";
+  }
+  if (reponseText.textContent === "TS") {
+    reponseText.textContent = "TYPESCRIPT";
+  }
+  if (reponseText.textContent === "WBA") {
+    reponseText.textContent = "WEBASSEMBLY";
+  }
+}
 
 const arrayReponse = [];
 
@@ -309,6 +309,7 @@ function gameEngine() {
       reponseText.textContent += e.key.toUpperCase();
       dejaTrouveClose();
       overlayDescNone();
+      errorPrevent();
     }
     if (e.key === " " && reponseText.textContent.length <= 1) {
       reponseText.textContent = "";
@@ -319,8 +320,7 @@ function gameEngine() {
       closeTrouve();
       if (
         unique.length !== arrayReponse.length &&
-        langMaj.includes(reponseText.textContent) &&
-        dejaTrouveP.innerHTML.includes(reponseText.textContent)
+        langMaj.includes(reponseText.textContent)
       ) {
         arrayReponse.push(reponseText.textContent);
         arrayReponse.pop();
