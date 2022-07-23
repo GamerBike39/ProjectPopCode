@@ -787,10 +787,10 @@ nav>ul>a>li:hover, .langagesFound:hover {
 
 /* custom Cursor */
 .cursor {
-    width: 50px;
-    height: 50px;
+    min-width: 50px!important;
+    min-height: 50px!important;
     border-radius: 100%;
-    border: 1px dashed rgb(255, 255, 255);
+    border: 1px dashed rgb(240, 55, 218);
     transition: all 200ms ease-out;
     position: fixed;
     pointer-events: none;
@@ -798,6 +798,7 @@ nav>ul>a>li:hover, .langagesFound:hover {
     top: 0;
     transform: translate(calc(-50% + 15px), -50%);
     z-index: 5;
+    animation: rotateAndNeon 1s infinite linear;
 }
   
   .cursor2 {
