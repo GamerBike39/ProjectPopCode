@@ -362,6 +362,7 @@ function gameEngine() {
 function saveScore() {
   localStorage.setItem("scoreCompteur", scoreCompteur);
   localStorage.setItem("errorNumber", errorNumber);
+  localStorage.setItem("arrayReponse", arrayReponse);
   localStorage.setItem("unique", unique);
   localStorage.setItem("dejaTrouveP", dejaTrouveP.innerHTML);
 }
@@ -481,15 +482,13 @@ function VanillaCounter() {
 window.VanillaCounter = VanillaCounter;
 
 // sauvegarde
-const dejaTrouveSave = JSON.stringify(localStorage.getItem("dejaTrouveP"));
-console.log(dejaTrouveSave);
 
 // continuer avec les données stockés dans saveScore
 function continuer() {
   scoreCompteur = localStorage.getItem("scoreCompteur");
   errorNumber = localStorage.getItem("errorNumber");
   unique = (localStorage.getItem("unique"));
-  // arrayReponse.push(localStorage.getItem("arrayReponse"));
+  arrayReponse.push(localStorage.getItem("arrayReponse"));
   dejaTrouveP.innerHTML = localStorage.getItem("dejaTrouveP");
   score.textContent = localStorage.getItem("scoreCompteur", scoreCompteur);
   if (localStorage.getItem("errorNumber") === "1") {
