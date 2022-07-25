@@ -1,0 +1,831 @@
+/* ************Classe animation****************** */
+.opacity {
+    opacity: 1;
+}
+
+.displayNone {
+    display: none;
+}
+
+.dfjcic {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.flex {
+    display: flex;
+}
+
+.bgAccueil {
+    background: url(../img/fondBrique.webp) no-repeat;
+    background-size: cover;
+    background-position: center;
+}
+
+.responsivePop {
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 100vw;
+    height: 100vh;
+    background: black;
+    color: white;
+    position: absolute;
+    z-index: 5;
+}
+
+.responsivePop>img {
+    width: 60%;
+    height: 40%;
+}
+
+/* ************************************************/
+
+
+body {
+    margin: 0;
+    padding: 0;
+    font-family: 'Poppins', sans-serif;
+    cursor: none;
+    background: url(../img/fondBrique.webp) no-repeat;
+    /* position: relative; */
+    /* overflow: hidden; */
+}
+
+.containerLoader {
+    min-height: 100vh;
+    margin: 0;
+    padding: 0;
+    flex-direction: column;
+}
+
+#popSvg {
+    overflow: visible;
+    transition: all 0.5s ease-in-out;
+}
+
+#popCorn {
+    height: 65vh;
+    overflow: visible;
+    width: 50vw;
+    transition: all 0.5s ease-in-out;
+}
+
+.pop {
+    animation: pop 0.8s linear infinite alternate;
+    filter: drop-shadow(0px 0px 10px #d7e2ea);
+}
+
+@keyframes pop {
+    0% {
+        transform: translate(0, 0)
+    }
+
+    100% {
+        transform: translate(0, -5%)
+    }
+}
+
+.popTrait1,
+.popTrait3 {
+    stroke: #f6fbff;
+    fill: #f6fbff;
+    filter: drop-shadow(5px 5px 10px #f6fbff);
+    animation: neon1 1.5s ease-in-out 0.5s infinite alternate;
+}
+
+.popTrait2,
+.popTrait4 {
+    stroke: #FF4949;
+    fill: #FF4949;
+    filter: drop-shadow(5px 5px 10px #FF4949);
+    animation: neon1 2.5s ease-in-out 1s infinite alternate;
+}
+
+@keyframes neon1 {
+    0% {
+        filter: drop-shadow(inherit);
+    }
+
+    50% {
+        stroke: inherit;
+        fill: inherit;
+        filter: drop-shadow(none);
+    }
+
+    100% {
+        filter: drop-shadow(inherit);
+    }
+
+}
+
+.containerPop {
+    stroke: #d7e2ea;
+    fill: rgba(0, 0, 0, 0.673);
+    filter: drop-shadow(0px 0px 10px #d7e2ea);
+}
+
+#ConteneurPop {
+    fill: rgba(0, 0, 0, 0.565);
+}
+
+
+#logoPop {
+    width: 250px;
+    height: 250px;
+}
+
+.logo {
+    width: 250px;
+    height: 250px;
+}
+
+
+/* ********* nav mentions légales, politiques de confidentialités *****************/
+nav {
+    font-family: 'Gotham Medium', sans-serif;
+    font-size: 12px;
+    position: fixed;
+    bottom: 5px;
+    right: 50px;
+    z-index: 3;
+}
+
+nav>ul {
+    display: flex;
+    gap: 40px;
+    list-style: none;
+}
+
+nav>ul>a>li {
+    text-decoration: none;
+    color: #ffff;
+    font-weight: bold;
+    letter-spacing: 2px;
+    border-bottom: 2px solid white;
+    transition: cubic-bezier(0.39, 0.575, 0.565, 1) 0.3s;
+    cursor: pointer;
+}
+
+nav>ul>a>li:hover, .langagesFound:hover {
+    text-shadow:
+        0 0 2px rgba(202, 228, 225, 0.92),
+        0 0 10px rgba(202, 228, 225, 0.34),
+        0 0 4px rgba(30, 132, 242, 0.52),
+        0 0 7px rgba(250, 152, 255, 0.78),
+        0 0 11px rgba(250, 152, 255, 0.78),
+        0 0 16px rgba(234, 143, 255, 0.92);
+}
+
+/* ********************************************** */
+/* ******************transi gif***************** */
+.containerTransi {
+    height: 100vh;
+    width: 100vw;
+    overflow: hidden;
+}
+
+.containerTransi>img {
+    height: 100vh;
+    width: 100vw;
+    overflow: hidden;
+}
+
+
+/* ******************Page d'accueil*************** */
+.containerAccueil {
+    flex-direction: column;
+    min-height: 100vh;
+    font-family: 'Gotham Black', sans-serif;
+    align-items: center;
+}
+
+.logoAccueil {
+    height: 48.63982589771491vh;
+    width: auto;
+}
+
+.contenuAcceuil {
+    text-transform: uppercase;
+    text-align: center;
+    color: rgba(255, 255, 255, 1);
+}
+
+.containerAccueil>a {
+    color: rgba(255, 170, 255, 1);
+    text-decoration: none;
+    font-weight: 500;
+    font-size: 13px;
+    letter-spacing: 5px;
+    padding-bottom: 20px;
+    margin-top: 59px;
+    animation: neon 1.5s ease-in-out 0.5s infinite alternate;
+}
+
+.containerAccueil>a:hover {
+    text-shadow:
+        0 0 2px rgba(234, 142, 255, 0.92),
+        0 0 10px rgb(244, 113, 217),
+        0 0 4px rgba(240, 81, 230, 0.987),
+        0 0 7px rgba(242, 30, 214, 0.92),
+        0 0 11px rgba(242, 30, 224, 0.871),
+        0 0 16px rgba(242, 30, 231, 0.92);
+}
+
+
+.contenuAcceuil>p {
+    margin: 0;
+    padding: 0;
+}
+
+.number {
+    color: rgba(10, 239, 247, 1);
+    font-size: 150px;
+    margin: 0;
+    font-weight: 500;
+    letter-spacing: -11px;
+    animation: neonN 0.8s ease-in-out 2.2s;
+}
+
+@keyframes neonN {
+    0% {
+        text-shadow:
+            0 0 2px rgba(202, 228, 225, 0.92),
+            0 0 10px rgba(228, 202, 223, 0.34),
+            0 0 4px rgba(242, 30, 228, 0.52),
+            0 0 7px rgba(242, 30, 214, 0.92),
+            0 0 11px rgba(242, 30, 224, 0.78),
+            0 0 16px rgba(242, 30, 231, 0.92);
+    }
+
+    100% {
+        text-shadow:
+            0 0 2px rgba(202, 228, 225, 0.92),
+            0 0 10px rgba(228, 202, 223, 0.34),
+            0 0 4px rgba(242, 30, 228, 0.52),
+            0 0 7px rgba(242, 30, 214, 0.92),
+            0 0 11px rgba(242, 30, 224, 0.78),
+            0 0 16px rgba(242, 30, 231, 0.92);
+    }
+
+}
+
+
+@keyframes neon {
+    from {
+        text-shadow: 0 0 10px rgb(233, 225, 225), 0 0 20px rgb(233, 225, 225), 0 0 30px #ef087b, 0 0 40px #ef087b, 0 0 50px #ef087b, 0 0 60px #ef087b, 0 0 70px #ef087b;
+    }
+
+    to {
+        text-shadow: 0 0 5px #2a1c70,
+            0 0 25px #2a1c70,
+            0 0 50px #2a1c70,
+            0 0 100px #01d9fa;
+    }
+}
+
+/* *******page Jeu******** */
+.tableauScore p {
+    position: fixed;
+    height: 12px;
+    left: 34px;
+    top: 30px;
+    font-family: 'Gotham Black', sans-serif;
+    font-size: 8px;
+    letter-spacing: 2px;
+    color: #0aeff7;
+    transform: rotate(-90deg);
+    border-bottom: 2px solid #0aeff7;
+}
+
+.tableauDscore {
+    position: fixed;
+    top: 20px;
+    left: 80px;
+
+}
+
+.echoue {
+    gap: 11px;
+    font-size: 18px;
+    font-family: 'Gotham Black', sans-serif;
+    color: #7a7878
+}
+
+.trouve {
+    gap: 5px;
+    color: white;
+    font-size: 18px;
+}
+
+.sectionZoom {
+    flex-direction: column;
+    position: fixed;
+    bottom: 15px;
+    left: 56px;
+    animation: blurEffect 2.5s ease-in-out;
+}
+
+.sectionZoom p:nth-child(1) {
+    color: #0aeff7;
+    transform: rotate(-90deg) translateY(-66%);
+    margin-bottom: 10px;
+    font-size: 8px;
+}
+
+.sectionZoom p:nth-child(2) {
+    color: #0aeff7;
+    margin: 0;
+    transform: translate(-2px);
+}
+
+.sectionZoom p:nth-child(4) {
+    color: #0aeff7;
+    margin: 0;
+    transform: translate(-1px);
+}
+
+
+.guideZoom {
+    position: absolute;
+    transform: rotate(90deg) translateY(-50px);
+}
+
+.guideZoom img {
+    transform: rotate(-90deg);
+}
+
+.traitZoom {
+    width: 3px;
+    height: 124px;
+    background-color: #ffffff;
+    transform: translateX(2px);
+    border-radius: 10%;
+}
+
+.traitZoomB {
+    border-radius: 10%;
+    width: 3px;
+    height: 2%;
+    background-color: #0aeff7;
+    position: absolute;
+    bottom: 24px;
+    left: 2px;
+    max-height: 124px;
+    transform: translateX(0px);
+    transition: height 0.2s ease-in-out;
+}
+
+.langagesFound {
+    border: 2px solid white;
+    height: 24px;
+    width: 8%;
+    color: white;
+    position: fixed;
+    bottom: 28px;
+    left: 128px;
+    align-items: center;
+    justify-content: space-around;
+    font-family: 'Gotham medium', sans-serif;
+    letter-spacing: 2px;
+    font-size: 8px;
+    cursor: pointer;
+    z-index: 3;
+}
+
+.logoJeu {
+    position: fixed;
+    top: 80px;
+    right: -31px;
+    transform: translate(-50%, -50%);
+    z-index: 5;
+}
+
+.logoJeu>img {
+    width: 150px;
+    height: 150px;
+}
+
+.fondJeu {
+    margin: 0;
+    padding: 0;
+    background: black;
+    position: absolute;
+    width: 100vw;
+    height: 100vh;
+    overflow: hidden;
+}
+
+.fondJeu>img {
+    width: 100vw;
+    height: 100vh;
+}
+
+.containerJeu{
+    animation: blurEffect 1.3s ease-in-out;
+}
+@keyframes blurEffect {
+    0% {
+        /* transform: scaleY(0); */
+        filter: blur(10px);
+    }
+    100% {
+        /* transform: scaleY(1); */
+        filter: blur(0px);
+    }
+}
+    
+
+
+/********overlay Reponse********/
+
+.overlayReponse {
+    width: 100vw;
+    height: 100vh;
+    background: rgba(0, 0, 0, 0.66);
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    position: fixed;
+    z-index: 2;
+    color: white;
+    font-family: 'Gotham Black', sans-serif;
+    font-size: 13px;
+    line-height: 14px;
+    text-align: center;
+    letter-spacing: 5px;
+
+}
+
+.overlayReponseTrouvee {
+    width: 100vw;
+    height: 100vh;
+    background: rgba(0, 0, 0, 0.66);
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    position: fixed;
+    z-index: 2;
+    color: white;
+    font-family: 'Gotham Medium', sans-serif;
+    font-size: 13px;
+    line-height: 14px;
+    text-align: center;
+    letter-spacing: 5px;
+}
+
+.overlayReponseTrouvee>div:nth-child(1) {
+    width: 9%;
+    margin-left: 50px;
+    margin-right: auto;
+    letter-spacing: 2px;
+}
+.overlayReponseTrouvee > div:nth-child(1) > span:nth-child(3) > p{
+    cursor: pointer;
+   }
+   
+
+.overlayReponseTrouvee>div:nth-child(1)>img:nth-child(1) {
+    display: block;
+    margin-left: auto;
+    cursor: pointer;
+}
+
+.overlayReponseTrouvee>desc:nth-child(2)>div:nth-child(1)>img:nth-child(1) {
+    width: 400px;
+    height: 400px;
+}
+
+.overlayReponseTrouvee>desc:nth-child(2) {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 50px;
+}
+
+.overlayReponseTrouvee>desc:nth-child(2)>div:nth-child(2) {
+    width: 24%;
+    letter-spacing: normal;
+    text-align: left;
+    font-family: "Gotham Black", sans-serif;
+    font-size: 1.1rem;
+    max-height: 54vh;
+    line-height: normal;
+    font-family: "poppins", sans-serif;
+    overflow: auto;
+    padding-right: 20px;
+}
+
+
+
+.overlayReponseTrouvee>div>span>p {
+    border-left: 2px solid white;
+    border-right: 2px solid white;
+}
+.overlayReponseTrouvee>div>span>p:hover {
+    animation: neonN 1s ease-in-out infinite;
+}
+
+.overlayReponseTrouvee > div:nth-child(1) > h4:nth-child(2) {
+    position: absolute;
+    top: 33px;
+    left: 93px;
+    font-size: 2rem;
+   }
+   .overlayReponseTrouvee > div:nth-child(1) > span:nth-child(3) {
+    position: absolute;
+    width: 225px;
+    top: 123px;
+    left: 108px;
+    font-size: 18px;
+    padding-right: 50px;
+    height: 74vh;
+    overflow: auto;
+   }
+      
+
+.clignement {
+    position: relative;
+}
+
+.clignement::before {
+    content: "";
+    position: absolute;
+    animation: cligne alternate infinite 0.6s ease-in-out;
+    height: 71px;
+    border: 1px solid #f8eaea;
+    border-radius: 10%;
+    right: -12px;
+    top: -26px;
+}
+
+@keyframes cligne {
+    0% {
+        opacity: 1;
+    }
+
+    50% {
+        opacity: 0;
+    }
+
+    100% {
+        opacity: 0;
+    }
+
+}
+
+.overlayReponse>p:nth-child(1) {
+    font-size: 5rem;
+    letter-spacing: 2%;
+}
+
+.overlayReponse>p:nth-child(3) {
+    font-size: 6rem;
+    letter-spacing: 2%;
+    animation: bouge 0.6s ease-in-out;
+}
+
+@keyframes bouge {
+    0% {
+        transform: scale(0.6);
+    
+    }
+
+    to {
+        transform: scale(1)
+    }
+}
+
+
+.overlayDescContainer {
+    height: 100vh;
+}
+
+.overlayDesc {
+    position: absolute;
+    background: #0c0b0ba6;
+    height: 100vh;
+    width: 100%;
+    align-items: center;
+    gap: 2vw;
+    color: white;
+    font-family: 'poppins', sans-serif;
+}
+.overlayDesc > div:nth-child(2) > a:nth-child(3) {
+    color: #FFAAFF;
+    text-decoration: none;
+   }
+   
+
+.overlayDesc>div:nth-child(2) {
+    width: 34%;
+    height: 47vh;
+    line-height: 21px;
+    overflow: auto;
+    padding-right: 20px;
+}
+
+.overlayDesc>div:nth-child(2)>a:nth-child(11) {
+    text-decoration: none;
+    color: #FFAAFF;
+    border-bottom: 1px solid #FFAAFF;
+}
+
+.overlayDesc>div:nth-child(1)>img:nth-child(2) {
+    width: 23vw;
+}
+
+.overlayDesc>div:nth-child(1)>h1:nth-child(1) {
+    font-size: 4.2vw;
+    margin-bottom: 26px;
+    text-transform: uppercase;
+    margin-top: 0;
+    position: relative;
+    z-index: -1;
+}
+
+.overlayDesc>div:nth-child(1) {
+    transform: translateY(-8%);
+    padding-left: 25px;
+    margin-left: 96px;
+}
+
+/* .overlayDesc > div:nth-child(2) > p:nth-child(2) {
+   
+   } */
+   
+
+
+.overlayDescContainer>div:nth-child(1) {
+    position: absolute;
+    bottom: 10%;
+    right: 594px;
+    z-index: 2;
+    color: white;
+    font-size: 8px;
+}
+
+/* .closeModale {
+    margin-left: auto;
+    display: block;
+    cursor: pointer;
+    position: absolute;
+    top: 199px;
+    right: 421px;
+} */
+
+.closeTrouve, .closeModale{
+    position: absolute;
+    top: 4vw;
+    right: 20vw;
+    cursor: pointer;
+}
+.closeM{
+    position: absolute;
+    top: 0;
+    right: 0;
+    cursor: pointer;
+    padding: 24px;
+}
+
+/* ecran game over */
+.overlayGameOver, .gameWin {
+    min-height: 100vh;
+    flex-direction: column;
+    color: white;
+    background: url('../img/fondBrique.webp') no-repeat center center fixed;
+}
+
+:root {
+    --animation: glitch;
+    --speed: 2s;
+    --easing: linear;
+  }
+  @import url("https://fonts.googleapis.com/css?family=Press+Start+2P");
+  
+  .gameover {
+    font-family: "Press Start 2P", Arial, sans-serif;
+    text-transform: uppercase;
+    text-align: center;
+    color: #FFAAFF;
+    text-shadow: 0px 2px #255fcc;
+    font-size: 6rem;
+    animation: var(--animation) var(--speed) infinite var(--easing);
+    margin: 0 0 20px 0;
+  }
+  
+ .gameover > h6 { font-size: 3em; 
+    margin: 0 0 20px 0;
+}
+.plusgros{
+    font-size: 2em;}
+  
+  @keyframes glitch {
+    0%, 12%, 15%, 52%, 55%, 82%, 85%, 100% { opacity: 1; transform: scaleX(1) scaleY(1) }  
+    13% { opacity: .8; transform: scaleY(2); color: #0ff }
+    53% { opacity: .8; transform: scaleX(.7);  color: #f0f }
+    83% { opacity: .8; transform: rotate(-10deg); color: #ff0 }
+  }
+  
+  @keyframes hue {  
+    13% { color: #0ff }
+    53% { color: #f0f }
+    83% { color: #ff0 }
+  }
+  
+  @keyframes shrink {  
+     0% { transform: scaleY(1) }
+    50% { transform: scaleY(.5) }
+   100% { transform: scaleY(1) }
+  }
+  
+  @keyframes fade {  
+     0% { opacity: 1 }
+    50% { opacity: 0 }
+   100% { opacity: 1 }
+  }
+
+
+
+/* mentions légales */
+.overlayMentionLegales {
+    background: #140202ed;
+    color: white;
+    width: 40%;
+    top: 50%;
+    position: absolute;
+    overflow: auto;
+    height: 96vh;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    padding: 0 25px;
+    font-family: 'Gotham Medium', sans-serif;
+   }
+
+   .overlayMentionLegales > div:nth-child(2) > p:nth-child(1) {
+    font-size: 4rem;
+    text-align: center;
+    margin-top: 20px;
+    margin-bottom: 20px;
+   }
+   
+
+   strong{
+    color : #0aeff7
+   }
+   .overlayMentionLegales > div:nth-child(2) > p:nth-child(3) > a {
+    color: #FFAAFF;
+    text-decoration: none;
+   }
+   
+   .reset{
+    color: #FFAAFF;
+    cursor: pointer;
+  }
+   
+
+/* custom Cursor */
+.cursor {
+    min-width: 50px!important;
+    min-height: 50px!important;
+    border-radius: 100%;
+    border: 1px dashed rgb(240, 55, 218);
+    transition: all 200ms ease-out;
+    position: fixed;
+    pointer-events: none;
+    left: 0;
+    top: 0;
+    transform: translate(calc(-50% + 15px), -50%);
+    z-index: 5;
+    animation: rotateAndNeon 1s infinite linear;
+}
+  
+  .cursor2 {
+    width: 20px;
+    height: 20px;
+    border-radius: 100%;
+    background-color: rgb(255, 255, 255);
+    opacity: .2;
+    position: fixed;
+    transform: translate(-50%, -50%);
+    pointer-events: none;
+    transition: width .3s, height .3s, opacity .3s;
+    z-index: 5;
+  }
+  
+  .hover {
+    background-color: rgb(246, 18, 200);
+    opacity: 0.5;
+  }
+  
+  .cursorinnerhover {
+    width: 50px;
+    height: 50px;
+    opacity: .5;
+  }
+
+  /* animation p deja trouve */
+  .overMouse{
+    color: rgb(247, 56, 190);
+  }
