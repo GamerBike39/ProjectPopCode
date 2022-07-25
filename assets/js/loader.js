@@ -492,38 +492,38 @@ window.VanillaCounter = VanillaCounter;
 // sauvegarde
 
 // continuer avec les données stockés dans saveScore
-function continuer() {
-  scoreCompteur = localStorage.getItem("scoreCompteur");
-  errorNumber = localStorage.getItem("errorNumber");
-  unique = (localStorage.getItem("unique"));
-  arrayReponse.push(localStorage.getItem("arrayReponse"));
-  dejaTrouveP.innerHTML = localStorage.getItem("dejaTrouveP");
-  score.textContent = localStorage.getItem("scoreCompteur", scoreCompteur);
-  if (localStorage.getItem("errorNumber") === "1") {
-    error[0].style.color = "#0aeff7";
-  }
-  if (localStorage.getItem("errorNumber") === "2") {
-    error[1].style.color = "#0aeff7";
-  }
-}
+// function continuer() {
+//   scoreCompteur = localStorage.getItem("scoreCompteur");
+//   errorNumber = localStorage.getItem("errorNumber");
+//   unique = (localStorage.getItem("unique"));
+//   arrayReponse.push(localStorage.getItem("arrayReponse"));
+//   dejaTrouveP.innerHTML = localStorage.getItem("dejaTrouveP");
+//   score.textContent = localStorage.getItem("scoreCompteur", scoreCompteur);
+//   if (localStorage.getItem("errorNumber") === "1") {
+//     error[0].style.color = "#0aeff7";
+//   }
+//   if (localStorage.getItem("errorNumber") === "2") {
+//     error[1].style.color = "#0aeff7";
+//   }
+// }
 
-const continueBtn = document.querySelector(".continueBtn");
-if (localStorage.getItem("scoreCompteur") === 0) {
-  continueBtn.style.display = "none";
-} else {
-  continueBtn.style.display = "block";
-}
+// const continueBtn = document.querySelector(".continueBtn");
+// if (localStorage.getItem("scoreCompteur") === 0) {
+//   continueBtn.style.display = "none";
+// } else {
+//   continueBtn.style.display = "block";
+// }
 
-continueBtn.addEventListener("click", () => {
-  home.classList.remove("flex");
-  home.classList.add("displayNone");
-  body.classList.remove("bgAccueil");
-  jeu.classList.remove("displayNone");
-  sectionZoom.classList.remove("displayNone");
-  sectionZoom.classList.add("flex");
-  gameEngine();
-  continuer();
-});
+// continueBtn.addEventListener("click", () => {
+//   home.classList.remove("flex");
+//   home.classList.add("displayNone");
+//   body.classList.remove("bgAccueil");
+//   jeu.classList.remove("displayNone");
+//   sectionZoom.classList.remove("displayNone");
+//   sectionZoom.classList.add("flex");
+//   gameEngine();
+//   continuer();
+// });
 
 // bouton save exits
 // const saveExit = document.querySelector(".saveExit");
