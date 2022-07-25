@@ -69,14 +69,17 @@ p.forEach((item) => {
 setTimeout(() => {
   loader.classList.remove("dfjcic");
   loader.classList.add("displayNone");
+
 }, 2500);
 setTimeout(() => {
   transi.classList.remove("displayNone");
+ 
 }, 2600);
 setTimeout(() => {
   transi.classList.add("displayNone");
   home.classList.remove("displayNone");
   home.classList.add("flex");
+
 }, 3800);
 // ************************************************************
 
@@ -91,6 +94,7 @@ beginGame.addEventListener("click", () => {
   sectionZoom.classList.add("flex");
   localStorage.clear();
   gameEngine();
+  localStorage.clear();
 });
 
 btnReset.addEventListener("click", () => {
@@ -235,6 +239,10 @@ function gameEngine() {
       arrayReponse.push(reponseText.textContent);
       unique = [...new Set(arrayReponse)];  
       closeTrouve();
+      if (localStorage.getItem("arrayReponse") !== localStorage.getItem("unique")) {
+        reponseText.textContent = "Vous avez déjà trouvé ce langage";
+        reponseTextResult.textContent = "";
+      }
       if (
         unique.length !== arrayReponse.length &&
         langMaj.includes(reponseText.textContent)
@@ -522,3 +530,4 @@ continueBtn.addEventListener("click", () => {
 // saveExit.addEventListener("click", () => {
 //   window.close();
 // });
+
