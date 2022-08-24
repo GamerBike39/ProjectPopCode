@@ -73,7 +73,7 @@ setTimeout(() => {
 }, 2500);
 setTimeout(() => {
   transi.classList.remove("displayNone");
- 
+
 }, 2600);
 setTimeout(() => {
   transi.classList.add("displayNone");
@@ -97,20 +97,7 @@ beginGame.addEventListener("click", () => {
   localStorage.clear();
 });
 
-btnReset.addEventListener("click", () => {
-  localStorage.clear();
-  score.textContent = "0";
-  scoreCompteur = 0;
-  error[0].style.color = "#7a7878";
-  error[1].style.color = "#7a7878";
-  error[2].style.color = "#7a7878";
-  errorNumber = 0;
-  arrayReponse.length = 0;
-  dejaTrouveP.innerHTML = "";
-  jeu.classList.remove("displayNone");
-  overlayGameOver.classList.add("displayNone");
-  overlayGameOver.classList.remove("dfjcic");
-});
+
 // ***************************************
 
 // ********************* Responsive *****************************
@@ -131,7 +118,7 @@ new ResizeObserver((entries) => {
 
 // **** réponse et analyse du jeu *******
 
-const lang = [ "Javascript", "Html", "Css", "SQL", "Python", "Java", "Bash", "Powershell", "C#", "PHP", "C++", "TypeScript", "C", "Ruby", "Go", "Assembly", "Swift", "Kotlin", "R", "VBA", "Objective-C", "Scala", "Rust", "Dart", "Elixir", "Clojure", "WebAssembly", ];
+const lang = ["Javascript", "Html", "Css", "SQL", "Python", "Java", "Bash", "Powershell", "C#", "PHP", "C++", "TypeScript", "C", "Ruby", "Go", "Assembly", "Swift", "Kotlin", "R", "VBA", "Objective-C", "Scala", "Rust", "Dart", "Elixir", "Clojure", "WebAssembly", ];
 const langMaj = lang.map((e) => {
   return e.toUpperCase();
 });
@@ -213,6 +200,7 @@ function overlayDescNone() {
   overlayDescContainer.classList.add("displayNone");
   overlayDescContainer.classList.remove("flex");
 }
+
 function closeTimer() {
   if (btnCheck.childNodes[3].checked === true) {
     overlayDescNone();
@@ -224,7 +212,7 @@ let unique = [];
 // *********************** event listerner KeyDown GameEngine ***********************
 function gameEngine() {
   document.querySelector("body").addEventListener("keydown", (e) => {
-    if ( e.key === "a" || e.key === "b" || e.key === "c" || e.key === "d" || e.key === "e" || e.key === "f" || e.key === "g" || e.key === "h" || e.key === "i" || e.key === "j" || e.key === "k" || e.key === "l" || e.key === "m" || e.key === "n" || e.key === "o" || e.key === "p" || e.key === "q" || e.key === "r" || e.key === "s" || e.key === "t" || e.key === "u" || e.key === "v" || e.key === "w" || e.key === "x" || e.key === "y" || e.key === "z" || e.key === "A" || e.key === "B" || e.key === "C" || e.key === "D" || e.key === "E" || e.key === "F" || e.key === "G" || e.key === "H" || e.key === "I" || e.key === "J" || e.key === "K" || e.key === "L" || e.key === "M" || e.key === "N" || e.key === "O" || e.key === "P" || e.key === "Q" || e.key === "R" || e.key === "S" || e.key === "T" || e.key === "U" || e.key === "V" || e.key === "W" || e.key === "X" || e.key === "Y" || e.key === "Z" || e.key === " " || e.key === "+" || e.key === "-" || e.key === "#" ) {
+    if (e.key === "a" || e.key === "b" || e.key === "c" || e.key === "d" || e.key === "e" || e.key === "f" || e.key === "g" || e.key === "h" || e.key === "i" || e.key === "j" || e.key === "k" || e.key === "l" || e.key === "m" || e.key === "n" || e.key === "o" || e.key === "p" || e.key === "q" || e.key === "r" || e.key === "s" || e.key === "t" || e.key === "u" || e.key === "v" || e.key === "w" || e.key === "x" || e.key === "y" || e.key === "z" || e.key === "A" || e.key === "B" || e.key === "C" || e.key === "D" || e.key === "E" || e.key === "F" || e.key === "G" || e.key === "H" || e.key === "I" || e.key === "J" || e.key === "K" || e.key === "L" || e.key === "M" || e.key === "N" || e.key === "O" || e.key === "P" || e.key === "Q" || e.key === "R" || e.key === "S" || e.key === "T" || e.key === "U" || e.key === "V" || e.key === "W" || e.key === "X" || e.key === "Y" || e.key === "Z" || e.key === " " || e.key === "+" || e.key === "-" || e.key === "#") {
       reponseShow();
       reponseText.textContent += e.key.toUpperCase();
       dejaTrouveClose();
@@ -235,9 +223,9 @@ function gameEngine() {
       reponseText.textContent = "";
     }
     if (e.key === "Enter" && langMaj.includes(reponseText.textContent)) {
-      
+
       arrayReponse.push(reponseText.textContent);
-      unique = [...new Set(arrayReponse)];  
+      unique = [...new Set(arrayReponse)];
       closeTrouve();
       if (localStorage.getItem("arrayReponse") !== localStorage.getItem("unique")) {
         reponseText.textContent = "Vous avez déjà trouvé ce langage";
@@ -322,11 +310,11 @@ function gameEngine() {
       errorNumber++;
       if (errorNumber === 1) {
         error[0].style.color = "#0aeff7";
-     
+
       }
       if (errorNumber === 2) {
         error[1].style.color = "#0aeff7";
-        
+
       }
       if (errorNumber === 3) {
         error[2].style.color = "#0aeff7";
@@ -359,7 +347,7 @@ function gameEngine() {
     if (e.key === "Backspace") {
       reponseText.textContent = reponseText.textContent.slice(0, -1);
     }
-   
+
     if (overlayGameOver.classList.contains("dfjcic") === true) {
       reponseDelete();
       reponseNone();
@@ -367,6 +355,7 @@ function gameEngine() {
     saveScore();
   });
 }
+
 function saveScore() {
   localStorage.setItem("scoreCompteur", scoreCompteur);
   localStorage.setItem("errorNumber", errorNumber);
@@ -475,6 +464,7 @@ function VanillaCounter() {
     var intervalTime = Math.ceil(data.time / (data.endAt - data.startAt));
     setTimeout(() => {
       var interval = setInterval(intervalHandler, intervalTime);
+
       function intervalHandler() {
         counter +=
           ((data.endAt - data.startAt) / Math.abs(data.endAt - data.startAt)) *
@@ -489,45 +479,61 @@ function VanillaCounter() {
 }
 window.VanillaCounter = VanillaCounter;
 
+
+btnReset.addEventListener("click", () => {
+  localStorage.clear();
+  score.textContent = "0";
+  scoreCompteur = 0;
+  error[0].style.color = "#7a7878";
+  error[1].style.color = "#7a7878";
+  error[2].style.color = "#7a7878";
+  errorNumber = 0;
+  arrayReponse.length = 0;
+  dejaTrouveP.innerHTML = "";
+  jeu.classList.remove("displayNone");
+  overlayGameOver.classList.add("displayNone");
+  overlayGameOver.classList.remove("dfjcic");
+  console.log("ok");
+});
+
 // sauvegarde
 
 // continuer avec les données stockés dans saveScore
-function continuer() {
-  scoreCompteur = localStorage.getItem("scoreCompteur");
-  errorNumber = localStorage.getItem("errorNumber");
-  unique = (localStorage.getItem("unique"));
-  arrayReponse.push(localStorage.getItem("arrayReponse"));
-  dejaTrouveP.innerHTML = localStorage.getItem("dejaTrouveP");
-  score.textContent = localStorage.getItem("scoreCompteur", scoreCompteur);
-  if (localStorage.getItem("errorNumber") === "1") {
-    error[0].style.color = "#0aeff7";
-  }
-  if (localStorage.getItem("errorNumber") === "2") {
-    error[1].style.color = "#0aeff7";
-  }
-}
+// function continuer() {
+//   scoreCompteur = localStorage.getItem("scoreCompteur");
+//   errorNumber = localStorage.getItem("errorNumber");
+//   unique = (localStorage.getItem("unique"));
+//   arrayReponse.push(localStorage.getItem("arrayReponse"));
+//   dejaTrouveP.innerHTML = localStorage.getItem("dejaTrouveP");
+//   score.textContent = localStorage.getItem("scoreCompteur", scoreCompteur);
+//   if (localStorage.getItem("errorNumber") === "1") {
+//     error[0].style.color = "#0aeff7";
+//   }
+//   if (localStorage.getItem("errorNumber") === "2") {
+//     error[1].style.color = "#0aeff7";
+//   }
+// }
 
-const continueBtn = document.querySelector(".continueBtn");
-if (localStorage.getItem("scoreCompteur") === 0) {
-  continueBtn.style.display = "none";
-} else {
-  continueBtn.style.display = "block";
-}
+// const continueBtn = document.querySelector(".continueBtn");
+// if (localStorage.getItem("scoreCompteur") === 0) {
+//   continueBtn.style.display = "none";
+// } else {
+//   continueBtn.style.display = "block";
+// }
 
-continueBtn.addEventListener("click", () => {
-  home.classList.remove("flex");
-  home.classList.add("displayNone");
-  body.classList.remove("bgAccueil");
-  jeu.classList.remove("displayNone");
-  sectionZoom.classList.remove("displayNone");
-  sectionZoom.classList.add("flex");
-  gameEngine();
-  continuer();
-});
+// continueBtn.addEventListener("click", () => {
+//   home.classList.remove("flex");
+//   home.classList.add("displayNone");
+//   body.classList.remove("bgAccueil");
+//   jeu.classList.remove("displayNone");
+//   sectionZoom.classList.remove("displayNone");
+//   sectionZoom.classList.add("flex");
+//   gameEngine();
+//   continuer();
+// });
 
 // bouton save exits
 // const saveExit = document.querySelector(".saveExit");
 // saveExit.addEventListener("click", () => {
 //   window.close();
 // });
-
